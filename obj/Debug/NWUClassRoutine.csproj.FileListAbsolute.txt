@@ -8,3 +8,4 @@ G:\test Project\testing\NWUClassRoutine\NWUClassRoutine\obj\Debug\NWUClassRoutin
 G:\test Project\testing\NWUClassRoutine\NWUClassRoutine\obj\Debug\NWUClassRoutine.pdb
 G:\test Project\testing\NWUClassRoutine\NWUClassRoutine\obj\Debug\NWUClassRoutine.csprojResolveAssemblyReference.cache
 G:\test Project\testing\NWUClassRoutine\NWUClassRoutine\obj\Debug\NWUClassRoutine.LoginForm.resources
+G:\test Project\testing\NWUClassRoutine\NWUClassRoutine\obj\Debug\NWUClassRoutine.AddCourseForm.resources

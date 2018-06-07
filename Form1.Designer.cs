@@ -36,11 +36,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.classRoutineData = new NWUClassRoutine.ClassRoutineData();
+            this.classRoutineDataSet = new NWUClassRoutine.ClassRoutineDataSet();
             this.loginInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.loginInfoTableAdapter = new NWUClassRoutine.ClassRoutineDataTableAdapters.LoginInfoTableAdapter();
+            this.loginInfoTableAdapter = new NWUClassRoutine.ClassRoutineDataSetTableAdapters.LoginInfoTableAdapter();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.classRoutineData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classRoutineDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginInfoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,15 +110,15 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Password:";
             // 
-            // classRoutineData
+            // classRoutineDataSet
             // 
-            this.classRoutineData.DataSetName = "ClassRoutineData";
-            this.classRoutineData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.classRoutineDataSet.DataSetName = "ClassRoutineDataSet";
+            this.classRoutineDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // loginInfoBindingSource
             // 
             this.loginInfoBindingSource.DataMember = "LoginInfo";
-            this.loginInfoBindingSource.DataSource = this.classRoutineData;
+            this.loginInfoBindingSource.DataSource = this.classRoutineDataSet;
             // 
             // loginInfoTableAdapter
             // 
@@ -137,7 +137,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.classRoutineData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classRoutineDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginInfoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -152,9 +152,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private ClassRoutineData classRoutineData;
+        private ClassRoutineDataSet classRoutineDataSet;
         private System.Windows.Forms.BindingSource loginInfoBindingSource;
-        private ClassRoutineDataTableAdapters.LoginInfoTableAdapter loginInfoTableAdapter;
+        private ClassRoutineDataSetTableAdapters.LoginInfoTableAdapter loginInfoTableAdapter;
     }
 }
 

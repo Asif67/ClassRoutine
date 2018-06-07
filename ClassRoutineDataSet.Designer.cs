@@ -20,9 +20,9 @@ namespace NWUClassRoutine {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("ClassRoutineData")]
+    [global::System.Xml.Serialization.XmlRootAttribute("ClassRoutineDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class ClassRoutineData : global::System.Data.DataSet {
+    public partial class ClassRoutineDataSet : global::System.Data.DataSet {
         
         private LoginInfoDataTable tableLoginInfo;
         
@@ -34,7 +34,7 @@ namespace NWUClassRoutine {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public ClassRoutineData() {
+        public ClassRoutineDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -45,7 +45,7 @@ namespace NWUClassRoutine {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected ClassRoutineData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected ClassRoutineDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -157,7 +157,7 @@ namespace NWUClassRoutine {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            ClassRoutineData cln = ((ClassRoutineData)(base.Clone()));
+            ClassRoutineDataSet cln = ((ClassRoutineDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -247,9 +247,9 @@ namespace NWUClassRoutine {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "ClassRoutineData";
+            this.DataSetName = "ClassRoutineDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/ClassRoutineData.xsd";
+            this.Namespace = "http://tempuri.org/ClassRoutineDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableLoginInfo = new LoginInfoDataTable();
@@ -289,7 +289,7 @@ namespace NWUClassRoutine {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            ClassRoutineData ds = new ClassRoutineData();
+            ClassRoutineDataSet ds = new ClassRoutineDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -546,7 +546,7 @@ namespace NWUClassRoutine {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ClassRoutineData ds = new ClassRoutineData();
+                ClassRoutineDataSet ds = new ClassRoutineDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -884,7 +884,7 @@ namespace NWUClassRoutine {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ClassRoutineData ds = new ClassRoutineData();
+                ClassRoutineDataSet ds = new ClassRoutineDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -963,6 +963,8 @@ namespace NWUClassRoutine {
             private global::System.Data.DataColumn columnPreferredTimeSlot3;
             
             private global::System.Data.DataColumn columnTeacherInitials;
+            
+            private global::System.Data.DataColumn columnTeacher_Status;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1055,6 +1057,14 @@ namespace NWUClassRoutine {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Teacher_StatusColumn {
+                get {
+                    return this.columnTeacher_Status;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1090,7 +1100,7 @@ namespace NWUClassRoutine {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RoutineInfoRow AddRoutineInfoRow(string TeacherName, string CourseCode, string CourseTitle, string PreferredTimeSlot1, string PreferredTimeSlot2, string PreferredTimeSlot3, string TeacherInitials) {
+            public RoutineInfoRow AddRoutineInfoRow(string TeacherName, string CourseCode, string CourseTitle, string PreferredTimeSlot1, string PreferredTimeSlot2, string PreferredTimeSlot3, string TeacherInitials, string Teacher_Status) {
                 RoutineInfoRow rowRoutineInfoRow = ((RoutineInfoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TeacherName,
@@ -1099,7 +1109,8 @@ namespace NWUClassRoutine {
                         PreferredTimeSlot1,
                         PreferredTimeSlot2,
                         PreferredTimeSlot3,
-                        TeacherInitials};
+                        TeacherInitials,
+                        Teacher_Status};
                 rowRoutineInfoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRoutineInfoRow);
                 return rowRoutineInfoRow;
@@ -1129,6 +1140,7 @@ namespace NWUClassRoutine {
                 this.columnPreferredTimeSlot2 = base.Columns["PreferredTimeSlot2"];
                 this.columnPreferredTimeSlot3 = base.Columns["PreferredTimeSlot3"];
                 this.columnTeacherInitials = base.Columns["TeacherInitials"];
+                this.columnTeacher_Status = base.Columns["Teacher Status"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1148,6 +1160,8 @@ namespace NWUClassRoutine {
                 base.Columns.Add(this.columnPreferredTimeSlot3);
                 this.columnTeacherInitials = new global::System.Data.DataColumn("TeacherInitials", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTeacherInitials);
+                this.columnTeacher_Status = new global::System.Data.DataColumn("Teacher Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTeacher_Status);
                 this.columnTeacherName.MaxLength = 255;
                 this.columnCourseCode.MaxLength = 10;
                 this.columnCourseTitle.MaxLength = 255;
@@ -1155,6 +1169,7 @@ namespace NWUClassRoutine {
                 this.columnPreferredTimeSlot2.MaxLength = 100;
                 this.columnPreferredTimeSlot3.MaxLength = 100;
                 this.columnTeacherInitials.MaxLength = 10;
+                this.columnTeacher_Status.MaxLength = 150;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1222,7 +1237,7 @@ namespace NWUClassRoutine {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ClassRoutineData ds = new ClassRoutineData();
+                ClassRoutineDataSet ds = new ClassRoutineDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1691,6 +1706,22 @@ namespace NWUClassRoutine {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Teacher_Status {
+                get {
+                    try {
+                        return ((string)(this[this.tableRoutineInfo.Teacher_StatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Teacher Status\' in table \'RoutineInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRoutineInfo.Teacher_StatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTeacherNameNull() {
                 return this.IsNull(this.tableRoutineInfo.TeacherNameColumn);
             }
@@ -1771,6 +1802,18 @@ namespace NWUClassRoutine {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTeacherInitialsNull() {
                 this[this.tableRoutineInfo.TeacherInitialsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTeacher_StatusNull() {
+                return this.IsNull(this.tableRoutineInfo.Teacher_StatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTeacher_StatusNull() {
+                this[this.tableRoutineInfo.Teacher_StatusColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1877,7 +1920,7 @@ namespace NWUClassRoutine {
         }
     }
 }
-namespace NWUClassRoutine.ClassRoutineDataTableAdapters {
+namespace NWUClassRoutine.ClassRoutineDataSetTableAdapters {
     
     
     /// <summary>
@@ -2034,7 +2077,7 @@ namespace NWUClassRoutine.ClassRoutineDataTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ClassRoutineData.LoginInfoDataTable dataTable) {
+        public virtual int Fill(ClassRoutineDataSet.LoginInfoDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2047,9 +2090,9 @@ namespace NWUClassRoutine.ClassRoutineDataTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ClassRoutineData.LoginInfoDataTable GetData() {
+        public virtual ClassRoutineDataSet.LoginInfoDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            ClassRoutineData.LoginInfoDataTable dataTable = new ClassRoutineData.LoginInfoDataTable();
+            ClassRoutineDataSet.LoginInfoDataTable dataTable = new ClassRoutineDataSet.LoginInfoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2057,14 +2100,14 @@ namespace NWUClassRoutine.ClassRoutineDataTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ClassRoutineData.LoginInfoDataTable dataTable) {
+        public virtual int Update(ClassRoutineDataSet.LoginInfoDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ClassRoutineData dataSet) {
+        public virtual int Update(ClassRoutineDataSet dataSet) {
             return this.Adapter.Update(dataSet, "LoginInfo");
         }
         
@@ -2283,7 +2326,7 @@ namespace NWUClassRoutine.ClassRoutineDataTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ClassRoutineData.RoutineDataTable dataTable) {
+        public virtual int Fill(ClassRoutineDataSet.RoutineDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2296,9 +2339,9 @@ namespace NWUClassRoutine.ClassRoutineDataTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ClassRoutineData.RoutineDataTable GetData() {
+        public virtual ClassRoutineDataSet.RoutineDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            ClassRoutineData.RoutineDataTable dataTable = new ClassRoutineData.RoutineDataTable();
+            ClassRoutineDataSet.RoutineDataTable dataTable = new ClassRoutineDataSet.RoutineDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2306,14 +2349,14 @@ namespace NWUClassRoutine.ClassRoutineDataTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ClassRoutineData.RoutineDataTable dataTable) {
+        public virtual int Update(ClassRoutineDataSet.RoutineDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ClassRoutineData dataSet) {
+        public virtual int Update(ClassRoutineDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Routine");
         }
         
@@ -2524,10 +2567,11 @@ namespace NWUClassRoutine.ClassRoutineDataTableAdapters {
             tableMapping.ColumnMappings.Add("PreferredTimeSlot2", "PreferredTimeSlot2");
             tableMapping.ColumnMappings.Add("PreferredTimeSlot3", "PreferredTimeSlot3");
             tableMapping.ColumnMappings.Add("TeacherInitials", "TeacherInitials");
+            tableMapping.ColumnMappings.Add("Teacher Status", "Teacher Status");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[RoutineInfo] ([TeacherName], [CourseCode], [CourseTitle], [PreferredTimeSlot1], [PreferredTimeSlot2], [PreferredTimeSlot3], [TeacherInitials]) VALUES (@TeacherName, @CourseCode, @CourseTitle, @PreferredTimeSlot1, @PreferredTimeSlot2, @PreferredTimeSlot3, @TeacherInitials)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[RoutineInfo] ([TeacherName], [CourseCode], [CourseTitle], [PreferredTimeSlot1], [PreferredTimeSlot2], [PreferredTimeSlot3], [TeacherInitials], [Teacher Status]) VALUES (@TeacherName, @CourseCode, @CourseTitle, @PreferredTimeSlot1, @PreferredTimeSlot2, @PreferredTimeSlot3, @TeacherInitials, @Teacher_Status)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TeacherName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CourseCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2536,6 +2580,7 @@ namespace NWUClassRoutine.ClassRoutineDataTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PreferredTimeSlot2", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PreferredTimeSlot2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PreferredTimeSlot3", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PreferredTimeSlot3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TeacherInitials", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherInitials", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Teacher_Status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Teacher Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2552,7 +2597,7 @@ namespace NWUClassRoutine.ClassRoutineDataTableAdapters {
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT TeacherName, CourseCode, CourseTitle, PreferredTimeSlot1, PreferredTimeSlo" +
-                "t2, PreferredTimeSlot3, TeacherInitials FROM dbo.RoutineInfo";
+                "t2, PreferredTimeSlot3, TeacherInitials, [Teacher Status] FROM dbo.RoutineInfo";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2560,7 +2605,7 @@ namespace NWUClassRoutine.ClassRoutineDataTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ClassRoutineData.RoutineInfoDataTable dataTable) {
+        public virtual int Fill(ClassRoutineDataSet.RoutineInfoDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2573,9 +2618,9 @@ namespace NWUClassRoutine.ClassRoutineDataTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ClassRoutineData.RoutineInfoDataTable GetData() {
+        public virtual ClassRoutineDataSet.RoutineInfoDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            ClassRoutineData.RoutineInfoDataTable dataTable = new ClassRoutineData.RoutineInfoDataTable();
+            ClassRoutineDataSet.RoutineInfoDataTable dataTable = new ClassRoutineDataSet.RoutineInfoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2583,14 +2628,14 @@ namespace NWUClassRoutine.ClassRoutineDataTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ClassRoutineData.RoutineInfoDataTable dataTable) {
+        public virtual int Update(ClassRoutineDataSet.RoutineInfoDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ClassRoutineData dataSet) {
+        public virtual int Update(ClassRoutineDataSet dataSet) {
             return this.Adapter.Update(dataSet, "RoutineInfo");
         }
         
@@ -2613,7 +2658,7 @@ namespace NWUClassRoutine.ClassRoutineDataTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string TeacherName, string CourseCode, string CourseTitle, string PreferredTimeSlot1, string PreferredTimeSlot2, string PreferredTimeSlot3, string TeacherInitials) {
+        public virtual int Insert(string TeacherName, string CourseCode, string CourseTitle, string PreferredTimeSlot1, string PreferredTimeSlot2, string PreferredTimeSlot3, string TeacherInitials, string Teacher_Status) {
             if ((TeacherName == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -2655,6 +2700,12 @@ namespace NWUClassRoutine.ClassRoutineDataTableAdapters {
             }
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = ((string)(TeacherInitials));
+            }
+            if ((Teacher_Status == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Teacher_Status));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2810,7 +2861,7 @@ namespace NWUClassRoutine.ClassRoutineDataTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(ClassRoutineData dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(ClassRoutineDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._loginInfoTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.LoginInfo.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -2847,7 +2898,7 @@ namespace NWUClassRoutine.ClassRoutineDataTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(ClassRoutineData dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(ClassRoutineDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._loginInfoTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.LoginInfo.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -2881,7 +2932,7 @@ namespace NWUClassRoutine.ClassRoutineDataTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(ClassRoutineData dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(ClassRoutineDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._routineInfoTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.RoutineInfo.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -2939,7 +2990,7 @@ namespace NWUClassRoutine.ClassRoutineDataTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(ClassRoutineData dataSet) {
+        public virtual int UpdateAll(ClassRoutineDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

@@ -22,5 +22,11 @@ namespace NWUClassRoutine
             var form1 = new Form1();
             form1.Show();
         }
+
+        private void Btn_Login_Click(object sender, EventArgs e)
+        {
+            var form2 = new AddCourseForm();
+            form2.Show();
+        }
     }
 }

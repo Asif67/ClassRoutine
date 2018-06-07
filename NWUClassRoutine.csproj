@@ -44,10 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClassRoutineData.Designer.cs">
+    <Compile Include="AddCourseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCourseForm.Designer.cs">
+      <DependentUpon>AddCourseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassRoutineDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ClassRoutineData.xsd</DependentUpon>
+      <DependentUpon>ClassRoutineDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -63,6 +69,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddCourseForm.resx">
+      <DependentUpon>AddCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -78,16 +87,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="ClassRoutineData.xsc">
-      <DependentUpon>ClassRoutineData.xsd</DependentUpon>
+    <None Include="ClassRoutineDataSet.xsc">
+      <DependentUpon>ClassRoutineDataSet.xsd</DependentUpon>
     </None>
-    <None Include="ClassRoutineData.xsd">
+    <None Include="ClassRoutineDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ClassRoutineData.Designer.cs</LastGenOutput>
+      <LastGenOutput>ClassRoutineDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="ClassRoutineData.xss">
-      <DependentUpon>ClassRoutineData.xsd</DependentUpon>
+    <None Include="ClassRoutineDataSet.xss">
+      <DependentUpon>ClassRoutineDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -31,14 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.loginInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nWUClassRoutineDataSet = new NWUClassRoutine.NWUClassRoutineDataSet();
-            this.loginInfoTableAdapter = new NWUClassRoutine.NWUClassRoutineDataSetTableAdapters.LoginInfoTableAdapter();
+
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.loginInfoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nWUClassRoutineDataSet)).BeginInit();
+
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,20 +47,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(104, 20);
             this.textBox1.TabIndex = 0;
-            // 
-            // loginInfoBindingSource
-            // 
-            this.loginInfoBindingSource.DataMember = "LoginInfo";
-            this.loginInfoBindingSource.DataSource = this.nWUClassRoutineDataSet;
-            // 
-            // nWUClassRoutineDataSet
-            // 
-            this.nWUClassRoutineDataSet.DataSetName = "NWUClassRoutineDataSet";
-            this.nWUClassRoutineDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // loginInfoTableAdapter
-            // 
-            this.loginInfoTableAdapter.ClearBeforeFill = true;
             // 
             // textBox2
             // 
@@ -113,8 +97,6 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.loginInfoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nWUClassRoutineDataSet)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

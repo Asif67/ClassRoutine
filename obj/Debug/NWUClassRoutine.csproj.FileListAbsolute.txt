@@ -1,0 +1,9 @@
+G:\test Project\testing\NWUClassRoutine\NWUClassRoutine\bin\Debug\NWUClassRoutine.exe.config
+G:\test Project\testing\NWUClassRoutine\NWUClassRoutine\bin\Debug\NWUClassRoutine.exe
+G:\test Project\testing\NWUClassRoutine\NWUClassRoutine\bin\Debug\NWUClassRoutine.pdb
+G:\test Project\testing\NWUClassRoutine\NWUClassRoutine\obj\Debug\NWUClassRoutine.Form1.resources
+G:\test Project\testing\NWUClassRoutine\NWUClassRoutine\obj\Debug\NWUClassRoutine.Properties.Resources.resources
+G:\test Project\testing\NWUClassRoutine\NWUClassRoutine\obj\Debug\NWUClassRoutine.csproj.GenerateResource.Cache
+G:\test Project\testing\NWUClassRoutine\NWUClassRoutine\obj\Debug\NWUClassRoutine.exe
+G:\test Project\testing\NWUClassRoutine\NWUClassRoutine\obj\Debug\NWUClassRoutine.pdb
+G:\test Project\testing\NWUClassRoutine\NWUClassRoutine\obj\Debug\NWUClassRoutine.csprojResolveAssemblyReference.cache

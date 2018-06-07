@@ -44,16 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassRoutineData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClassRoutineData.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NWUClassRoutineDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NWUClassRoutineDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,16 +69,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="NWUClassRoutineDataSet.xsc">
-      <DependentUpon>NWUClassRoutineDataSet.xsd</DependentUpon>
+    <None Include="ClassRoutineData.xsc">
+      <DependentUpon>ClassRoutineData.xsd</DependentUpon>
     </None>
-    <None Include="NWUClassRoutineDataSet.xsd">
+    <None Include="ClassRoutineData.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>NWUClassRoutineDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>ClassRoutineData.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="NWUClassRoutineDataSet.xss">
-      <DependentUpon>NWUClassRoutineDataSet.xsd</DependentUpon>
+    <None Include="ClassRoutineData.xss">
+      <DependentUpon>ClassRoutineData.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

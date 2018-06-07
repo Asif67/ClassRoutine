@@ -21,7 +21,7 @@ namespace NWUClassRoutine
         {
             // TODO: This line of code loads data into the 'classRoutineData.LoginInfo' table. You can move, or remove it, as needed.
             this.loginInfoTableAdapter.Fill(this.classRoutineData.LoginInfo);
-            
+            loginInfoBindingSource.DataSource = this.classRoutineData.LoginInfo;
             panel1.Enabled = false;
 
         }
@@ -36,12 +36,14 @@ namespace NWUClassRoutine
             try
             {
                 panel1.Enabled = true;
+                this.classRoutineData.LoginInfo.AddLoginInfoRow(this.classRoutineData.LoginInfo.NewLoginInfoRow());
+                loginInfoBindingSource.MoveLast();
                 
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Messsage", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
+                loginInfoBindingSource.ResetBindings(false);
             }
         }
 
@@ -49,14 +51,15 @@ namespace NWUClassRoutine
         {
             try
             {
-                
+                loginInfoBindingSource.EndEdit();
+                loginInfoTableAdapter.Update(this.classRoutineData.LoginInfo);
                 panel1.Enabled = false;
                 MessageBox.Show("Record Added to Database");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Messsage", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
+                loginInfoBindingSource.ResetBindings(false);
             }
         }
     }

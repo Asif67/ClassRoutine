@@ -50,10 +50,10 @@
     <Compile Include="AddCourseForm.Designer.cs">
       <DependentUpon>AddCourseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClassRoutineDataSet.Designer.cs">
+    <Compile Include="Database.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ClassRoutineDataSet.xsd</DependentUpon>
+      <DependentUpon>Database.xsd</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -87,16 +87,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="ClassRoutineDataSet.xsc">
-      <DependentUpon>ClassRoutineDataSet.xsd</DependentUpon>
+    <None Include="Database.xsc">
+      <DependentUpon>Database.xsd</DependentUpon>
     </None>
-    <None Include="ClassRoutineDataSet.xsd">
+    <None Include="Database.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ClassRoutineDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>Database.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="ClassRoutineDataSet.xss">
-      <DependentUpon>ClassRoutineDataSet.xsd</DependentUpon>
+    <None Include="Database.xss">
+      <DependentUpon>Database.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

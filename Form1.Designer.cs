@@ -34,13 +34,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.classRoutineDataSet = new NWUClassRoutine.ClassRoutineDataSet();
+            this.label1 = new System.Windows.Forms.Label();
+            this.database = new NWUClassRoutine.Database();
             this.loginInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.loginInfoTableAdapter = new NWUClassRoutine.ClassRoutineDataSetTableAdapters.LoginInfoTableAdapter();
+            this.loginInfoTableAdapter = new NWUClassRoutine.DatabaseTableAdapters.LoginInfoTableAdapter();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.classRoutineDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginInfoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +54,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.loginInfoBindingSource, "Passwords", true));
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.loginInfoBindingSource, "Password", true));
             this.textBox2.Location = new System.Drawing.Point(116, 60);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(104, 20);
@@ -92,15 +92,6 @@
             this.panel1.Size = new System.Drawing.Size(267, 140);
             this.panel1.TabIndex = 4;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "User Name:";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -110,15 +101,24 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Password:";
             // 
-            // classRoutineDataSet
+            // label1
             // 
-            this.classRoutineDataSet.DataSetName = "ClassRoutineDataSet";
-            this.classRoutineDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "User Name:";
+            // 
+            // database
+            // 
+            this.database.DataSetName = "Database";
+            this.database.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // loginInfoBindingSource
             // 
             this.loginInfoBindingSource.DataMember = "LoginInfo";
-            this.loginInfoBindingSource.DataSource = this.classRoutineDataSet;
+            this.loginInfoBindingSource.DataSource = this.database;
             // 
             // loginInfoTableAdapter
             // 
@@ -137,7 +137,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.classRoutineDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginInfoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -152,9 +152,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private ClassRoutineDataSet classRoutineDataSet;
+        private Database database;
         private System.Windows.Forms.BindingSource loginInfoBindingSource;
-        private ClassRoutineDataSetTableAdapters.LoginInfoTableAdapter loginInfoTableAdapter;
+        private DatabaseTableAdapters.LoginInfoTableAdapter loginInfoTableAdapter;
     }
 }
 

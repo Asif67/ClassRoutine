@@ -16,13 +16,15 @@ namespace NWUClassRoutine
         {
             InitializeComponent();
         }
-
+       
         private void AddCourseForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'classRoutineDataSet.RoutineInfo' table. You can move, or remove it, as needed.
-            this.routineInfoTableAdapter.Fill(this.classRoutineDataSet.RoutineInfo);
-            routineInfoBindingSource.DataSource = this.classRoutineDataSet.RoutineInfo;
+            // TODO: This line of code loads data into the 'database.RoutineInfo' table. You can move, or remove it, as needed.
+            this.routineInfoTableAdapter.Fill(this.database.RoutineInfo);
+            routineInfoBindingSource.DataSource = this.database.RoutineInfo;
             panel1.Enabled = false;
+            panel2.Enabled = false;
+            panel2.Visible = false;
 
         }
 
@@ -31,7 +33,7 @@ namespace NWUClassRoutine
             try
             {
                 panel1.Enabled = true;
-                this.classRoutineDataSet.RoutineInfo.AddRoutineInfoRow(this.classRoutineDataSet.RoutineInfo.NewRoutineInfoRow());
+                this.database.RoutineInfo.AddRoutineInfoRow(this.database.RoutineInfo.NewRoutineInfoRow());
                 routineInfoBindingSource.MoveLast();
             }
             catch (Exception ex)
@@ -46,8 +48,10 @@ namespace NWUClassRoutine
             try
             {
                 routineInfoBindingSource.EndEdit();
-                routineInfoTableAdapter.Update(this.classRoutineDataSet.RoutineInfo);
+                routineInfoTableAdapter.Update(this.database.RoutineInfo);
                 panel1.Enabled = false;
+                panel2.Enabled = false;
+                panel2.Visible = false;
                 MessageBox.Show("Record Added to Database");
             }
             catch (Exception ex)
@@ -55,6 +59,13 @@ namespace NWUClassRoutine
                 MessageBox.Show(ex.Message, "Messsage", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 routineInfoBindingSource.ResetBindings(false);
             }
+        }
+
+        private void Btn_Edit_Click(object sender, EventArgs e)
+        {
+            panel1.Enabled = true;
+            panel2.Enabled = true;
+            panel2.Visible = true;
         }
     }
 }

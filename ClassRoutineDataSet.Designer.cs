@@ -20,9 +20,9 @@ namespace NWUClassRoutine {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("Database")]
+    [global::System.Xml.Serialization.XmlRootAttribute("ClassRoutineDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class Database : global::System.Data.DataSet {
+    public partial class ClassRoutineDataSet : global::System.Data.DataSet {
         
         private FinalRoutineDataTable tableFinalRoutine;
         
@@ -34,7 +34,7 @@ namespace NWUClassRoutine {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public Database() {
+        public ClassRoutineDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -45,7 +45,7 @@ namespace NWUClassRoutine {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected Database(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected ClassRoutineDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -157,7 +157,7 @@ namespace NWUClassRoutine {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            Database cln = ((Database)(base.Clone()));
+            ClassRoutineDataSet cln = ((ClassRoutineDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -247,9 +247,9 @@ namespace NWUClassRoutine {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "Database";
+            this.DataSetName = "ClassRoutineDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/Database.xsd";
+            this.Namespace = "http://tempuri.org/ClassRoutineDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableFinalRoutine = new FinalRoutineDataTable();
@@ -289,7 +289,7 @@ namespace NWUClassRoutine {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            Database ds = new Database();
+            ClassRoutineDataSet ds = new ClassRoutineDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -351,19 +351,21 @@ namespace NWUClassRoutine {
             
             private global::System.Data.DataColumn columnRowNumber;
             
-            private global::System.Data.DataColumn columnTermNSectionNDepartment;
+            private global::System.Data.DataColumn _columnTerm_Section_Department;
             
-            private global::System.Data.DataColumn columnTimeSlot1;
+            private global::System.Data.DataColumn _column8_00_9_15;
             
-            private global::System.Data.DataColumn columnTimeSlot2;
+            private global::System.Data.DataColumn _column9_15_10_30;
             
-            private global::System.Data.DataColumn columnTimeSlot3;
+            private global::System.Data.DataColumn _column10_45_12_00;
             
-            private global::System.Data.DataColumn columnTimeSlot4;
+            private global::System.Data.DataColumn _column12_00_1_15;
             
-            private global::System.Data.DataColumn columnTimeSlot5;
+            private global::System.Data.DataColumn _column2_00_3_15;
             
-            private global::System.Data.DataColumn columnTimeSlot6;
+            private global::System.Data.DataColumn _column3_15_4_30;
+            
+            private global::System.Data.DataColumn columnRoomNo;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -408,57 +410,65 @@ namespace NWUClassRoutine {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TermNSectionNDepartmentColumn {
+            public global::System.Data.DataColumn _Term_Section_DepartmentColumn {
                 get {
-                    return this.columnTermNSectionNDepartment;
+                    return this._columnTerm_Section_Department;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TimeSlot1Column {
+            public global::System.Data.DataColumn _8_00_9_15Column {
                 get {
-                    return this.columnTimeSlot1;
+                    return this._column8_00_9_15;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TimeSlot2Column {
+            public global::System.Data.DataColumn _9_15_10_30Column {
                 get {
-                    return this.columnTimeSlot2;
+                    return this._column9_15_10_30;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TimeSlot3Column {
+            public global::System.Data.DataColumn _10_45_12_00Column {
                 get {
-                    return this.columnTimeSlot3;
+                    return this._column10_45_12_00;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TimeSlot4Column {
+            public global::System.Data.DataColumn _12_00_1_15Column {
                 get {
-                    return this.columnTimeSlot4;
+                    return this._column12_00_1_15;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TimeSlot5Column {
+            public global::System.Data.DataColumn _2_00_3_15Column {
                 get {
-                    return this.columnTimeSlot5;
+                    return this._column2_00_3_15;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TimeSlot6Column {
+            public global::System.Data.DataColumn _3_15_4_30Column {
                 get {
-                    return this.columnTimeSlot6;
+                    return this._column3_15_4_30;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RoomNoColumn {
+                get {
+                    return this.columnRoomNo;
                 }
             }
             
@@ -499,27 +509,21 @@ namespace NWUClassRoutine {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public FinalRoutineRow AddFinalRoutineRow(string TermNSectionNDepartment, string TimeSlot1, string TimeSlot2, string TimeSlot3, string TimeSlot4, string TimeSlot5, string TimeSlot6) {
+            public FinalRoutineRow AddFinalRoutineRow(int RowNumber, string _Term_Section_Department, string _8_00_9_15, string _9_15_10_30, string _10_45_12_00, string _12_00_1_15, string _2_00_3_15, string _3_15_4_30, int RoomNo) {
                 FinalRoutineRow rowFinalRoutineRow = ((FinalRoutineRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
-                        TermNSectionNDepartment,
-                        TimeSlot1,
-                        TimeSlot2,
-                        TimeSlot3,
-                        TimeSlot4,
-                        TimeSlot5,
-                        TimeSlot6};
+                        RowNumber,
+                        _Term_Section_Department,
+                        _8_00_9_15,
+                        _9_15_10_30,
+                        _10_45_12_00,
+                        _12_00_1_15,
+                        _2_00_3_15,
+                        _3_15_4_30,
+                        RoomNo};
                 rowFinalRoutineRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFinalRoutineRow);
                 return rowFinalRoutineRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public FinalRoutineRow FindByRowNumber(int RowNumber) {
-                return ((FinalRoutineRow)(this.Rows.Find(new object[] {
-                            RowNumber})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -540,13 +544,14 @@ namespace NWUClassRoutine {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnRowNumber = base.Columns["RowNumber"];
-                this.columnTermNSectionNDepartment = base.Columns["TermNSectionNDepartment"];
-                this.columnTimeSlot1 = base.Columns["TimeSlot1"];
-                this.columnTimeSlot2 = base.Columns["TimeSlot2"];
-                this.columnTimeSlot3 = base.Columns["TimeSlot3"];
-                this.columnTimeSlot4 = base.Columns["TimeSlot4"];
-                this.columnTimeSlot5 = base.Columns["TimeSlot5"];
-                this.columnTimeSlot6 = base.Columns["TimeSlot6"];
+                this._columnTerm_Section_Department = base.Columns["Term&Section&Department"];
+                this._column8_00_9_15 = base.Columns["8:00-9:15"];
+                this._column9_15_10_30 = base.Columns["9:15-10:30"];
+                this._column10_45_12_00 = base.Columns["10:45-12:00"];
+                this._column12_00_1_15 = base.Columns["12:00-1:15"];
+                this._column2_00_3_15 = base.Columns["2:00-3:15"];
+                this._column3_15_4_30 = base.Columns["3:15-4:30"];
+                this.columnRoomNo = base.Columns["RoomNo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -554,35 +559,43 @@ namespace NWUClassRoutine {
             private void InitClass() {
                 this.columnRowNumber = new global::System.Data.DataColumn("RowNumber", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRowNumber);
-                this.columnTermNSectionNDepartment = new global::System.Data.DataColumn("TermNSectionNDepartment", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTermNSectionNDepartment);
-                this.columnTimeSlot1 = new global::System.Data.DataColumn("TimeSlot1", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTimeSlot1);
-                this.columnTimeSlot2 = new global::System.Data.DataColumn("TimeSlot2", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTimeSlot2);
-                this.columnTimeSlot3 = new global::System.Data.DataColumn("TimeSlot3", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTimeSlot3);
-                this.columnTimeSlot4 = new global::System.Data.DataColumn("TimeSlot4", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTimeSlot4);
-                this.columnTimeSlot5 = new global::System.Data.DataColumn("TimeSlot5", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTimeSlot5);
-                this.columnTimeSlot6 = new global::System.Data.DataColumn("TimeSlot6", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTimeSlot6);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnRowNumber}, true));
-                this.columnRowNumber.AutoIncrement = true;
-                this.columnRowNumber.AutoIncrementSeed = -1;
-                this.columnRowNumber.AutoIncrementStep = -1;
-                this.columnRowNumber.AllowDBNull = false;
-                this.columnRowNumber.ReadOnly = true;
-                this.columnRowNumber.Unique = true;
-                this.columnTermNSectionNDepartment.MaxLength = 2147483647;
-                this.columnTimeSlot1.MaxLength = 50;
-                this.columnTimeSlot2.MaxLength = 50;
-                this.columnTimeSlot3.MaxLength = 50;
-                this.columnTimeSlot4.MaxLength = 50;
-                this.columnTimeSlot5.MaxLength = 50;
-                this.columnTimeSlot6.MaxLength = 50;
+                this._columnTerm_Section_Department = new global::System.Data.DataColumn("Term&Section&Department", typeof(string), null, global::System.Data.MappingType.Element);
+                this._columnTerm_Section_Department.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnTerm_Section_Department");
+                this._columnTerm_Section_Department.ExtendedProperties.Add("Generator_UserColumnName", "Term&Section&Department");
+                base.Columns.Add(this._columnTerm_Section_Department);
+                this._column8_00_9_15 = new global::System.Data.DataColumn("8:00-9:15", typeof(string), null, global::System.Data.MappingType.Element);
+                this._column8_00_9_15.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column8_00_9_15");
+                this._column8_00_9_15.ExtendedProperties.Add("Generator_UserColumnName", "8:00-9:15");
+                base.Columns.Add(this._column8_00_9_15);
+                this._column9_15_10_30 = new global::System.Data.DataColumn("9:15-10:30", typeof(string), null, global::System.Data.MappingType.Element);
+                this._column9_15_10_30.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column9_15_10_30");
+                this._column9_15_10_30.ExtendedProperties.Add("Generator_UserColumnName", "9:15-10:30");
+                base.Columns.Add(this._column9_15_10_30);
+                this._column10_45_12_00 = new global::System.Data.DataColumn("10:45-12:00", typeof(string), null, global::System.Data.MappingType.Element);
+                this._column10_45_12_00.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column10_45_12_00");
+                this._column10_45_12_00.ExtendedProperties.Add("Generator_UserColumnName", "10:45-12:00");
+                base.Columns.Add(this._column10_45_12_00);
+                this._column12_00_1_15 = new global::System.Data.DataColumn("12:00-1:15", typeof(string), null, global::System.Data.MappingType.Element);
+                this._column12_00_1_15.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column12_00_1_15");
+                this._column12_00_1_15.ExtendedProperties.Add("Generator_UserColumnName", "12:00-1:15");
+                base.Columns.Add(this._column12_00_1_15);
+                this._column2_00_3_15 = new global::System.Data.DataColumn("2:00-3:15", typeof(string), null, global::System.Data.MappingType.Element);
+                this._column2_00_3_15.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column2_00_3_15");
+                this._column2_00_3_15.ExtendedProperties.Add("Generator_UserColumnName", "2:00-3:15");
+                base.Columns.Add(this._column2_00_3_15);
+                this._column3_15_4_30 = new global::System.Data.DataColumn("3:15-4:30", typeof(string), null, global::System.Data.MappingType.Element);
+                this._column3_15_4_30.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column3_15_4_30");
+                this._column3_15_4_30.ExtendedProperties.Add("Generator_UserColumnName", "3:15-4:30");
+                base.Columns.Add(this._column3_15_4_30);
+                this.columnRoomNo = new global::System.Data.DataColumn("RoomNo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRoomNo);
+                this._columnTerm_Section_Department.MaxLength = 2147483647;
+                this._column8_00_9_15.MaxLength = 2147483647;
+                this._column9_15_10_30.MaxLength = 2147483647;
+                this._column10_45_12_00.MaxLength = 2147483647;
+                this._column12_00_1_15.MaxLength = 2147483647;
+                this._column2_00_3_15.MaxLength = 2147483647;
+                this._column3_15_4_30.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -650,7 +663,7 @@ namespace NWUClassRoutine {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Database ds = new Database();
+                ClassRoutineDataSet ds = new ClassRoutineDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -942,7 +955,7 @@ namespace NWUClassRoutine {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Database ds = new Database();
+                ClassRoutineDataSet ds = new ClassRoutineDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1338,7 +1351,7 @@ namespace NWUClassRoutine {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Database ds = new Database();
+                ClassRoutineDataSet ds = new ClassRoutineDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1415,7 +1428,12 @@ namespace NWUClassRoutine {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int RowNumber {
                 get {
-                    return ((int)(this[this.tableFinalRoutine.RowNumberColumn]));
+                    try {
+                        return ((int)(this[this.tableFinalRoutine.RowNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RowNumber\' in table \'FinalRoutine\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableFinalRoutine.RowNumberColumn] = value;
@@ -1424,199 +1442,239 @@ namespace NWUClassRoutine {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string TermNSectionNDepartment {
+            public string _Term_Section_Department {
                 get {
                     try {
-                        return ((string)(this[this.tableFinalRoutine.TermNSectionNDepartmentColumn]));
+                        return ((string)(this[this.tableFinalRoutine._Term_Section_DepartmentColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TermNSectionNDepartment\' in table \'FinalRoutine\' is DBNull." +
+                        throw new global::System.Data.StrongTypingException("The value for column \'Term&Section&Department\' in table \'FinalRoutine\' is DBNull." +
                                 "", e);
                     }
                 }
                 set {
-                    this[this.tableFinalRoutine.TermNSectionNDepartmentColumn] = value;
+                    this[this.tableFinalRoutine._Term_Section_DepartmentColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string TimeSlot1 {
+            public string _8_00_9_15 {
                 get {
                     try {
-                        return ((string)(this[this.tableFinalRoutine.TimeSlot1Column]));
+                        return ((string)(this[this.tableFinalRoutine._8_00_9_15Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TimeSlot1\' in table \'FinalRoutine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'8:00-9:15\' in table \'FinalRoutine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableFinalRoutine.TimeSlot1Column] = value;
+                    this[this.tableFinalRoutine._8_00_9_15Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string TimeSlot2 {
+            public string _9_15_10_30 {
                 get {
                     try {
-                        return ((string)(this[this.tableFinalRoutine.TimeSlot2Column]));
+                        return ((string)(this[this.tableFinalRoutine._9_15_10_30Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TimeSlot2\' in table \'FinalRoutine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'9:15-10:30\' in table \'FinalRoutine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableFinalRoutine.TimeSlot2Column] = value;
+                    this[this.tableFinalRoutine._9_15_10_30Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string TimeSlot3 {
+            public string _10_45_12_00 {
                 get {
                     try {
-                        return ((string)(this[this.tableFinalRoutine.TimeSlot3Column]));
+                        return ((string)(this[this.tableFinalRoutine._10_45_12_00Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TimeSlot3\' in table \'FinalRoutine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'10:45-12:00\' in table \'FinalRoutine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableFinalRoutine.TimeSlot3Column] = value;
+                    this[this.tableFinalRoutine._10_45_12_00Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string TimeSlot4 {
+            public string _12_00_1_15 {
                 get {
                     try {
-                        return ((string)(this[this.tableFinalRoutine.TimeSlot4Column]));
+                        return ((string)(this[this.tableFinalRoutine._12_00_1_15Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TimeSlot4\' in table \'FinalRoutine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'12:00-1:15\' in table \'FinalRoutine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableFinalRoutine.TimeSlot4Column] = value;
+                    this[this.tableFinalRoutine._12_00_1_15Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string TimeSlot5 {
+            public string _2_00_3_15 {
                 get {
                     try {
-                        return ((string)(this[this.tableFinalRoutine.TimeSlot5Column]));
+                        return ((string)(this[this.tableFinalRoutine._2_00_3_15Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TimeSlot5\' in table \'FinalRoutine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'2:00-3:15\' in table \'FinalRoutine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableFinalRoutine.TimeSlot5Column] = value;
+                    this[this.tableFinalRoutine._2_00_3_15Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string TimeSlot6 {
+            public string _3_15_4_30 {
                 get {
                     try {
-                        return ((string)(this[this.tableFinalRoutine.TimeSlot6Column]));
+                        return ((string)(this[this.tableFinalRoutine._3_15_4_30Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TimeSlot6\' in table \'FinalRoutine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'3:15-4:30\' in table \'FinalRoutine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableFinalRoutine.TimeSlot6Column] = value;
+                    this[this.tableFinalRoutine._3_15_4_30Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTermNSectionNDepartmentNull() {
-                return this.IsNull(this.tableFinalRoutine.TermNSectionNDepartmentColumn);
+            public int RoomNo {
+                get {
+                    try {
+                        return ((int)(this[this.tableFinalRoutine.RoomNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RoomNo\' in table \'FinalRoutine\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFinalRoutine.RoomNoColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTermNSectionNDepartmentNull() {
-                this[this.tableFinalRoutine.TermNSectionNDepartmentColumn] = global::System.Convert.DBNull;
+            public bool IsRowNumberNull() {
+                return this.IsNull(this.tableFinalRoutine.RowNumberColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTimeSlot1Null() {
-                return this.IsNull(this.tableFinalRoutine.TimeSlot1Column);
+            public void SetRowNumberNull() {
+                this[this.tableFinalRoutine.RowNumberColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTimeSlot1Null() {
-                this[this.tableFinalRoutine.TimeSlot1Column] = global::System.Convert.DBNull;
+            public bool Is_Term_Section_DepartmentNull() {
+                return this.IsNull(this.tableFinalRoutine._Term_Section_DepartmentColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTimeSlot2Null() {
-                return this.IsNull(this.tableFinalRoutine.TimeSlot2Column);
+            public void Set_Term_Section_DepartmentNull() {
+                this[this.tableFinalRoutine._Term_Section_DepartmentColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTimeSlot2Null() {
-                this[this.tableFinalRoutine.TimeSlot2Column] = global::System.Convert.DBNull;
+            public bool Is_8_00_9_15Null() {
+                return this.IsNull(this.tableFinalRoutine._8_00_9_15Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTimeSlot3Null() {
-                return this.IsNull(this.tableFinalRoutine.TimeSlot3Column);
+            public void Set_8_00_9_15Null() {
+                this[this.tableFinalRoutine._8_00_9_15Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTimeSlot3Null() {
-                this[this.tableFinalRoutine.TimeSlot3Column] = global::System.Convert.DBNull;
+            public bool Is_9_15_10_30Null() {
+                return this.IsNull(this.tableFinalRoutine._9_15_10_30Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTimeSlot4Null() {
-                return this.IsNull(this.tableFinalRoutine.TimeSlot4Column);
+            public void Set_9_15_10_30Null() {
+                this[this.tableFinalRoutine._9_15_10_30Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTimeSlot4Null() {
-                this[this.tableFinalRoutine.TimeSlot4Column] = global::System.Convert.DBNull;
+            public bool Is_10_45_12_00Null() {
+                return this.IsNull(this.tableFinalRoutine._10_45_12_00Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTimeSlot5Null() {
-                return this.IsNull(this.tableFinalRoutine.TimeSlot5Column);
+            public void Set_10_45_12_00Null() {
+                this[this.tableFinalRoutine._10_45_12_00Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTimeSlot5Null() {
-                this[this.tableFinalRoutine.TimeSlot5Column] = global::System.Convert.DBNull;
+            public bool Is_12_00_1_15Null() {
+                return this.IsNull(this.tableFinalRoutine._12_00_1_15Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTimeSlot6Null() {
-                return this.IsNull(this.tableFinalRoutine.TimeSlot6Column);
+            public void Set_12_00_1_15Null() {
+                this[this.tableFinalRoutine._12_00_1_15Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTimeSlot6Null() {
-                this[this.tableFinalRoutine.TimeSlot6Column] = global::System.Convert.DBNull;
+            public bool Is_2_00_3_15Null() {
+                return this.IsNull(this.tableFinalRoutine._2_00_3_15Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Set_2_00_3_15Null() {
+                this[this.tableFinalRoutine._2_00_3_15Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Is_3_15_4_30Null() {
+                return this.IsNull(this.tableFinalRoutine._3_15_4_30Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Set_3_15_4_30Null() {
+                this[this.tableFinalRoutine._3_15_4_30Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRoomNoNull() {
+                return this.IsNull(this.tableFinalRoutine.RoomNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRoomNoNull() {
+                this[this.tableFinalRoutine.RoomNoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2083,7 +2141,7 @@ namespace NWUClassRoutine {
         }
     }
 }
-namespace NWUClassRoutine.DatabaseTableAdapters {
+namespace NWUClassRoutine.ClassRoutineDataSetTableAdapters {
     
     
     /// <summary>
@@ -2208,69 +2266,30 @@ namespace NWUClassRoutine.DatabaseTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "FinalRoutine";
             tableMapping.ColumnMappings.Add("RowNumber", "RowNumber");
-            tableMapping.ColumnMappings.Add("TermNSectionNDepartment", "TermNSectionNDepartment");
-            tableMapping.ColumnMappings.Add("TimeSlot1", "TimeSlot1");
-            tableMapping.ColumnMappings.Add("TimeSlot2", "TimeSlot2");
-            tableMapping.ColumnMappings.Add("TimeSlot3", "TimeSlot3");
-            tableMapping.ColumnMappings.Add("TimeSlot4", "TimeSlot4");
-            tableMapping.ColumnMappings.Add("TimeSlot5", "TimeSlot5");
-            tableMapping.ColumnMappings.Add("TimeSlot6", "TimeSlot6");
+            tableMapping.ColumnMappings.Add("Term&Section&Department", "Term&Section&Department");
+            tableMapping.ColumnMappings.Add("8:00-9:15", "8:00-9:15");
+            tableMapping.ColumnMappings.Add("9:15-10:30", "9:15-10:30");
+            tableMapping.ColumnMappings.Add("10:45-12:00", "10:45-12:00");
+            tableMapping.ColumnMappings.Add("12:00-1:15", "12:00-1:15");
+            tableMapping.ColumnMappings.Add("2:00-3:15", "2:00-3:15");
+            tableMapping.ColumnMappings.Add("3:15-4:30", "3:15-4:30");
+            tableMapping.ColumnMappings.Add("RoomNo", "RoomNo");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[FinalRoutine] WHERE (([RowNumber] = @Original_RowNumber) AND ((@IsNull_TimeSlot1 = 1 AND [TimeSlot1] IS NULL) OR ([TimeSlot1] = @Original_TimeSlot1)) AND ((@IsNull_TimeSlot2 = 1 AND [TimeSlot2] IS NULL) OR ([TimeSlot2] = @Original_TimeSlot2)) AND ((@IsNull_TimeSlot3 = 1 AND [TimeSlot3] IS NULL) OR ([TimeSlot3] = @Original_TimeSlot3)) AND ((@IsNull_TimeSlot4 = 1 AND [TimeSlot4] IS NULL) OR ([TimeSlot4] = @Original_TimeSlot4)) AND ((@IsNull_TimeSlot5 = 1 AND [TimeSlot5] IS NULL) OR ([TimeSlot5] = @Original_TimeSlot5)) AND ((@IsNull_TimeSlot6 = 1 AND [TimeSlot6] IS NULL) OR ([TimeSlot6] = @Original_TimeSlot6)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RowNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RowNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TimeSlot1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TimeSlot1", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TimeSlot2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TimeSlot2", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TimeSlot3", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot3", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TimeSlot3", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot3", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TimeSlot4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot4", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TimeSlot4", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot4", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TimeSlot5", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot5", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TimeSlot5", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot5", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TimeSlot6", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot6", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TimeSlot6", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot6", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[FinalRoutine] ([TermNSectionNDepartment], [TimeSlot1], [TimeSlot2], [TimeSlot3], [TimeSlot4], [TimeSlot5], [TimeSlot6]) VALUES (@TermNSectionNDepartment, @TimeSlot1, @TimeSlot2, @TimeSlot3, @TimeSlot4, @TimeSlot5, @TimeSlot6);
-SELECT RowNumber, TermNSectionNDepartment, TimeSlot1, TimeSlot2, TimeSlot3, TimeSlot4, TimeSlot5, TimeSlot6 FROM FinalRoutine WHERE (RowNumber = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[FinalRoutine] ([RowNumber], [Term&Section&Department], [8:00-9" +
+                ":15], [9:15-10:30], [10:45-12:00], [12:00-1:15], [2:00-3:15], [3:15-4:30], [Room" +
+                "No]) VALUES (@RowNumber, @p1, @p4, @p7, @p10, @p13, @p16, @p19, @RoomNo)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TermNSectionNDepartment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TermNSectionNDepartment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TimeSlot1", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TimeSlot2", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TimeSlot3", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TimeSlot4", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TimeSlot5", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot5", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TimeSlot6", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot6", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[FinalRoutine] SET [TermNSectionNDepartment] = @TermNSectionNDepartment, [TimeSlot1] = @TimeSlot1, [TimeSlot2] = @TimeSlot2, [TimeSlot3] = @TimeSlot3, [TimeSlot4] = @TimeSlot4, [TimeSlot5] = @TimeSlot5, [TimeSlot6] = @TimeSlot6 WHERE (([RowNumber] = @Original_RowNumber) AND ((@IsNull_TimeSlot1 = 1 AND [TimeSlot1] IS NULL) OR ([TimeSlot1] = @Original_TimeSlot1)) AND ((@IsNull_TimeSlot2 = 1 AND [TimeSlot2] IS NULL) OR ([TimeSlot2] = @Original_TimeSlot2)) AND ((@IsNull_TimeSlot3 = 1 AND [TimeSlot3] IS NULL) OR ([TimeSlot3] = @Original_TimeSlot3)) AND ((@IsNull_TimeSlot4 = 1 AND [TimeSlot4] IS NULL) OR ([TimeSlot4] = @Original_TimeSlot4)) AND ((@IsNull_TimeSlot5 = 1 AND [TimeSlot5] IS NULL) OR ([TimeSlot5] = @Original_TimeSlot5)) AND ((@IsNull_TimeSlot6 = 1 AND [TimeSlot6] IS NULL) OR ([TimeSlot6] = @Original_TimeSlot6)));
-SELECT RowNumber, TermNSectionNDepartment, TimeSlot1, TimeSlot2, TimeSlot3, TimeSlot4, TimeSlot5, TimeSlot6 FROM FinalRoutine WHERE (RowNumber = @RowNumber)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TermNSectionNDepartment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TermNSectionNDepartment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TimeSlot1", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TimeSlot2", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TimeSlot3", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TimeSlot4", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TimeSlot5", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot5", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TimeSlot6", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot6", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RowNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RowNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TimeSlot1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TimeSlot1", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TimeSlot2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TimeSlot2", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TimeSlot3", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot3", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TimeSlot3", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot3", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TimeSlot4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot4", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TimeSlot4", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot4", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TimeSlot5", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot5", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TimeSlot5", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot5", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TimeSlot6", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot6", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TimeSlot6", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeSlot6", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RowNumber", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RowNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RowNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RowNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p1", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Term&Section&Department", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p4", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "8:00-9:15", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p7", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "9:15-10:30", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p10", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "10:45-12:00", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p13", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "12:00-1:15", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p16", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "2:00-3:15", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p19", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "3:15-4:30", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RoomNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RoomNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2286,8 +2305,8 @@ SELECT RowNumber, TermNSectionNDepartment, TimeSlot1, TimeSlot2, TimeSlot3, Time
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT RowNumber, TermNSectionNDepartment, TimeSlot1, TimeSlot2, TimeSlot3, TimeS" +
-                "lot4, TimeSlot5, TimeSlot6 FROM dbo.FinalRoutine";
+            this._commandCollection[0].CommandText = "SELECT RowNumber, [Term&Section&Department], [8:00-9:15], [9:15-10:30], [10:45-12" +
+                ":00], [12:00-1:15], [2:00-3:15], [3:15-4:30], RoomNo FROM dbo.FinalRoutine";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2295,7 +2314,7 @@ SELECT RowNumber, TermNSectionNDepartment, TimeSlot1, TimeSlot2, TimeSlot3, Time
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Database.FinalRoutineDataTable dataTable) {
+        public virtual int Fill(ClassRoutineDataSet.FinalRoutineDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2308,9 +2327,9 @@ SELECT RowNumber, TermNSectionNDepartment, TimeSlot1, TimeSlot2, TimeSlot3, Time
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Database.FinalRoutineDataTable GetData() {
+        public virtual ClassRoutineDataSet.FinalRoutineDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Database.FinalRoutineDataTable dataTable = new Database.FinalRoutineDataTable();
+            ClassRoutineDataSet.FinalRoutineDataTable dataTable = new ClassRoutineDataSet.FinalRoutineDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2318,14 +2337,14 @@ SELECT RowNumber, TermNSectionNDepartment, TimeSlot1, TimeSlot2, TimeSlot3, Time
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Database.FinalRoutineDataTable dataTable) {
+        public virtual int Update(ClassRoutineDataSet.FinalRoutineDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Database dataSet) {
+        public virtual int Update(ClassRoutineDataSet dataSet) {
             return this.Adapter.Update(dataSet, "FinalRoutine");
         }
         
@@ -2347,119 +2366,61 @@ SELECT RowNumber, TermNSectionNDepartment, TimeSlot1, TimeSlot2, TimeSlot3, Time
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_RowNumber, string Original_TimeSlot1, string Original_TimeSlot2, string Original_TimeSlot3, string Original_TimeSlot4, string Original_TimeSlot5, string Original_TimeSlot6) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_RowNumber));
-            if ((Original_TimeSlot1 == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_TimeSlot1));
-            }
-            if ((Original_TimeSlot2 == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_TimeSlot2));
-            }
-            if ((Original_TimeSlot3 == null)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_TimeSlot3));
-            }
-            if ((Original_TimeSlot4 == null)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_TimeSlot4));
-            }
-            if ((Original_TimeSlot5 == null)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_TimeSlot5));
-            }
-            if ((Original_TimeSlot6 == null)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_TimeSlot6));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string TermNSectionNDepartment, string TimeSlot1, string TimeSlot2, string TimeSlot3, string TimeSlot4, string TimeSlot5, string TimeSlot6) {
-            if ((TermNSectionNDepartment == null)) {
+        public virtual int Insert(global::System.Nullable<int> RowNumber, string p1, string p4, string p7, string p10, string p13, string p16, string p19, global::System.Nullable<int> RoomNo) {
+            if ((RowNumber.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(RowNumber.Value));
+            }
+            else {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(TermNSectionNDepartment));
-            }
-            if ((TimeSlot1 == null)) {
+            if ((p1 == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(TimeSlot1));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(p1));
             }
-            if ((TimeSlot2 == null)) {
+            if ((p4 == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(TimeSlot2));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(p4));
             }
-            if ((TimeSlot3 == null)) {
+            if ((p7 == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(TimeSlot3));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(p7));
             }
-            if ((TimeSlot4 == null)) {
+            if ((p10 == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(TimeSlot4));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(p10));
             }
-            if ((TimeSlot5 == null)) {
+            if ((p13 == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(TimeSlot5));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(p13));
             }
-            if ((TimeSlot6 == null)) {
+            if ((p16 == null)) {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(TimeSlot6));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(p16));
+            }
+            if ((p19 == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(p19));
+            }
+            if ((RoomNo.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(RoomNo.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2475,127 +2436,6 @@ SELECT RowNumber, TermNSectionNDepartment, TimeSlot1, TimeSlot2, TimeSlot3, Time
                     this.Adapter.InsertCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string TermNSectionNDepartment, string TimeSlot1, string TimeSlot2, string TimeSlot3, string TimeSlot4, string TimeSlot5, string TimeSlot6, int Original_RowNumber, string Original_TimeSlot1, string Original_TimeSlot2, string Original_TimeSlot3, string Original_TimeSlot4, string Original_TimeSlot5, string Original_TimeSlot6, int RowNumber) {
-            if ((TermNSectionNDepartment == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(TermNSectionNDepartment));
-            }
-            if ((TimeSlot1 == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(TimeSlot1));
-            }
-            if ((TimeSlot2 == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(TimeSlot2));
-            }
-            if ((TimeSlot3 == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(TimeSlot3));
-            }
-            if ((TimeSlot4 == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(TimeSlot4));
-            }
-            if ((TimeSlot5 == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(TimeSlot5));
-            }
-            if ((TimeSlot6 == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(TimeSlot6));
-            }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_RowNumber));
-            if ((Original_TimeSlot1 == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_TimeSlot1));
-            }
-            if ((Original_TimeSlot2 == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_TimeSlot2));
-            }
-            if ((Original_TimeSlot3 == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_TimeSlot3));
-            }
-            if ((Original_TimeSlot4 == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_TimeSlot4));
-            }
-            if ((Original_TimeSlot5 == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_TimeSlot5));
-            }
-            if ((Original_TimeSlot6 == null)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_TimeSlot6));
-            }
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(RowNumber));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string TermNSectionNDepartment, string TimeSlot1, string TimeSlot2, string TimeSlot3, string TimeSlot4, string TimeSlot5, string TimeSlot6, int Original_RowNumber, string Original_TimeSlot1, string Original_TimeSlot2, string Original_TimeSlot3, string Original_TimeSlot4, string Original_TimeSlot5, string Original_TimeSlot6) {
-            return this.Update(TermNSectionNDepartment, TimeSlot1, TimeSlot2, TimeSlot3, TimeSlot4, TimeSlot5, TimeSlot6, Original_RowNumber, Original_TimeSlot1, Original_TimeSlot2, Original_TimeSlot3, Original_TimeSlot4, Original_TimeSlot5, Original_TimeSlot6, Original_RowNumber);
         }
     }
     
@@ -2780,7 +2620,7 @@ SELECT RowNumber, UserName, Password FROM LoginInfo WHERE (RowNumber = @RowNumbe
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Database.LoginInfoDataTable dataTable) {
+        public virtual int Fill(ClassRoutineDataSet.LoginInfoDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2793,9 +2633,9 @@ SELECT RowNumber, UserName, Password FROM LoginInfo WHERE (RowNumber = @RowNumbe
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Database.LoginInfoDataTable GetData() {
+        public virtual ClassRoutineDataSet.LoginInfoDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Database.LoginInfoDataTable dataTable = new Database.LoginInfoDataTable();
+            ClassRoutineDataSet.LoginInfoDataTable dataTable = new ClassRoutineDataSet.LoginInfoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2803,14 +2643,14 @@ SELECT RowNumber, UserName, Password FROM LoginInfo WHERE (RowNumber = @RowNumbe
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Database.LoginInfoDataTable dataTable) {
+        public virtual int Update(ClassRoutineDataSet.LoginInfoDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Database dataSet) {
+        public virtual int Update(ClassRoutineDataSet dataSet) {
             return this.Adapter.Update(dataSet, "LoginInfo");
         }
         
@@ -3160,7 +3000,7 @@ SELECT RowNumber, TeacherName, TeacherInitials, TeacherStatus, CourseCode, Cours
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Database.RoutineInfoDataTable dataTable) {
+        public virtual int Fill(ClassRoutineDataSet.RoutineInfoDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3173,9 +3013,9 @@ SELECT RowNumber, TeacherName, TeacherInitials, TeacherStatus, CourseCode, Cours
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Database.RoutineInfoDataTable GetData() {
+        public virtual ClassRoutineDataSet.RoutineInfoDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Database.RoutineInfoDataTable dataTable = new Database.RoutineInfoDataTable();
+            ClassRoutineDataSet.RoutineInfoDataTable dataTable = new ClassRoutineDataSet.RoutineInfoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3183,14 +3023,14 @@ SELECT RowNumber, TeacherName, TeacherInitials, TeacherStatus, CourseCode, Cours
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Database.RoutineInfoDataTable dataTable) {
+        public virtual int Update(ClassRoutineDataSet.RoutineInfoDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Database dataSet) {
+        public virtual int Update(ClassRoutineDataSet dataSet) {
             return this.Adapter.Update(dataSet, "RoutineInfo");
         }
         
@@ -3561,7 +3401,7 @@ SELECT RowNumber, TeacherName, TeacherInitials, TeacherStatus, CourseCode, Cours
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(Database dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(ClassRoutineDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._finalRoutineTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.FinalRoutine.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -3598,7 +3438,7 @@ SELECT RowNumber, TeacherName, TeacherInitials, TeacherStatus, CourseCode, Cours
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(Database dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(ClassRoutineDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._finalRoutineTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.FinalRoutine.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -3632,7 +3472,7 @@ SELECT RowNumber, TeacherName, TeacherInitials, TeacherStatus, CourseCode, Cours
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(Database dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(ClassRoutineDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._routineInfoTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.RoutineInfo.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -3690,7 +3530,7 @@ SELECT RowNumber, TeacherName, TeacherInitials, TeacherStatus, CourseCode, Cours
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(Database dataSet) {
+        public virtual int UpdateAll(ClassRoutineDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

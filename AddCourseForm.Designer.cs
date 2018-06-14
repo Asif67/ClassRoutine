@@ -32,7 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.routineInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.database = new NWUClassRoutine.Database();
+            this.classRoutineDataSet = new NWUClassRoutine.ClassRoutineDataSet();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -54,18 +54,18 @@
             this.Btn_New = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Btn_Edit = new System.Windows.Forms.Button();
-            this.routineInfoTableAdapter = new NWUClassRoutine.DatabaseTableAdapters.RoutineInfoTableAdapter();
-            this.teacherInitialsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teacherStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeacherInitials = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseCreditDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.preferredTimeSlot1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.preferredTimeSlot2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.preferredTimeSlot3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Btn_Edit = new System.Windows.Forms.Button();
+            this.routineInfoTableAdapter = new NWUClassRoutine.ClassRoutineDataSetTableAdapters.RoutineInfoTableAdapter();
+            this.Btn_ViewRoutine = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.routineInfoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classRoutineDataSet)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -106,12 +106,12 @@
             // routineInfoBindingSource
             // 
             this.routineInfoBindingSource.DataMember = "RoutineInfo";
-            this.routineInfoBindingSource.DataSource = this.database;
+            this.routineInfoBindingSource.DataSource = this.classRoutineDataSet;
             // 
-            // database
+            // classRoutineDataSet
             // 
-            this.database.DataSetName = "Database";
-            this.database.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.classRoutineDataSet.DataSetName = "ClassRoutineDataSet";
+            this.classRoutineDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label9
             // 
@@ -291,8 +291,7 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.teacherInitialsDataGridViewTextBoxColumn,
-            this.teacherStatusDataGridViewTextBoxColumn,
+            this.TeacherInitials,
             this.courseCodeDataGridViewTextBoxColumn,
             this.courseCreditDataGridViewTextBoxColumn,
             this.preferredTimeSlot1DataGridViewTextBoxColumn,
@@ -305,31 +304,11 @@
             this.dataGridView1.Size = new System.Drawing.Size(452, 246);
             this.dataGridView1.TabIndex = 0;
             // 
-            // Btn_Edit
+            // TeacherInitials
             // 
-            this.Btn_Edit.Location = new System.Drawing.Point(786, 278);
-            this.Btn_Edit.Name = "Btn_Edit";
-            this.Btn_Edit.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Edit.TabIndex = 4;
-            this.Btn_Edit.Text = "Edit";
-            this.Btn_Edit.UseVisualStyleBackColor = true;
-            this.Btn_Edit.Click += new System.EventHandler(this.Btn_Edit_Click);
-            // 
-            // routineInfoTableAdapter
-            // 
-            this.routineInfoTableAdapter.ClearBeforeFill = true;
-            // 
-            // teacherInitialsDataGridViewTextBoxColumn
-            // 
-            this.teacherInitialsDataGridViewTextBoxColumn.DataPropertyName = "TeacherInitials";
-            this.teacherInitialsDataGridViewTextBoxColumn.HeaderText = "TeacherInitials";
-            this.teacherInitialsDataGridViewTextBoxColumn.Name = "teacherInitialsDataGridViewTextBoxColumn";
-            // 
-            // teacherStatusDataGridViewTextBoxColumn
-            // 
-            this.teacherStatusDataGridViewTextBoxColumn.DataPropertyName = "TeacherStatus";
-            this.teacherStatusDataGridViewTextBoxColumn.HeaderText = "TeacherStatus";
-            this.teacherStatusDataGridViewTextBoxColumn.Name = "teacherStatusDataGridViewTextBoxColumn";
+            this.TeacherInitials.DataPropertyName = "TeacherInitials";
+            this.TeacherInitials.HeaderText = "TeacherInitials";
+            this.TeacherInitials.Name = "TeacherInitials";
             // 
             // courseCodeDataGridViewTextBoxColumn
             // 
@@ -361,23 +340,49 @@
             this.preferredTimeSlot3DataGridViewTextBoxColumn.HeaderText = "PreferredTimeSlot3";
             this.preferredTimeSlot3DataGridViewTextBoxColumn.Name = "preferredTimeSlot3DataGridViewTextBoxColumn";
             // 
+            // Btn_Edit
+            // 
+            this.Btn_Edit.Location = new System.Drawing.Point(786, 278);
+            this.Btn_Edit.Name = "Btn_Edit";
+            this.Btn_Edit.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Edit.TabIndex = 4;
+            this.Btn_Edit.Text = "Edit";
+            this.Btn_Edit.UseVisualStyleBackColor = true;
+            this.Btn_Edit.Click += new System.EventHandler(this.Btn_Edit_Click);
+            // 
+            // routineInfoTableAdapter
+            // 
+            this.routineInfoTableAdapter.ClearBeforeFill = true;
+            // 
+            // Btn_ViewRoutine
+            // 
+            this.Btn_ViewRoutine.Location = new System.Drawing.Point(410, 276);
+            this.Btn_ViewRoutine.Name = "Btn_ViewRoutine";
+            this.Btn_ViewRoutine.Size = new System.Drawing.Size(88, 23);
+            this.Btn_ViewRoutine.TabIndex = 5;
+            this.Btn_ViewRoutine.Text = "View Routine";
+            this.Btn_ViewRoutine.UseVisualStyleBackColor = true;
+            this.Btn_ViewRoutine.Click += new System.EventHandler(this.Btn_ViewRoutine_Click);
+            // 
             // AddCourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 311);
+            this.Controls.Add(this.Btn_ViewRoutine);
             this.Controls.Add(this.Btn_Edit);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.Btn_New);
             this.Controls.Add(this.Btn_Save);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
             this.Name = "AddCourseForm";
             this.Text = "AddCourseForm";
             this.Load += new System.EventHandler(this.AddCourseForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.routineInfoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classRoutineDataSet)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -410,15 +415,15 @@
         private System.Windows.Forms.Button Btn_Edit;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label9;
-        private Database database;
+        private ClassRoutineDataSet classRoutineDataSet;
         private System.Windows.Forms.BindingSource routineInfoBindingSource;
-        private DatabaseTableAdapters.RoutineInfoTableAdapter routineInfoTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn teacherInitialsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn teacherStatusDataGridViewTextBoxColumn;
+        private ClassRoutineDataSetTableAdapters.RoutineInfoTableAdapter routineInfoTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TeacherInitials;
         private System.Windows.Forms.DataGridViewTextBoxColumn courseCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn courseCreditDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn preferredTimeSlot1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn preferredTimeSlot2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn preferredTimeSlot3DataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button Btn_ViewRoutine;
     }
 }

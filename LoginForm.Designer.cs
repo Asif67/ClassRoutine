@@ -109,6 +109,7 @@
             this.Controls.Add(this.Btn_Signup);
             this.Controls.Add(this.Btn_Login);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.Text = "Login Form";
             this.panel1.ResumeLayout(false);

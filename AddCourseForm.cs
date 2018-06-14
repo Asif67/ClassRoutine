@@ -19,9 +19,9 @@ namespace NWUClassRoutine
        
         private void AddCourseForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'database.RoutineInfo' table. You can move, or remove it, as needed.
-            this.routineInfoTableAdapter.Fill(this.database.RoutineInfo);
-            routineInfoBindingSource.DataSource = this.database.RoutineInfo;
+            // TODO: This line of code loads data into the 'classRoutineDataSet.RoutineInfo' table. You can move, or remove it, as needed.
+            this.routineInfoTableAdapter.Fill(this.classRoutineDataSet.RoutineInfo);
+            routineInfoBindingSource.DataSource = this.classRoutineDataSet.RoutineInfo;
             panel1.Enabled = false;
             panel2.Enabled = false;
             panel2.Visible = false;
@@ -33,7 +33,7 @@ namespace NWUClassRoutine
             try
             {
                 panel1.Enabled = true;
-                this.database.RoutineInfo.AddRoutineInfoRow(this.database.RoutineInfo.NewRoutineInfoRow());
+                this.classRoutineDataSet.RoutineInfo.AddRoutineInfoRow(this.classRoutineDataSet.RoutineInfo.NewRoutineInfoRow());
                 routineInfoBindingSource.MoveLast();
             }
             catch (Exception ex)
@@ -48,7 +48,7 @@ namespace NWUClassRoutine
             try
             {
                 routineInfoBindingSource.EndEdit();
-                routineInfoTableAdapter.Update(this.database.RoutineInfo);
+                routineInfoTableAdapter.Update(this.classRoutineDataSet.RoutineInfo);
                 panel1.Enabled = false;
                 panel2.Enabled = false;
                 panel2.Visible = false;
@@ -66,6 +66,12 @@ namespace NWUClassRoutine
             panel1.Enabled = true;
             panel2.Enabled = true;
             panel2.Visible = true;
+        }
+
+        private void Btn_ViewRoutine_Click(object sender, EventArgs e)
+        {
+            var Routine = new Routine();
+            Routine.Show();
         }
     }
 }

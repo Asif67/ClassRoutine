@@ -6,7 +6,7 @@ G:\test Project\testing\NWUClassRoutine\NWUClassRoutine\obj\Debug\NWUClassRoutin
 G:\test Project\testing\NWUClassRoutine\NWUClassRoutine\obj\Debug\NWUClassRoutine.csproj.GenerateResource.Cache
 G:\test Project\testing\NWUClassRoutine\NWUClassRoutine\obj\Debug\NWUClassRoutine.exe
 G:\test Project\testing\NWUClassRoutine\NWUClassRoutine\obj\Debug\NWUClassRoutine.pdb
-G:\test Project\testing\NWUClassRoutine\NWUClassRoutine\obj\Debug\NWUClassRoutine.csprojResolveAssemblyReference.cache
 G:\test Project\testing\NWUClassRoutine\NWUClassRoutine\obj\Debug\NWUClassRoutine.LoginForm.resources
 G:\test Project\testing\NWUClassRoutine\NWUClassRoutine\obj\Debug\NWUClassRoutine.AddCourseForm.resources
 G:\test Project\testing\NWUClassRoutine\NWUClassRoutine\obj\Debug\NWUClassRoutine.Routine.resources
+G:\test Project\testing\NWUClassRoutine\NWUClassRoutine\obj\Debug\NWUClassRoutine.csprojResolveAssemblyReference.cache

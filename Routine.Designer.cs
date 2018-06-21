@@ -42,9 +42,6 @@
             this.Btn_Generate = new System.Windows.Forms.Button();
             this.Btn_MakePdf = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.classRoutineDataSet = new NWUClassRoutine.ClassRoutineDataSet();
-            this.finalRoutineBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.finalRoutineTableAdapter = new NWUClassRoutine.ClassRoutineDataSetTableAdapters.FinalRoutineTableAdapter();
             this.rowNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.termSectionDepartmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,9 +51,13 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roomNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finalRoutineBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.classRoutineDataSet = new NWUClassRoutine.ClassRoutineDataSet();
+            this.finalRoutineTableAdapter = new NWUClassRoutine.ClassRoutineDataSetTableAdapters.FinalRoutineTableAdapter();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classRoutineDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.finalRoutineBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classRoutineDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // Btn_ViewRoutine
@@ -107,20 +108,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(944, 393);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // classRoutineDataSet
-            // 
-            this.classRoutineDataSet.DataSetName = "ClassRoutineDataSet";
-            this.classRoutineDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // finalRoutineBindingSource
-            // 
-            this.finalRoutineBindingSource.DataMember = "FinalRoutine";
-            this.finalRoutineBindingSource.DataSource = this.classRoutineDataSet;
-            // 
-            // finalRoutineTableAdapter
-            // 
-            this.finalRoutineTableAdapter.ClearBeforeFill = true;
             // 
             // rowNumberDataGridViewTextBoxColumn
             // 
@@ -200,11 +187,33 @@
             this.roomNoDataGridViewTextBoxColumn.HeaderText = "RoomNo";
             this.roomNoDataGridViewTextBoxColumn.Name = "roomNoDataGridViewTextBoxColumn";
             // 
+            // finalRoutineBindingSource
+            // 
+            this.finalRoutineBindingSource.DataMember = "FinalRoutine";
+            this.finalRoutineBindingSource.DataSource = this.classRoutineDataSet;
+            // 
+            // classRoutineDataSet
+            // 
+            this.classRoutineDataSet.DataSetName = "ClassRoutineDataSet";
+            this.classRoutineDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // finalRoutineTableAdapter
+            // 
+            this.finalRoutineTableAdapter.ClearBeforeFill = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(238, 25);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 2;
+            // 
             // Routine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(999, 465);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Btn_MakePdf);
             this.Controls.Add(this.Btn_Generate);
@@ -214,9 +223,10 @@
             this.Text = "Routine";
             this.Load += new System.EventHandler(this.Routine_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classRoutineDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.finalRoutineBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classRoutineDataSet)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -238,5 +248,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn roomNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

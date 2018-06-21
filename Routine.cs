@@ -189,7 +189,7 @@ namespace NWUClassRoutine
                 string query, id, selection = "NM";
                 conn = new SqlConnection(@"Data Source=MIRAZ-PC\SQLEXPRESS;Initial Catalog=ClassRoutine;Integrated Security=True");
                 conn.Open();
-                query = "select PreferredTimeSlot1 from RoutineInfo where TeacherInitials = 'MRI'";
+                query = "select PreferredTimeSlot1 from RoutineInfo where TeacherInitials = 'NM'";
                 id = new SqlCommand(query, conn).ExecuteScalar().ToString();
                 //textBox1.Text = id;
                 conn.Close();
@@ -205,7 +205,7 @@ namespace NWUClassRoutine
                         while (reader.Read())
                         {
                             Column = reader.GetInt32(0);
-                            //textBox1.Text = Convert.ToString(Column);
+                            textBox1.Text = Convert.ToString(Column);
                             // textBox1.Text = Convert.ToString(id);
 
                         }
@@ -240,7 +240,7 @@ namespace NWUClassRoutine
                 string tempCourseCredit;
                 // for (k = 1; k <= 8; k++)
                 //scanf("%c", &Course[k]);
-                temprow = int.Parse(CourseCode.Substring(5, 1));
+                temprow = int.Parse(CourseCode.Substring(4, 1));
                 if (temprow == 1)
                     row = 1;
                 else if (temprow == 2)
@@ -249,10 +249,10 @@ namespace NWUClassRoutine
                     row = 13;
                 else
                     row = 19;
-                rowAddition = int.Parse(CourseCode.Substring(6, 1));
+                rowAddition = int.Parse(CourseCode.Substring(5, 1));
                 //textBox1.Text = Convert.ToString(rowAddition);
                 conn.Open();
-                query = "Select CourseCredit from RoutineInfo where TeacherInitials = 'MRI'";
+                query = "Select CourseCredit from RoutineInfo where TeacherInitials = 'NM'";
                 Sqlcmd.ExecuteNonQuery();
                 tempCourseCredit = new SqlCommand(query, conn).ExecuteScalar().ToString(); 
                 CourseCredit = Double.Parse(tempCourseCredit);
@@ -282,6 +282,7 @@ namespace NWUClassRoutine
         public void ArrayConditionForSemesterTheory()
          {
              j = ColumnIDPulling();
+             //j = j - 1;
              try
              {
                  //1st semester
@@ -311,6 +312,7 @@ namespace NWUClassRoutine
         public void ArrayConditionForSemesterLab()
          {
              j = ColumnIDPulling();
+             //j = j - 1;
              try
              {
                  //1st semester
@@ -357,7 +359,7 @@ namespace NWUClassRoutine
                  //ColumnIDPulling();
                  for (i = 1; i <= 121; i++)
                  {
-                     for (j = 1; j <= 6; j++)
+                     for (j = 1; j <= 8; j++)
                      {
                          //Monday
                          if (i == row && j == Column && RoutineArray[i, j] == "-")
@@ -395,7 +397,7 @@ namespace NWUClassRoutine
              {
                  for (i = 1; i <= 121; i++)
                  {
-                     for (j = 1; j <= 6; j++)
+                     for (j = 1; j <= 8; j++)
                      {
                          //Monday
                          if (i == row && j == Column && RoutineArray[i, j] == "-")

@@ -29,19 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Btn_ViewRoutine = new System.Windows.Forms.Button();
             this.Btn_Generate = new System.Windows.Forms.Button();
             this.Btn_MakePdf = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.finalRoutineBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.classRoutineDataSet = new NWUClassRoutine.ClassRoutineDataSet();
+            this.finalRoutineTableAdapter = new NWUClassRoutine.ClassRoutineDataSetTableAdapters.FinalRoutineTableAdapter();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.rowNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.termSectionDepartmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,10 +46,6 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roomNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.finalRoutineBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.classRoutineDataSet = new NWUClassRoutine.ClassRoutineDataSet();
-            this.finalRoutineTableAdapter = new NWUClassRoutine.ClassRoutineDataSetTableAdapters.FinalRoutineTableAdapter();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.finalRoutineBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classRoutineDataSet)).BeginInit();
@@ -109,84 +100,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(944, 393);
             this.dataGridView1.TabIndex = 1;
             // 
-            // rowNumberDataGridViewTextBoxColumn
-            // 
-            this.rowNumberDataGridViewTextBoxColumn.DataPropertyName = "RowNumber";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.rowNumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.rowNumberDataGridViewTextBoxColumn.HeaderText = "RowNumber";
-            this.rowNumberDataGridViewTextBoxColumn.Name = "rowNumberDataGridViewTextBoxColumn";
-            // 
-            // termSectionDepartmentDataGridViewTextBoxColumn
-            // 
-            this.termSectionDepartmentDataGridViewTextBoxColumn.DataPropertyName = "Term&Section&Department";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.termSectionDepartmentDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.termSectionDepartmentDataGridViewTextBoxColumn.HeaderText = "Term&Section&Department";
-            this.termSectionDepartmentDataGridViewTextBoxColumn.Name = "termSectionDepartmentDataGridViewTextBoxColumn";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "8:00-9:15";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewTextBoxColumn1.HeaderText = "8:00-9:15";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "9:15-10:30";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewTextBoxColumn2.HeaderText = "9:15-10:30";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "10:45-12:00";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridViewTextBoxColumn3.HeaderText = "10:45-12:00";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "12:00-1:15";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewTextBoxColumn4.HeaderText = "12:00-1:15";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "2:00-3:15";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewTextBoxColumn5.HeaderText = "2:00-3:15";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "3:15-4:30";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewTextBoxColumn6.HeaderText = "3:15-4:30";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // roomNoDataGridViewTextBoxColumn
-            // 
-            this.roomNoDataGridViewTextBoxColumn.DataPropertyName = "RoomNo";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.roomNoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
-            this.roomNoDataGridViewTextBoxColumn.HeaderText = "RoomNo";
-            this.roomNoDataGridViewTextBoxColumn.Name = "roomNoDataGridViewTextBoxColumn";
-            // 
             // finalRoutineBindingSource
             // 
             this.finalRoutineBindingSource.DataMember = "FinalRoutine";
@@ -207,6 +120,60 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 2;
+            // 
+            // rowNumberDataGridViewTextBoxColumn
+            // 
+            this.rowNumberDataGridViewTextBoxColumn.DataPropertyName = "RowNumber";
+            this.rowNumberDataGridViewTextBoxColumn.HeaderText = "RowNumber";
+            this.rowNumberDataGridViewTextBoxColumn.Name = "rowNumberDataGridViewTextBoxColumn";
+            // 
+            // termSectionDepartmentDataGridViewTextBoxColumn
+            // 
+            this.termSectionDepartmentDataGridViewTextBoxColumn.DataPropertyName = "Term&Section&Department";
+            this.termSectionDepartmentDataGridViewTextBoxColumn.HeaderText = "Term&Section&Department";
+            this.termSectionDepartmentDataGridViewTextBoxColumn.Name = "termSectionDepartmentDataGridViewTextBoxColumn";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "8:00-9:15";
+            this.dataGridViewTextBoxColumn1.HeaderText = "8:00-9:15";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "9:15-10:30";
+            this.dataGridViewTextBoxColumn2.HeaderText = "9:15-10:30";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "10:45-12:00";
+            this.dataGridViewTextBoxColumn3.HeaderText = "10:45-12:00";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "12:00-1:15";
+            this.dataGridViewTextBoxColumn4.HeaderText = "12:00-1:15";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "2:00-3:15";
+            this.dataGridViewTextBoxColumn5.HeaderText = "2:00-3:15";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "3:15-4:30";
+            this.dataGridViewTextBoxColumn6.HeaderText = "3:15-4:30";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // roomNoDataGridViewTextBoxColumn
+            // 
+            this.roomNoDataGridViewTextBoxColumn.DataPropertyName = "RoomNo";
+            this.roomNoDataGridViewTextBoxColumn.HeaderText = "RoomNo";
+            this.roomNoDataGridViewTextBoxColumn.Name = "roomNoDataGridViewTextBoxColumn";
             // 
             // Routine
             // 
@@ -239,6 +206,7 @@
         private ClassRoutineDataSet classRoutineDataSet;
         private System.Windows.Forms.BindingSource finalRoutineBindingSource;
         private ClassRoutineDataSetTableAdapters.FinalRoutineTableAdapter finalRoutineTableAdapter;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn rowNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn termSectionDepartmentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -248,6 +216,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn roomNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

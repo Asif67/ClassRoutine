@@ -99,6 +99,7 @@
             this.Btn_Signup.TabIndex = 2;
             this.Btn_Signup.Text = "Sign Up";
             this.Btn_Signup.UseVisualStyleBackColor = true;
+            this.Btn_Signup.Visible = false;
             this.Btn_Signup.Click += new System.EventHandler(this.Btn_Signup_Click);
             // 
             // LoginForm

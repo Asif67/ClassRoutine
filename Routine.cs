@@ -15,7 +15,7 @@ namespace NWUClassRoutine
     {
         SqlConnection conn = new SqlConnection(@"Data Source=MIRAZ-PC\SQLEXPRESS;Initial Catalog=ClassRoutine;Integrated Security=True");
         string[,] RoutineArray = new string[121, 11];
-        string query,CourseCode="CSE-1101",tempCourseCredit;
+        string query,CourseCode="CSE-4201",tempCourseCredit;
         int[] roomno =new int[121] {401,402,403,404,501,502,503,504,601,602,603,604,701,702,703,704,801,802,803,804,901,902,903,904,401,402,403,404,501,502,503,504,601,602,603,604,701,702,703,704,801,802,803,804,901,902,903,904,401,402,403,404,501,502,503,504,601,602,603,604,701,702,703,704,801,802,803,804,901,902,903,904,401,402,403,404,501,502,503,504,601,602,603,604,701,702,703,704,801,802,803,804,901,902,903,904,401,402,403,404,501,502,503,504,601,602,603,604,701,702,703,704,801,802,803,804,901,902,903,904,401};
         int[] LabRoomNo = new int[3] { 302, 303, 304 };
         int Column;
@@ -244,24 +244,11 @@ namespace NWUClassRoutine
             try
             {
                 conn = new SqlConnection(@"Data Source=MIRAZ-PC\SQLEXPRESS;Initial Catalog=ClassRoutine;Integrated Security=True");
-                //conn.Open();
-                ///query = "select CourseCode from RoutineInfo where TeacherInitials = 'MRI'";
-                //CourseCode = new SqlCommand(query, conn).ExecuteScalar().ToString();
-                //conn.Close();
                 conn.Open();
-                query = "Select CourseCredit from RoutineInfo where TeacherInitials = 'MRI'";
-                //Sqlcmd.ExecuteNonQuery();
+                query = "Select CourseCredit from RoutineInfo where TeacherInitials = 'SY'";
                 tempCourseCredit = new SqlCommand(query, conn).ExecuteScalar().ToString();
                 CourseCredit = Double.Parse(tempCourseCredit);
-                /*reader1 = new SqlCommand(query, conn).ExecuteNonQuery;
-                while (reader1.Read())
-                {
-                    CourseCredit = (float)reader1.GetDecimal(0);
-                }
-                reader1.Close();*/
-                
                 CourseCredit = Double.Parse(tempCourseCredit);
-                
                 YearDeterminingCourseCodeDigit = Convert.ToInt32(CourseCode.Substring(4, 1));
                 if (YearDeterminingCourseCodeDigit == 1)
                     row = 1;
@@ -300,19 +287,19 @@ namespace NWUClassRoutine
                 if (SemesterDeterminingCourseCodeDigit == 1)
                 {
                     RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] = CourseCode;
-                    RoutineArray[RoutineArrayRowIndex + 1, RoutineArrayColumnIndex] = CourseCode;
+                    RoutineArray[RoutineArrayRowIndex + 1, RoutineArrayColumnIndex+1] = CourseCode;
                 }
                 //2nd semester
                 else if (SemesterDeterminingCourseCodeDigit == 2)
                 {
                     RoutineArray[RoutineArrayRowIndex + 2, RoutineArrayColumnIndex] = CourseCode;
-                    RoutineArray[RoutineArrayRowIndex + 3, RoutineArrayColumnIndex] = CourseCode;
+                    RoutineArray[RoutineArrayRowIndex + 3, RoutineArrayColumnIndex+1] = CourseCode;
                 }
                 //3rd semester
                 else
                 {
                     RoutineArray[RoutineArrayRowIndex + 4, RoutineArrayColumnIndex] = CourseCode;
-                    RoutineArray[RoutineArrayRowIndex + 5, RoutineArrayColumnIndex] = CourseCode;
+                    RoutineArray[RoutineArrayRowIndex + 5, RoutineArrayColumnIndex+1] = CourseCode;
                 }
             }
             catch (Exception ex)
@@ -330,8 +317,8 @@ namespace NWUClassRoutine
                 {
                     RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] = CourseCode;
                     RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex + 1] = CourseCode;
-                    RoutineArray[RoutineArrayRowIndex + 1, RoutineArrayColumnIndex] = CourseCode;
-                    RoutineArray[RoutineArrayRowIndex + 1, RoutineArrayColumnIndex + 1] = CourseCode;
+                    RoutineArray[RoutineArrayRowIndex + 1, RoutineArrayColumnIndex+2] = CourseCode;
+                    RoutineArray[RoutineArrayRowIndex + 1, RoutineArrayColumnIndex + 3] = CourseCode;
                     roomno[RoutineArrayRowIndex] = 301;
                     roomno[RoutineArrayRowIndex+1] = 302;
                 }
@@ -340,8 +327,8 @@ namespace NWUClassRoutine
                 {
                     RoutineArray[RoutineArrayRowIndex + 2, RoutineArrayColumnIndex] = CourseCode;
                     RoutineArray[RoutineArrayRowIndex + 2, RoutineArrayColumnIndex + 1] = CourseCode;
-                    RoutineArray[RoutineArrayRowIndex + 3, RoutineArrayColumnIndex] = CourseCode;
-                    RoutineArray[RoutineArrayRowIndex + 3, RoutineArrayColumnIndex + 1] = CourseCode;
+                    RoutineArray[RoutineArrayRowIndex + 3, RoutineArrayColumnIndex+2] = CourseCode;
+                    RoutineArray[RoutineArrayRowIndex + 3, RoutineArrayColumnIndex + 3] = CourseCode;
                     roomno[RoutineArrayRowIndex + 2] = 303;
                     roomno[RoutineArrayRowIndex + 3] = 304;
                 }
@@ -350,8 +337,8 @@ namespace NWUClassRoutine
                 {
                     RoutineArray[RoutineArrayRowIndex + 4, RoutineArrayColumnIndex] = CourseCode;
                     RoutineArray[RoutineArrayRowIndex + 4, RoutineArrayColumnIndex + 1] = CourseCode;
-                    RoutineArray[RoutineArrayRowIndex + 5, RoutineArrayColumnIndex] = CourseCode;
-                    RoutineArray[RoutineArrayRowIndex + 5, RoutineArrayColumnIndex + 1] = CourseCode;
+                    RoutineArray[RoutineArrayRowIndex + 5, RoutineArrayColumnIndex+2] = CourseCode;
+                    RoutineArray[RoutineArrayRowIndex + 5, RoutineArrayColumnIndex + 3] = CourseCode;
                     roomno[RoutineArrayRowIndex + 4] = 301;
                     roomno[RoutineArrayRowIndex + 5] = 302;
                 }
@@ -443,6 +430,10 @@ namespace NWUClassRoutine
         public void InsertSingleCourseIntoPosition()
         {
             CheckArray();
+        }
+        public void QueryBuilder()
+        {
+
         }
 
 

@@ -44,7 +44,7 @@ namespace NWUClassRoutine
                 ad.Fill(dt);
                 if (dt.Tables[0].Rows.Count > 0)
                 {
-                    MessageBox.Show("Login Sucessfull.Click OK to continue", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Login Sucessful.Click OK to continue", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     AddCourseForm admin = new AddCourseForm();
                     admin.Show();
                     this.Hide();

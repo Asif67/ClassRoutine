@@ -19,9 +19,10 @@ namespace NWUClassRoutine
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'nWUClassRoutineDataSet.LoginInfo' table. You can move, or remove it, as needed.
+            this.loginInfoTableAdapter.Fill(this.nWUClassRoutineDataSet.LoginInfo);
             // TODO: This line of code loads data into the 'classRoutineDataSet.LoginInfo' table. You can move, or remove it, as needed.
-            this.loginInfoTableAdapter.Fill(this.classRoutineDataSet.LoginInfo);
-            loginInfoBindingSource.DataSource = this.classRoutineDataSet.LoginInfo;
+            loginInfoBindingSource.DataSource = this.nWUClassRoutineDataSet.LoginInfo;
             panel1.Enabled = false;
 
         }
@@ -36,7 +37,7 @@ namespace NWUClassRoutine
             try
             {
                 panel1.Enabled = true;
-                this.classRoutineDataSet.LoginInfo.AddLoginInfoRow(this.classRoutineDataSet.LoginInfo.NewLoginInfoRow());
+                this.nWUClassRoutineDataSet.LoginInfo.AddLoginInfoRow(this.nWUClassRoutineDataSet.LoginInfo.NewLoginInfoRow());
                 loginInfoBindingSource.MoveLast();
                 
             }
@@ -52,7 +53,7 @@ namespace NWUClassRoutine
             try
             {
                 loginInfoBindingSource.EndEdit();
-                loginInfoTableAdapter.Update(this.classRoutineDataSet.LoginInfo);
+                loginInfoTableAdapter.Update(this.nWUClassRoutineDataSet.LoginInfo);
                 panel1.Enabled = false;
                 MessageBox.Show("Record Added to database");
             }

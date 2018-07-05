@@ -30,18 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.loginInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.classRoutineDataSet = new NWUClassRoutine.ClassRoutineDataSet();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.loginInfoTableAdapter = new NWUClassRoutine.ClassRoutineDataSetTableAdapters.LoginInfoTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.loginInfoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classRoutineDataSet)).BeginInit();
+            this.nWUClassRoutineDataSet = new NWUClassRoutine.NWUClassRoutineDataSet();
+            this.loginInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.loginInfoTableAdapter = new NWUClassRoutine.NWUClassRoutineDataSetTableAdapters.LoginInfoTableAdapter();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nWUClassRoutineDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginInfoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -51,16 +51,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(104, 20);
             this.textBox1.TabIndex = 0;
-            // 
-            // loginInfoBindingSource
-            // 
-            this.loginInfoBindingSource.DataMember = "LoginInfo";
-            this.loginInfoBindingSource.DataSource = this.classRoutineDataSet;
-            // 
-            // classRoutineDataSet
-            // 
-            this.classRoutineDataSet.DataSetName = "ClassRoutineDataSet";
-            this.classRoutineDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // textBox2
             // 
@@ -120,6 +110,16 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "User Name:";
             // 
+            // nWUClassRoutineDataSet
+            // 
+            this.nWUClassRoutineDataSet.DataSetName = "NWUClassRoutineDataSet";
+            this.nWUClassRoutineDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // loginInfoBindingSource
+            // 
+            this.loginInfoBindingSource.DataMember = "LoginInfo";
+            this.loginInfoBindingSource.DataSource = this.nWUClassRoutineDataSet;
+            // 
             // loginInfoTableAdapter
             // 
             this.loginInfoTableAdapter.ClearBeforeFill = true;
@@ -136,10 +136,10 @@
             this.Name = "Form1";
             this.Text = "Admin Registration";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.loginInfoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classRoutineDataSet)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nWUClassRoutineDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginInfoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -153,9 +153,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private ClassRoutineDataSet classRoutineDataSet;
+        private NWUClassRoutineDataSet nWUClassRoutineDataSet;
         private System.Windows.Forms.BindingSource loginInfoBindingSource;
-        private ClassRoutineDataSetTableAdapters.LoginInfoTableAdapter loginInfoTableAdapter;
+        private NWUClassRoutineDataSetTableAdapters.LoginInfoTableAdapter loginInfoTableAdapter;
     }
 }
 

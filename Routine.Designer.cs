@@ -29,34 +29,55 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Btn_ViewRoutine = new System.Windows.Forms.Button();
             this.Btn_Generate = new System.Windows.Forms.Button();
             this.Btn_MakePdf = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.classRoutineDataSet = new NWUClassRoutine.ClassRoutineDataSet();
-            this.finalRoutineBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.finalRoutineTableAdapter = new NWUClassRoutine.ClassRoutineDataSetTableAdapters.FinalRoutineTableAdapter();
+            this.nWUClassRoutineDataSet = new NWUClassRoutine.NWUClassRoutineDataSet();
+            this.routineBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.routineTableAdapter = new NWUClassRoutine.NWUClassRoutineDataSetTableAdapters.RoutineTableAdapter();
             this.rowNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.termSectionDepartmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monday800915DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monday9151030DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monday10451200DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monday1200115DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monday200315DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monday315430DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tuesday800915DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tuesday9151030DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tuesday10451200DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tuesday1200115DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tuesday200315DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tuesday315430DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wednesday800915DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wednesday9151030DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wednesday10451200DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wednesday1200115DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wednesday200315DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wednesday315430DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.thursday800915DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.thursday9151030DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.thursday10451200DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.thursday1200115DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.thursday200315DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.thursday315430DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.friday800915DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.friday9151030DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.friday10451200DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.friday1200115DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.friday200315DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.friday315430DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saturday800915DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saturday9151030DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saturday10451200DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saturday1200115DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saturday200315DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saturday315430DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roomNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classRoutineDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.finalRoutineBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nWUClassRoutineDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.routineBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // Btn_ViewRoutine
@@ -95,108 +116,294 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.rowNumberDataGridViewTextBoxColumn,
             this.termSectionDepartmentDataGridViewTextBoxColumn,
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
+            this.monday800915DataGridViewTextBoxColumn,
+            this.monday9151030DataGridViewTextBoxColumn,
+            this.monday10451200DataGridViewTextBoxColumn,
+            this.monday1200115DataGridViewTextBoxColumn,
+            this.monday200315DataGridViewTextBoxColumn,
+            this.monday315430DataGridViewTextBoxColumn,
+            this.tuesday800915DataGridViewTextBoxColumn,
+            this.tuesday9151030DataGridViewTextBoxColumn,
+            this.tuesday10451200DataGridViewTextBoxColumn,
+            this.tuesday1200115DataGridViewTextBoxColumn,
+            this.tuesday200315DataGridViewTextBoxColumn,
+            this.tuesday315430DataGridViewTextBoxColumn,
+            this.wednesday800915DataGridViewTextBoxColumn,
+            this.wednesday9151030DataGridViewTextBoxColumn,
+            this.wednesday10451200DataGridViewTextBoxColumn,
+            this.wednesday1200115DataGridViewTextBoxColumn,
+            this.wednesday200315DataGridViewTextBoxColumn,
+            this.wednesday315430DataGridViewTextBoxColumn,
+            this.thursday800915DataGridViewTextBoxColumn,
+            this.thursday9151030DataGridViewTextBoxColumn,
+            this.thursday10451200DataGridViewTextBoxColumn,
+            this.thursday1200115DataGridViewTextBoxColumn,
+            this.thursday200315DataGridViewTextBoxColumn,
+            this.thursday315430DataGridViewTextBoxColumn,
+            this.friday800915DataGridViewTextBoxColumn,
+            this.friday9151030DataGridViewTextBoxColumn,
+            this.friday10451200DataGridViewTextBoxColumn,
+            this.friday1200115DataGridViewTextBoxColumn,
+            this.friday200315DataGridViewTextBoxColumn,
+            this.friday315430DataGridViewTextBoxColumn,
+            this.saturday800915DataGridViewTextBoxColumn,
+            this.saturday9151030DataGridViewTextBoxColumn,
+            this.saturday10451200DataGridViewTextBoxColumn,
+            this.saturday1200115DataGridViewTextBoxColumn,
+            this.saturday200315DataGridViewTextBoxColumn,
+            this.saturday315430DataGridViewTextBoxColumn,
             this.roomNoDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.finalRoutineBindingSource;
+            this.dataGridView1.DataSource = this.routineBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(29, 60);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(944, 393);
             this.dataGridView1.TabIndex = 1;
             // 
-            // classRoutineDataSet
+            // nWUClassRoutineDataSet
             // 
-            this.classRoutineDataSet.DataSetName = "ClassRoutineDataSet";
-            this.classRoutineDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.nWUClassRoutineDataSet.DataSetName = "NWUClassRoutineDataSet";
+            this.nWUClassRoutineDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // finalRoutineBindingSource
+            // routineBindingSource
             // 
-            this.finalRoutineBindingSource.DataMember = "FinalRoutine";
-            this.finalRoutineBindingSource.DataSource = this.classRoutineDataSet;
+            this.routineBindingSource.DataMember = "Routine";
+            this.routineBindingSource.DataSource = this.nWUClassRoutineDataSet;
             // 
-            // finalRoutineTableAdapter
+            // routineTableAdapter
             // 
-            this.finalRoutineTableAdapter.ClearBeforeFill = true;
+            this.routineTableAdapter.ClearBeforeFill = true;
             // 
             // rowNumberDataGridViewTextBoxColumn
             // 
             this.rowNumberDataGridViewTextBoxColumn.DataPropertyName = "RowNumber";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.rowNumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.rowNumberDataGridViewTextBoxColumn.HeaderText = "RowNumber";
             this.rowNumberDataGridViewTextBoxColumn.Name = "rowNumberDataGridViewTextBoxColumn";
             // 
             // termSectionDepartmentDataGridViewTextBoxColumn
             // 
-            this.termSectionDepartmentDataGridViewTextBoxColumn.DataPropertyName = "Term&Section&Department";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.termSectionDepartmentDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.termSectionDepartmentDataGridViewTextBoxColumn.HeaderText = "Term&Section&Department";
+            this.termSectionDepartmentDataGridViewTextBoxColumn.DataPropertyName = "[Term&Section&Department]";
+            this.termSectionDepartmentDataGridViewTextBoxColumn.HeaderText = "[Term&Section&Department]";
             this.termSectionDepartmentDataGridViewTextBoxColumn.Name = "termSectionDepartmentDataGridViewTextBoxColumn";
             // 
-            // dataGridViewTextBoxColumn1
+            // monday800915DataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "8:00-9:15";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewTextBoxColumn1.HeaderText = "8:00-9:15";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.monday800915DataGridViewTextBoxColumn.DataPropertyName = "[Monday 8:00-9:15]";
+            this.monday800915DataGridViewTextBoxColumn.HeaderText = "[Monday 8:00-9:15]";
+            this.monday800915DataGridViewTextBoxColumn.Name = "monday800915DataGridViewTextBoxColumn";
             // 
-            // dataGridViewTextBoxColumn2
+            // monday9151030DataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "9:15-10:30";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewTextBoxColumn2.HeaderText = "9:15-10:30";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.monday9151030DataGridViewTextBoxColumn.DataPropertyName = "[Monday 9:15-10:30]";
+            this.monday9151030DataGridViewTextBoxColumn.HeaderText = "[Monday 9:15-10:30]";
+            this.monday9151030DataGridViewTextBoxColumn.Name = "monday9151030DataGridViewTextBoxColumn";
             // 
-            // dataGridViewTextBoxColumn3
+            // monday10451200DataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "10:45-12:00";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridViewTextBoxColumn3.HeaderText = "10:45-12:00";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.monday10451200DataGridViewTextBoxColumn.DataPropertyName = "[Monday 10:45-12:00]";
+            this.monday10451200DataGridViewTextBoxColumn.HeaderText = "[Monday 10:45-12:00]";
+            this.monday10451200DataGridViewTextBoxColumn.Name = "monday10451200DataGridViewTextBoxColumn";
             // 
-            // dataGridViewTextBoxColumn4
+            // monday1200115DataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "12:00-1:15";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewTextBoxColumn4.HeaderText = "12:00-1:15";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.monday1200115DataGridViewTextBoxColumn.DataPropertyName = "[Monday 12:00-1:15]";
+            this.monday1200115DataGridViewTextBoxColumn.HeaderText = "[Monday 12:00-1:15]";
+            this.monday1200115DataGridViewTextBoxColumn.Name = "monday1200115DataGridViewTextBoxColumn";
             // 
-            // dataGridViewTextBoxColumn5
+            // monday200315DataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "2:00-3:15";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewTextBoxColumn5.HeaderText = "2:00-3:15";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.monday200315DataGridViewTextBoxColumn.DataPropertyName = "[Monday 2:00-3:15]";
+            this.monday200315DataGridViewTextBoxColumn.HeaderText = "[Monday 2:00-3:15]";
+            this.monday200315DataGridViewTextBoxColumn.Name = "monday200315DataGridViewTextBoxColumn";
             // 
-            // dataGridViewTextBoxColumn6
+            // monday315430DataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "3:15-4:30";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewTextBoxColumn6.HeaderText = "3:15-4:30";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.monday315430DataGridViewTextBoxColumn.DataPropertyName = "[Monday 3:15-4:30]";
+            this.monday315430DataGridViewTextBoxColumn.HeaderText = "[Monday 3:15-4:30]";
+            this.monday315430DataGridViewTextBoxColumn.Name = "monday315430DataGridViewTextBoxColumn";
+            // 
+            // tuesday800915DataGridViewTextBoxColumn
+            // 
+            this.tuesday800915DataGridViewTextBoxColumn.DataPropertyName = "[Tuesday 8:00-9:15]";
+            this.tuesday800915DataGridViewTextBoxColumn.HeaderText = "[Tuesday 8:00-9:15]";
+            this.tuesday800915DataGridViewTextBoxColumn.Name = "tuesday800915DataGridViewTextBoxColumn";
+            // 
+            // tuesday9151030DataGridViewTextBoxColumn
+            // 
+            this.tuesday9151030DataGridViewTextBoxColumn.DataPropertyName = "[Tuesday 9:15-10:30]";
+            this.tuesday9151030DataGridViewTextBoxColumn.HeaderText = "[Tuesday 9:15-10:30]";
+            this.tuesday9151030DataGridViewTextBoxColumn.Name = "tuesday9151030DataGridViewTextBoxColumn";
+            // 
+            // tuesday10451200DataGridViewTextBoxColumn
+            // 
+            this.tuesday10451200DataGridViewTextBoxColumn.DataPropertyName = "[Tuesday 10:45-12:00]";
+            this.tuesday10451200DataGridViewTextBoxColumn.HeaderText = "[Tuesday 10:45-12:00]";
+            this.tuesday10451200DataGridViewTextBoxColumn.Name = "tuesday10451200DataGridViewTextBoxColumn";
+            // 
+            // tuesday1200115DataGridViewTextBoxColumn
+            // 
+            this.tuesday1200115DataGridViewTextBoxColumn.DataPropertyName = "[Tuesday 12:00-1:15]";
+            this.tuesday1200115DataGridViewTextBoxColumn.HeaderText = "[Tuesday 12:00-1:15]";
+            this.tuesday1200115DataGridViewTextBoxColumn.Name = "tuesday1200115DataGridViewTextBoxColumn";
+            // 
+            // tuesday200315DataGridViewTextBoxColumn
+            // 
+            this.tuesday200315DataGridViewTextBoxColumn.DataPropertyName = "[Tuesday 2:00-3:15]";
+            this.tuesday200315DataGridViewTextBoxColumn.HeaderText = "[Tuesday 2:00-3:15]";
+            this.tuesday200315DataGridViewTextBoxColumn.Name = "tuesday200315DataGridViewTextBoxColumn";
+            // 
+            // tuesday315430DataGridViewTextBoxColumn
+            // 
+            this.tuesday315430DataGridViewTextBoxColumn.DataPropertyName = "[Tuesday 3:15-4:30]";
+            this.tuesday315430DataGridViewTextBoxColumn.HeaderText = "[Tuesday 3:15-4:30]";
+            this.tuesday315430DataGridViewTextBoxColumn.Name = "tuesday315430DataGridViewTextBoxColumn";
+            // 
+            // wednesday800915DataGridViewTextBoxColumn
+            // 
+            this.wednesday800915DataGridViewTextBoxColumn.DataPropertyName = "[Wednesday 8:00-9:15]";
+            this.wednesday800915DataGridViewTextBoxColumn.HeaderText = "[Wednesday 8:00-9:15]";
+            this.wednesday800915DataGridViewTextBoxColumn.Name = "wednesday800915DataGridViewTextBoxColumn";
+            // 
+            // wednesday9151030DataGridViewTextBoxColumn
+            // 
+            this.wednesday9151030DataGridViewTextBoxColumn.DataPropertyName = "[Wednesday 9:15-10:30]";
+            this.wednesday9151030DataGridViewTextBoxColumn.HeaderText = "[Wednesday 9:15-10:30]";
+            this.wednesday9151030DataGridViewTextBoxColumn.Name = "wednesday9151030DataGridViewTextBoxColumn";
+            // 
+            // wednesday10451200DataGridViewTextBoxColumn
+            // 
+            this.wednesday10451200DataGridViewTextBoxColumn.DataPropertyName = "[Wednesday 10:45-12:00]";
+            this.wednesday10451200DataGridViewTextBoxColumn.HeaderText = "[Wednesday 10:45-12:00]";
+            this.wednesday10451200DataGridViewTextBoxColumn.Name = "wednesday10451200DataGridViewTextBoxColumn";
+            // 
+            // wednesday1200115DataGridViewTextBoxColumn
+            // 
+            this.wednesday1200115DataGridViewTextBoxColumn.DataPropertyName = "[Wednesday 12:00-1:15]";
+            this.wednesday1200115DataGridViewTextBoxColumn.HeaderText = "[Wednesday 12:00-1:15]";
+            this.wednesday1200115DataGridViewTextBoxColumn.Name = "wednesday1200115DataGridViewTextBoxColumn";
+            // 
+            // wednesday200315DataGridViewTextBoxColumn
+            // 
+            this.wednesday200315DataGridViewTextBoxColumn.DataPropertyName = "[Wednesday 2:00-3:15]";
+            this.wednesday200315DataGridViewTextBoxColumn.HeaderText = "[Wednesday 2:00-3:15]";
+            this.wednesday200315DataGridViewTextBoxColumn.Name = "wednesday200315DataGridViewTextBoxColumn";
+            // 
+            // wednesday315430DataGridViewTextBoxColumn
+            // 
+            this.wednesday315430DataGridViewTextBoxColumn.DataPropertyName = "[Wednesday 3:15-4:30]";
+            this.wednesday315430DataGridViewTextBoxColumn.HeaderText = "[Wednesday 3:15-4:30]";
+            this.wednesday315430DataGridViewTextBoxColumn.Name = "wednesday315430DataGridViewTextBoxColumn";
+            // 
+            // thursday800915DataGridViewTextBoxColumn
+            // 
+            this.thursday800915DataGridViewTextBoxColumn.DataPropertyName = "[Thursday 8:00-9:15]";
+            this.thursday800915DataGridViewTextBoxColumn.HeaderText = "[Thursday 8:00-9:15]";
+            this.thursday800915DataGridViewTextBoxColumn.Name = "thursday800915DataGridViewTextBoxColumn";
+            // 
+            // thursday9151030DataGridViewTextBoxColumn
+            // 
+            this.thursday9151030DataGridViewTextBoxColumn.DataPropertyName = "[Thursday 9:15-10:30]";
+            this.thursday9151030DataGridViewTextBoxColumn.HeaderText = "[Thursday 9:15-10:30]";
+            this.thursday9151030DataGridViewTextBoxColumn.Name = "thursday9151030DataGridViewTextBoxColumn";
+            // 
+            // thursday10451200DataGridViewTextBoxColumn
+            // 
+            this.thursday10451200DataGridViewTextBoxColumn.DataPropertyName = "[Thursday 10:45-12:00]";
+            this.thursday10451200DataGridViewTextBoxColumn.HeaderText = "[Thursday 10:45-12:00]";
+            this.thursday10451200DataGridViewTextBoxColumn.Name = "thursday10451200DataGridViewTextBoxColumn";
+            // 
+            // thursday1200115DataGridViewTextBoxColumn
+            // 
+            this.thursday1200115DataGridViewTextBoxColumn.DataPropertyName = "[Thursday 12:00-1:15]";
+            this.thursday1200115DataGridViewTextBoxColumn.HeaderText = "[Thursday 12:00-1:15]";
+            this.thursday1200115DataGridViewTextBoxColumn.Name = "thursday1200115DataGridViewTextBoxColumn";
+            // 
+            // thursday200315DataGridViewTextBoxColumn
+            // 
+            this.thursday200315DataGridViewTextBoxColumn.DataPropertyName = "[Thursday 2:00-3:15]";
+            this.thursday200315DataGridViewTextBoxColumn.HeaderText = "[Thursday 2:00-3:15]";
+            this.thursday200315DataGridViewTextBoxColumn.Name = "thursday200315DataGridViewTextBoxColumn";
+            // 
+            // thursday315430DataGridViewTextBoxColumn
+            // 
+            this.thursday315430DataGridViewTextBoxColumn.DataPropertyName = "[Thursday 3:15-4:30]";
+            this.thursday315430DataGridViewTextBoxColumn.HeaderText = "[Thursday 3:15-4:30]";
+            this.thursday315430DataGridViewTextBoxColumn.Name = "thursday315430DataGridViewTextBoxColumn";
+            // 
+            // friday800915DataGridViewTextBoxColumn
+            // 
+            this.friday800915DataGridViewTextBoxColumn.DataPropertyName = "[Friday 8:00-9:15]";
+            this.friday800915DataGridViewTextBoxColumn.HeaderText = "[Friday 8:00-9:15]";
+            this.friday800915DataGridViewTextBoxColumn.Name = "friday800915DataGridViewTextBoxColumn";
+            // 
+            // friday9151030DataGridViewTextBoxColumn
+            // 
+            this.friday9151030DataGridViewTextBoxColumn.DataPropertyName = "[Friday 9:15-10:30]";
+            this.friday9151030DataGridViewTextBoxColumn.HeaderText = "[Friday 9:15-10:30]";
+            this.friday9151030DataGridViewTextBoxColumn.Name = "friday9151030DataGridViewTextBoxColumn";
+            // 
+            // friday10451200DataGridViewTextBoxColumn
+            // 
+            this.friday10451200DataGridViewTextBoxColumn.DataPropertyName = "[Friday 10:45-12:00]";
+            this.friday10451200DataGridViewTextBoxColumn.HeaderText = "[Friday 10:45-12:00]";
+            this.friday10451200DataGridViewTextBoxColumn.Name = "friday10451200DataGridViewTextBoxColumn";
+            // 
+            // friday1200115DataGridViewTextBoxColumn
+            // 
+            this.friday1200115DataGridViewTextBoxColumn.DataPropertyName = "[Friday 12:00-1:15]";
+            this.friday1200115DataGridViewTextBoxColumn.HeaderText = "[Friday 12:00-1:15]";
+            this.friday1200115DataGridViewTextBoxColumn.Name = "friday1200115DataGridViewTextBoxColumn";
+            // 
+            // friday200315DataGridViewTextBoxColumn
+            // 
+            this.friday200315DataGridViewTextBoxColumn.DataPropertyName = "[Friday 2:00-3:15]";
+            this.friday200315DataGridViewTextBoxColumn.HeaderText = "[Friday 2:00-3:15]";
+            this.friday200315DataGridViewTextBoxColumn.Name = "friday200315DataGridViewTextBoxColumn";
+            // 
+            // friday315430DataGridViewTextBoxColumn
+            // 
+            this.friday315430DataGridViewTextBoxColumn.DataPropertyName = "[Friday 3:15-4:30]";
+            this.friday315430DataGridViewTextBoxColumn.HeaderText = "[Friday 3:15-4:30]";
+            this.friday315430DataGridViewTextBoxColumn.Name = "friday315430DataGridViewTextBoxColumn";
+            // 
+            // saturday800915DataGridViewTextBoxColumn
+            // 
+            this.saturday800915DataGridViewTextBoxColumn.DataPropertyName = "[Saturday 8:00-9:15]";
+            this.saturday800915DataGridViewTextBoxColumn.HeaderText = "[Saturday 8:00-9:15]";
+            this.saturday800915DataGridViewTextBoxColumn.Name = "saturday800915DataGridViewTextBoxColumn";
+            // 
+            // saturday9151030DataGridViewTextBoxColumn
+            // 
+            this.saturday9151030DataGridViewTextBoxColumn.DataPropertyName = "[Saturday 9:15-10:30]";
+            this.saturday9151030DataGridViewTextBoxColumn.HeaderText = "[Saturday 9:15-10:30]";
+            this.saturday9151030DataGridViewTextBoxColumn.Name = "saturday9151030DataGridViewTextBoxColumn";
+            // 
+            // saturday10451200DataGridViewTextBoxColumn
+            // 
+            this.saturday10451200DataGridViewTextBoxColumn.DataPropertyName = "[Saturday 10:45-12:00]";
+            this.saturday10451200DataGridViewTextBoxColumn.HeaderText = "[Saturday 10:45-12:00]";
+            this.saturday10451200DataGridViewTextBoxColumn.Name = "saturday10451200DataGridViewTextBoxColumn";
+            // 
+            // saturday1200115DataGridViewTextBoxColumn
+            // 
+            this.saturday1200115DataGridViewTextBoxColumn.DataPropertyName = "[Saturday 12:00-1:15]";
+            this.saturday1200115DataGridViewTextBoxColumn.HeaderText = "[Saturday 12:00-1:15]";
+            this.saturday1200115DataGridViewTextBoxColumn.Name = "saturday1200115DataGridViewTextBoxColumn";
+            // 
+            // saturday200315DataGridViewTextBoxColumn
+            // 
+            this.saturday200315DataGridViewTextBoxColumn.DataPropertyName = "[Saturday 2:00-3:15]";
+            this.saturday200315DataGridViewTextBoxColumn.HeaderText = "[Saturday 2:00-3:15]";
+            this.saturday200315DataGridViewTextBoxColumn.Name = "saturday200315DataGridViewTextBoxColumn";
+            // 
+            // saturday315430DataGridViewTextBoxColumn
+            // 
+            this.saturday315430DataGridViewTextBoxColumn.DataPropertyName = "[Saturday 3:15-4:30]";
+            this.saturday315430DataGridViewTextBoxColumn.HeaderText = "[Saturday 3:15-4:30]";
+            this.saturday315430DataGridViewTextBoxColumn.Name = "saturday315430DataGridViewTextBoxColumn";
             // 
             // roomNoDataGridViewTextBoxColumn
             // 
             this.roomNoDataGridViewTextBoxColumn.DataPropertyName = "RoomNo";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.roomNoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
             this.roomNoDataGridViewTextBoxColumn.HeaderText = "RoomNo";
             this.roomNoDataGridViewTextBoxColumn.Name = "roomNoDataGridViewTextBoxColumn";
             // 
@@ -214,8 +421,8 @@
             this.Text = "Routine";
             this.Load += new System.EventHandler(this.Routine_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classRoutineDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.finalRoutineBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nWUClassRoutineDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.routineBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -226,17 +433,47 @@
         private System.Windows.Forms.Button Btn_Generate;
         private System.Windows.Forms.Button Btn_MakePdf;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private ClassRoutineDataSet classRoutineDataSet;
-        private System.Windows.Forms.BindingSource finalRoutineBindingSource;
-        private ClassRoutineDataSetTableAdapters.FinalRoutineTableAdapter finalRoutineTableAdapter;
+        private NWUClassRoutineDataSet nWUClassRoutineDataSet;
+        private System.Windows.Forms.BindingSource routineBindingSource;
+        private NWUClassRoutineDataSetTableAdapters.RoutineTableAdapter routineTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn rowNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn termSectionDepartmentDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn monday800915DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn monday9151030DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn monday10451200DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn monday1200115DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn monday200315DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn monday315430DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tuesday800915DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tuesday9151030DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tuesday10451200DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tuesday1200115DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tuesday200315DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tuesday315430DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wednesday800915DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wednesday9151030DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wednesday10451200DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wednesday1200115DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wednesday200315DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wednesday315430DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn thursday800915DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn thursday9151030DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn thursday10451200DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn thursday1200115DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn thursday200315DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn thursday315430DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn friday800915DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn friday9151030DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn friday10451200DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn friday1200115DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn friday200315DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn friday315430DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn saturday800915DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn saturday9151030DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn saturday10451200DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn saturday1200115DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn saturday200315DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn saturday315430DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn roomNoDataGridViewTextBoxColumn;
     }
 }

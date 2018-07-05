@@ -19,12 +19,19 @@ namespace NWUClassRoutine
             InitializeComponent();
         }
         //SqlConnection conn = new SqlConnection(@"Data Source=MIRAZ-PC\SQLEXPRESS;Initial Catalog=ClassRoutine;Integrated Security=True");
-        SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["NWUClassRoutine.Properties.Settings.ClassRoutineConnectionString"].ConnectionString);
+        SqlConnection conn = new SqlConnection(global::NWUClassRoutine.Properties.Settings.Default.NWUClassRoutineConnectionString1);
         string temp, temp1;
         private void Btn_Signup_Click(object sender, EventArgs e)
         {
             var form1 = new Form1();
             form1.Show();
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'nWUClassRoutineDataSet.LoginInfo' table. You can move, or remove it, as needed.
+            
+
         }
 
         private void Btn_Login_Click(object sender, EventArgs e)

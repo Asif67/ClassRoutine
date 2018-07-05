@@ -13,7 +13,7 @@ namespace NWUClassRoutine
 {
     public partial class Routine : Form
     {
-        //SqlConnection conn = new SqlConnection(@"Data Source=MIRAZ-PC\SQLEXPRESS;Initial Catalog=ClassRoutine;Integrated Security=True");
+        //SqlConnection conn = new SqlConnection(global::NWUClassRoutine.Properties.Settings.Default.NWUClassRoutineConnectionString1);
         SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["NWUClassRoutine.Properties.Settings.ClassRoutineConnectionString"].ConnectionString);
         string[,] RoutineArray = new string[121, 11];
         string query,CourseCode="CSE-2201",tempCourseCredit;
@@ -34,8 +34,8 @@ namespace NWUClassRoutine
         }
         private void Routine_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'classRoutineDataSet.FinalRoutine' table. You can move, or remove it, as needed.
-            this.finalRoutineTableAdapter.Fill(this.classRoutineDataSet.FinalRoutine);
+            // TODO: This line of code loads data into the 'nWUClassRoutineDataSet.Routine' table. You can move, or remove it, as needed.
+            this.routineTableAdapter.Fill(this.nWUClassRoutineDataSet.Routine);
             InitializeComponent();
             dataGridView1.ColumnHeadersVisible = false;
             dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -49,7 +49,7 @@ namespace NWUClassRoutine
         {
             fillTableWithNoSubject();
             InsertSingleCourseIntoPosition();
-            conn = new SqlConnection(@"Data Source=MIRAZ-PC\SQLEXPRESS;Initial Catalog=ClassRoutine;Integrated Security=True");
+            conn = new SqlConnection(global::NWUClassRoutine.Properties.Settings.Default.NWUClassRoutineConnectionString1);
             query = "DELETE FinalRoutine where [Term&Section&Department] != ' year'"; // Problem
             Sqlcmd = new SqlCommand(query, conn);
             conn.Open();
@@ -57,7 +57,8 @@ namespace NWUClassRoutine
             conn.Close();
             for (int i = 1; i < 121; i++)
             {
-                    query = "INSERT INTO FinalRoutine([Term&Section&Department],[8:00-9:15],[9:15-10:30],[10:45-12:00],[12:00-1:15],[2:00-3:15],[3:15-4:30],RowNumber,roomno) values( '" + year(i) + "','" + RoutineArray[i, 1] + "','" + RoutineArray[i, 2] + "','" + RoutineArray[i, 3] + "','" + RoutineArray[i, 4] + "','" + RoutineArray[i, 5] + "','" + RoutineArray[i, 6] + "','" + i + "','" + roomno[i] + "')";
+                //[8:00-9:15],[9:15-10:30],[10:45-12:00],[12:00-1:15],[2:00-3:15],[3:15-4:30],
+                query = "INSERT INTO FinalRoutine([Term&Section&Department],[Monday 8:00-9:15] ,[Monday 9:15-10:30],[Monday 10:45-12:00],[Monday 12:00-1:15],[Monday 2:00-3:15],[Monday 3:15-4:30],[Monday 8:00-9:15],[Monday 9:15-10:30],[Monday 10:45-12:00],[Monday 12:00-1:15],[Monday 2:00-3:15],[Monday3:15-4:30],[Tuesday 8:00-9:15],[Tuesday 9:15-10:30],[Tuesday 10:45-12:00],[Tuesday 12:00-1:15],[Tuesday 2:00-3:15],[Tuesday 3:15-4:30],[Tuesday 8:00-9:15],[Tuesday 9:15-10:30],[Tuesday 10:45-12:00],[Tuesday 12:00-1:15],[Tuesday 2:00-3:15],[Tuesday 3:15-4:30],[Tuesday 8:00-9:15],[Tuesday 9:15-10:30],[Tuesday 10:45-12:00],[Tuesday 12:00-1:15],[Tuesday 2:00-3:15],[Tuesday 3:15-4:30],[Wednesday 8:00-9:15],[Wednesday 9:15-10:30],[Wednesday 10:45-12:00],[Wednesday 12:00-1:15],[Wednesday 2:00-3:15],[Wednesday 3:15-4:30],[Thursday 8:00-9:15],[Thursday 9:15-10:30],[Thursday 10:45-12:00],[Thursday 12:00-1:15],[Thursday 2:00-3:15],[Thursday 3:15-4:30],[Friday 8:00-9:15],[Friday 9:15-10:30],[Friday 10:45-12:00],[Friday 12:00-1:15],[Friday 2:00-3:15],[Friday 3:15-4:30],[Saturday 8:00-9:15],[Saturday 9:15-10:30],[Saturday 10:45-12:00],[Saturday 12:00-1:15],[Saturday 2:00-3:15],[Saturday 3:15-4:30],RowNumber,Roomo) values( '" + year(i) + "','" + RoutineArray[i, 1] + "','" + RoutineArray[i, 2] + "','" + RoutineArray[i, 3] + "','" + RoutineArray[i, 4] + "','" + RoutineArray[i, 5] + "','" + RoutineArray[i, 6] + "','" + RoutineArray[i, 7] + "','" + RoutineArray[i, 8] + "','" + RoutineArray[i, 9] + "','" + RoutineArray[i, 10] + "','" + RoutineArray[i, 11] + "','" + RoutineArray[i, 12] + "','" + RoutineArray[i, 13] + "','" + RoutineArray[i, 14] + "','" + RoutineArray[i, 15] + "','" + RoutineArray[i, 16] + "','" + RoutineArray[i, 17] + "','" + RoutineArray[i, 18] + "','" + RoutineArray[i, 19] + "','" + RoutineArray[i, 20] + "','" + RoutineArray[i, 21] + "','" + RoutineArray[i, 22] + "','" + RoutineArray[i, 23] + "','" + RoutineArray[i, 24] + "','" + RoutineArray[i, 25] + "','" + RoutineArray[i, 26] + "','" + RoutineArray[i, 27] + "','" + RoutineArray[i, 28] + "','" + RoutineArray[i, 29] + "','" + RoutineArray[i, 30] + "','" + RoutineArray[i, 31] + "','" + RoutineArray[i, 32] + "','" + RoutineArray[i, 33] + "','" + RoutineArray[i, 34] + "','" + RoutineArray[i, 35] + "','" + RoutineArray[i, 36] + "','" + i + "','" + roomno[i] + "')";
                     Sqlcmd = new SqlCommand(query, conn);
                     conn.Open();
                     Sqlcmd.ExecuteNonQuery();
@@ -96,9 +97,9 @@ namespace NWUClassRoutine
         }
         public void fillTableWithNoSubject()
         {
-            for (int i = 0; i < 121; i++)
+            for (int i = 0; i < 25; i++)
             {
-                for (int j = 0; j < 10; j++)
+                for (int j = 1; j < 40; j++)
                 {
                     RoutineArray[i, j] = "-";
                 }
@@ -109,7 +110,7 @@ namespace NWUClassRoutine
         {
             try
             {
-                conn = new SqlConnection(@"Data Source=MIRAZ-PC\SQLEXPRESS;Initial Catalog=ClassRoutine;Integrated Security=True");
+                conn = new SqlConnection(global::NWUClassRoutine.Properties.Settings.Default.NWUClassRoutineConnectionString1);
                 query = "SELECT * from FinalRoutine";
                 Sqlcmd = new SqlCommand(query, conn);
                 conn.Open();
@@ -195,7 +196,7 @@ namespace NWUClassRoutine
             {
 
                 string query, id, selection = "NM";
-                conn = new SqlConnection(@"Data Source=MIRAZ-PC\SQLEXPRESS;Initial Catalog=ClassRoutine;Integrated Security=True");
+                conn = new SqlConnection(global::NWUClassRoutine.Properties.Settings.Default.NWUClassRoutineConnectionString1);
                 conn.Open();
                 query = "select PreferredTimeSlot1 from RoutineInfo where TeacherInitials = 'MRI'";
                 id = new SqlCommand(query, conn).ExecuteScalar().ToString();
@@ -245,7 +246,7 @@ namespace NWUClassRoutine
         {
             try
             {
-                conn = new SqlConnection(@"Data Source=MIRAZ-PC\SQLEXPRESS;Initial Catalog=ClassRoutine;Integrated Security=True");
+                conn = new SqlConnection(global::NWUClassRoutine.Properties.Settings.Default.NWUClassRoutineConnectionString1);
                 conn.Open();
                 query = "Select CourseCredit from RoutineInfo where TeacherInitials = 'SY'";
                 tempCourseCredit = new SqlCommand(query, conn).ExecuteScalar().ToString();

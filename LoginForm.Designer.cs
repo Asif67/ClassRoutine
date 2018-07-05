@@ -99,7 +99,6 @@
             this.Btn_Signup.TabIndex = 2;
             this.Btn_Signup.Text = "Sign Up";
             this.Btn_Signup.UseVisualStyleBackColor = true;
-            this.Btn_Signup.Visible = false;
             this.Btn_Signup.Click += new System.EventHandler(this.Btn_Signup_Click);
             // 
             // LoginForm
@@ -113,6 +112,7 @@
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.Text = "Login Form";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

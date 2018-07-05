@@ -16,12 +16,13 @@ namespace NWUClassRoutine
         {
             InitializeComponent();
         }
-       
+        string fstpefd,sndpefd,trdpefd,fstpeft,sndpeft,trdpeft;
         private void AddCourseForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'nWUClassRoutineDataSet.RoutineInfo' table. You can move, or remove it, as needed.
+            this.routineInfoTableAdapter.Fill(this.nWUClassRoutineDataSet.RoutineInfo);
             // TODO: This line of code loads data into the 'classRoutineDataSet.RoutineInfo' table. You can move, or remove it, as needed.
-            this.routineInfoTableAdapter.Fill(this.classRoutineDataSet.RoutineInfo);
-            routineInfoBindingSource.DataSource = this.classRoutineDataSet.RoutineInfo;
+            routineInfoBindingSource.DataSource = this.nWUClassRoutineDataSet.RoutineInfo;
             panel1.Enabled = false;
             panel2.Enabled = false;
             panel2.Visible = false;
@@ -33,7 +34,7 @@ namespace NWUClassRoutine
             try
             {
                 panel1.Enabled = true;
-                this.classRoutineDataSet.RoutineInfo.AddRoutineInfoRow(this.classRoutineDataSet.RoutineInfo.NewRoutineInfoRow());
+                this.nWUClassRoutineDataSet.RoutineInfo.AddRoutineInfoRow(this.nWUClassRoutineDataSet.RoutineInfo.NewRoutineInfoRow());
                 routineInfoBindingSource.MoveLast();
             }
             catch (Exception ex)
@@ -42,13 +43,22 @@ namespace NWUClassRoutine
                 routineInfoBindingSource.ResetBindings(false);
             }
         }
-
+        
         private void Btn_Save_Click(object sender, EventArgs e)
         {
             try
             {
+                fstpefd = textBox13.Text.ToString();
+                fstpeft = textBox10.Text.ToString();
+                sndpefd = textBox14.Text.ToString();
+                sndpeft = textBox11.Text.ToString();
+                trdpefd = textBox15.Text.ToString();
+                trdpeft = textBox12.Text.ToString();
+                textBox5.Text = fstpefd + " " + "[" + fstpeft + "]";
+                textBox6.Text = sndpefd + " " + "[" + sndpeft + "]";
+                textBox7.Text = trdpefd + " " + "[" + trdpeft + "]";
                 routineInfoBindingSource.EndEdit();
-                routineInfoTableAdapter.Update(this.classRoutineDataSet.RoutineInfo);
+                routineInfoTableAdapter.Update(this.nWUClassRoutineDataSet.RoutineInfo);
                 panel1.Enabled = false;
                 panel2.Enabled = false;
                 panel2.Visible = false;

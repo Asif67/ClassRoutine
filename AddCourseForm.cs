@@ -21,7 +21,6 @@ namespace NWUClassRoutine
         {
             // TODO: This line of code loads data into the 'nWUClassRoutineDataSet.RoutineInfo' table. You can move, or remove it, as needed.
             this.routineInfoTableAdapter.Fill(this.nWUClassRoutineDataSet.RoutineInfo);
-            // TODO: This line of code loads data into the 'classRoutineDataSet.RoutineInfo' table. You can move, or remove it, as needed.
             routineInfoBindingSource.DataSource = this.nWUClassRoutineDataSet.RoutineInfo;
             panel1.Enabled = false;
             panel2.Enabled = false;
@@ -54,9 +53,9 @@ namespace NWUClassRoutine
                 sndpeft = textBox11.Text.ToString();
                 trdpefd = textBox15.Text.ToString();
                 trdpeft = textBox12.Text.ToString();
-                textBox5.Text = fstpefd + " " + "[" + fstpeft + "]";
-                textBox6.Text = sndpefd + " " + "[" + sndpeft + "]";
-                textBox7.Text = trdpefd + " " + "[" + trdpeft + "]";
+                textBox5.Text = "[[" + fstpefd + " " +  fstpeft + "]]]";
+                textBox6.Text = "[[" + sndpefd + " " +  sndpeft + "]]]";
+                textBox7.Text = "[[" + trdpefd + " " +  trdpeft + "]]]";
                 routineInfoBindingSource.EndEdit();
                 routineInfoTableAdapter.Update(this.nWUClassRoutineDataSet.RoutineInfo);
                 panel1.Enabled = false;

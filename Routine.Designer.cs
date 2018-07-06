@@ -33,9 +33,10 @@
             this.Btn_Generate = new System.Windows.Forms.Button();
             this.Btn_MakePdf = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.nWUClassRoutineDataSet = new NWUClassRoutine.NWUClassRoutineDataSet();
             this.routineBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nWUClassRoutineDataSet = new NWUClassRoutine.NWUClassRoutineDataSet();
             this.routineTableAdapter = new NWUClassRoutine.NWUClassRoutineDataSetTableAdapters.RoutineTableAdapter();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.rowNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.termSectionDepartmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.monday800915DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,8 +77,9 @@
             this.saturday315430DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roomNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nWUClassRoutineDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.routineBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nWUClassRoutineDataSet)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Btn_ViewRoutine
@@ -154,24 +156,35 @@
             this.saturday315430DataGridViewTextBoxColumn,
             this.roomNoDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.routineBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(29, 60);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(944, 393);
+            this.dataGridView1.Size = new System.Drawing.Size(944, 377);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // nWUClassRoutineDataSet
-            // 
-            this.nWUClassRoutineDataSet.DataSetName = "NWUClassRoutineDataSet";
-            this.nWUClassRoutineDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // routineBindingSource
             // 
             this.routineBindingSource.DataMember = "Routine";
             this.routineBindingSource.DataSource = this.nWUClassRoutineDataSet;
             // 
+            // nWUClassRoutineDataSet
+            // 
+            this.nWUClassRoutineDataSet.DataSetName = "NWUClassRoutineDataSet";
+            this.nWUClassRoutineDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // routineTableAdapter
             // 
             this.routineTableAdapter.ClearBeforeFill = true;
+            // 
+            // panel1
+            // 
+            this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Location = new System.Drawing.Point(29, 60);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(944, 377);
+            this.panel1.TabIndex = 2;
             // 
             // rowNumberDataGridViewTextBoxColumn
             // 
@@ -411,19 +424,21 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(999, 465);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.Btn_MakePdf);
             this.Controls.Add(this.Btn_Generate);
             this.Controls.Add(this.Btn_ViewRoutine);
-            this.MaximizeBox = false;
             this.Name = "Routine";
             this.Text = "Routine";
             this.Load += new System.EventHandler(this.Routine_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nWUClassRoutineDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.routineBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nWUClassRoutineDataSet)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -436,6 +451,7 @@
         private NWUClassRoutineDataSet nWUClassRoutineDataSet;
         private System.Windows.Forms.BindingSource routineBindingSource;
         private NWUClassRoutineDataSetTableAdapters.RoutineTableAdapter routineTableAdapter;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn rowNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn termSectionDepartmentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn monday800915DataGridViewTextBoxColumn;

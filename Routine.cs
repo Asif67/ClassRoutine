@@ -13,11 +13,11 @@ namespace NWUClassRoutine
 {
     public partial class Routine : Form
     {
-        //SqlConnection conn = new SqlConnection(global::NWUClassRoutine.Properties.Settings.Default.NWUClassRoutineConnectionString1);
-        SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["NWUClassRoutine.Properties.Settings.ClassRoutineConnectionString"].ConnectionString);
-        string[,] RoutineArray = new string[121, 11];
-        string query,CourseCode="CSE-2201",tempCourseCredit;
-        int[] roomno =new int[121] {401,402,403,404,501,502,503,504,601,602,603,604,701,702,703,704,801,802,803,804,901,902,903,904,401,402,403,404,501,502,503,504,601,602,603,604,701,702,703,704,801,802,803,804,901,902,903,904,401,402,403,404,501,502,503,504,601,602,603,604,701,702,703,704,801,802,803,804,901,902,903,904,401,402,403,404,501,502,503,504,601,602,603,604,701,702,703,704,801,802,803,804,901,902,903,904,401,402,403,404,501,502,503,504,601,602,603,604,701,702,703,704,801,802,803,804,901,902,903,904,401};
+        SqlConnection conn = new SqlConnection(global::NWUClassRoutine.Properties.Settings.Default.NWUClassRoutineConnectionString1);
+        //SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["NWUClassRoutine.Properties.Settings.ClassRoutineConnectionString"].ConnectionString);
+        string[,] RoutineArray = new string[25, 41];
+        string query,CourseCode="CSE-1201",tempCourseCredit;
+        int[] roomno =new int[25] {401,402,403,404,501,502,503,504,601,602,603,604,701,702,703,704,801,802,803,804,901,902,903,904,401};
         int[] LabRoomNo = new int[3] { 302, 303, 304 };
         int Column;
         int j = 0;
@@ -39,6 +39,7 @@ namespace NWUClassRoutine
             InitializeComponent();
             dataGridView1.ColumnHeadersVisible = false;
             dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            panel1.Enabled = false;
         }
 
         private void Btn_ViewRoutine_Click(object sender, EventArgs e)
@@ -50,16 +51,16 @@ namespace NWUClassRoutine
             fillTableWithNoSubject();
             InsertSingleCourseIntoPosition();
             conn = new SqlConnection(global::NWUClassRoutine.Properties.Settings.Default.NWUClassRoutineConnectionString1);
-            query = "DELETE FinalRoutine where [Term&Section&Department] != ' year'"; // Problem
-            Sqlcmd = new SqlCommand(query, conn);
-            conn.Open();
-            Sqlcmd.ExecuteNonQuery();
+            //query = "DELETE Routine where [Term&Section&Department] != ' year'"; // Problem
+           /// Sqlcmd = new SqlCommand(query, conn);
+           // conn.Open();
+            //Sqlcmd.ExecuteNonQuery();
             conn.Close();
-            for (int i = 1; i < 121; i++)
+            for (int i = 0; i < 25; i++)
             {
-                //[8:00-9:15],[9:15-10:30],[10:45-12:00],[12:00-1:15],[2:00-3:15],[3:15-4:30],
-                query = "INSERT INTO FinalRoutine([Term&Section&Department],[Monday 8:00-9:15] ,[Monday 9:15-10:30],[Monday 10:45-12:00],[Monday 12:00-1:15],[Monday 2:00-3:15],[Monday 3:15-4:30],[Monday 8:00-9:15],[Monday 9:15-10:30],[Monday 10:45-12:00],[Monday 12:00-1:15],[Monday 2:00-3:15],[Monday3:15-4:30],[Tuesday 8:00-9:15],[Tuesday 9:15-10:30],[Tuesday 10:45-12:00],[Tuesday 12:00-1:15],[Tuesday 2:00-3:15],[Tuesday 3:15-4:30],[Tuesday 8:00-9:15],[Tuesday 9:15-10:30],[Tuesday 10:45-12:00],[Tuesday 12:00-1:15],[Tuesday 2:00-3:15],[Tuesday 3:15-4:30],[Tuesday 8:00-9:15],[Tuesday 9:15-10:30],[Tuesday 10:45-12:00],[Tuesday 12:00-1:15],[Tuesday 2:00-3:15],[Tuesday 3:15-4:30],[Wednesday 8:00-9:15],[Wednesday 9:15-10:30],[Wednesday 10:45-12:00],[Wednesday 12:00-1:15],[Wednesday 2:00-3:15],[Wednesday 3:15-4:30],[Thursday 8:00-9:15],[Thursday 9:15-10:30],[Thursday 10:45-12:00],[Thursday 12:00-1:15],[Thursday 2:00-3:15],[Thursday 3:15-4:30],[Friday 8:00-9:15],[Friday 9:15-10:30],[Friday 10:45-12:00],[Friday 12:00-1:15],[Friday 2:00-3:15],[Friday 3:15-4:30],[Saturday 8:00-9:15],[Saturday 9:15-10:30],[Saturday 10:45-12:00],[Saturday 12:00-1:15],[Saturday 2:00-3:15],[Saturday 3:15-4:30],RowNumber,Roomo) values( '" + year(i) + "','" + RoutineArray[i, 1] + "','" + RoutineArray[i, 2] + "','" + RoutineArray[i, 3] + "','" + RoutineArray[i, 4] + "','" + RoutineArray[i, 5] + "','" + RoutineArray[i, 6] + "','" + RoutineArray[i, 7] + "','" + RoutineArray[i, 8] + "','" + RoutineArray[i, 9] + "','" + RoutineArray[i, 10] + "','" + RoutineArray[i, 11] + "','" + RoutineArray[i, 12] + "','" + RoutineArray[i, 13] + "','" + RoutineArray[i, 14] + "','" + RoutineArray[i, 15] + "','" + RoutineArray[i, 16] + "','" + RoutineArray[i, 17] + "','" + RoutineArray[i, 18] + "','" + RoutineArray[i, 19] + "','" + RoutineArray[i, 20] + "','" + RoutineArray[i, 21] + "','" + RoutineArray[i, 22] + "','" + RoutineArray[i, 23] + "','" + RoutineArray[i, 24] + "','" + RoutineArray[i, 25] + "','" + RoutineArray[i, 26] + "','" + RoutineArray[i, 27] + "','" + RoutineArray[i, 28] + "','" + RoutineArray[i, 29] + "','" + RoutineArray[i, 30] + "','" + RoutineArray[i, 31] + "','" + RoutineArray[i, 32] + "','" + RoutineArray[i, 33] + "','" + RoutineArray[i, 34] + "','" + RoutineArray[i, 35] + "','" + RoutineArray[i, 36] + "','" + i + "','" + roomno[i] + "')";
-                    Sqlcmd = new SqlCommand(query, conn);
+                 query = "INSERT INTO Routine([RowNumber],[[Term&Section&Department]]],[[Monday 8:00-9:15]]] ,[[Monday 9:15-10:30]]],[[Monday 10:45-12:00]]],[[Monday 12:00-1:15]]],[[Monday 2:00-3:15]]],[[Monday 3:15-4:30]]],[[Tuesday 8:00-9:15]]],[[Tuesday 9:15-10:30]]],[[Tuesday 10:45-12:00]]],[[Tuesday 12:00-1:15]]],[[Tuesday 2:00-3:15]]],[[Tuesday 3:15-4:30]]],[[Wednesday 8:00-9:15]]],[[Wednesday 9:15-10:30]]],[[Wednesday 10:45-12:00]]],[[Wednesday 12:00-1:15]]],[[Wednesday 2:00-3:15]]],[[Wednesday 3:15-4:30]]],[[Thursday 8:00-9:15]]],[[Thursday 9:15-10:30]]],[[Thursday 10:45-12:00]]],[[Thursday 12:00-1:15]]],[[Thursday 2:00-3:15]]],[[Thursday 3:15-4:30]]],[[Friday 8:00-9:15]]],[[Friday 9:15-10:30]]],[[Friday 10:45-12:00]]],[[Friday 12:00-1:15]]],[[Friday 2:00-3:15]]],[[Friday 3:15-4:30]]],[[Saturday 8:00-9:15]]],[[Saturday 9:15-10:30]]],[[Saturday 10:45-12:00]]],[[Saturday 12:00-1:15]]],[[Saturday 2:00-3:15]]],[[Saturday 3:15-4:30]]],[RoomNo]) values( '" + i +"','"+ year(i) + "','" + RoutineArray[i, 1] + "','" + RoutineArray[i, 2] + "','" + RoutineArray[i, 3] + "','" + RoutineArray[i, 4] + "','" + RoutineArray[i, 5] + "','" + RoutineArray[i, 6] + "','" + RoutineArray[i, 7] + "','" + RoutineArray[i, 8] + "','" + RoutineArray[i, 9] + "','" + RoutineArray[i, 10] + "','" + RoutineArray[i, 11] + "','" + RoutineArray[i, 12] + "','" + RoutineArray[i, 13] + "','" + RoutineArray[i, 14] + "','" + RoutineArray[i, 15] + "','" + RoutineArray[i, 16] + "','" + RoutineArray[i, 17] + "','" + RoutineArray[i, 18] + "','" + RoutineArray[i, 19] + "','" + RoutineArray[i, 20] + "','" + RoutineArray[i, 21] + "','" + RoutineArray[i, 22] + "','" + RoutineArray[i, 23] + "','" + RoutineArray[i, 24] + "','" + RoutineArray[i, 25] + "','" + RoutineArray[i, 26] + "','" + RoutineArray[i, 27] + "','" + RoutineArray[i, 28] + "','" + RoutineArray[i, 29] + "','" + RoutineArray[i, 30] + "','" + RoutineArray[i, 31] + "','" + RoutineArray[i, 32] + "','" + RoutineArray[i, 33] + "','" + RoutineArray[i, 34] + "','" + RoutineArray[i, 35] + "','" + RoutineArray[i, 36] +  "','" + roomno[i] + "')";
+                
+                Sqlcmd = new SqlCommand(query, conn);
                     conn.Open();
                     Sqlcmd.ExecuteNonQuery();
                     conn.Close();
@@ -99,7 +100,7 @@ namespace NWUClassRoutine
         {
             for (int i = 0; i < 25; i++)
             {
-                for (int j = 1; j < 40; j++)
+                for (int j = 0; j < 41; j++)
                 {
                     RoutineArray[i, j] = "-";
                 }
@@ -111,7 +112,7 @@ namespace NWUClassRoutine
             try
             {
                 conn = new SqlConnection(global::NWUClassRoutine.Properties.Settings.Default.NWUClassRoutineConnectionString1);
-                query = "SELECT * from FinalRoutine";
+                query = "SELECT * from Routine";
                 Sqlcmd = new SqlCommand(query, conn);
                 conn.Open();
                 SqlDataAdapter sda = new SqlDataAdapter();
@@ -122,7 +123,9 @@ namespace NWUClassRoutine
                 bSource.DataSource = dbdataset;
                 dataGridView1.DataSource = bSource;
                 sda.Update(dbdataset);
-                //dataGridView1.Columns.Remove("rownum");
+                //dataGridView1.Columns.Remove("[RowNumber]");
+                //dataGridView1.Refresh();
+                MessageBox.Show("Done");
             }
             catch (Exception ex)
             {
@@ -133,6 +136,12 @@ namespace NWUClassRoutine
                 conn.Close();
             }
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         public string year(int row)
         {
             string year;
@@ -198,13 +207,13 @@ namespace NWUClassRoutine
                 string query, id, selection = "NM";
                 conn = new SqlConnection(global::NWUClassRoutine.Properties.Settings.Default.NWUClassRoutineConnectionString1);
                 conn.Open();
-                query = "select PreferredTimeSlot1 from RoutineInfo where TeacherInitials = 'MRI'";
+                query = "select [[PreferredDay&TimeSlot1]]] from RoutineInfo where TeacherInitials = 'MRI'";
                 id = new SqlCommand(query, conn).ExecuteScalar().ToString();
                 if (id != null)
                 {
                     //textBox1.Text = id;
 
-                    query = string.Format("select ordinal_position from information_schema.columns c where table_name = 'FinalRoutine' and table_schema = 'dbo' and column_name ='{0}'", id);
+                    query = string.Format("select ordinal_position from information_schema.columns c where table_name = 'Routine' and table_schema = 'dbo' and column_name ='{0}'", id);
                     //string query = ("select ordinal_position from information_schema.columns c where table_name = 'FinalRoutine' and table_schema = 'dbo' and column_name =[9:15-10:30]");
                     reader = new SqlCommand(query, conn).ExecuteReader();
                     if (reader.HasRows)
@@ -237,8 +246,11 @@ namespace NWUClassRoutine
             RoutineArrayRowIndex = 0;
             RoutineArrayColumnIndex = 0;
             update();
+            // viewRoutine();
+            fillTableWithNoSubject();
             viewRoutine();
             MessageBox.Show("Updated Successfully", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            panel1.Enabled = true;
         }
 
         //Warning confusing code ahead
@@ -248,7 +260,7 @@ namespace NWUClassRoutine
             {
                 conn = new SqlConnection(global::NWUClassRoutine.Properties.Settings.Default.NWUClassRoutineConnectionString1);
                 conn.Open();
-                query = "Select CourseCredit from RoutineInfo where TeacherInitials = 'SY'";
+                query = "Select CourseCredit from RoutineInfo where TeacherInitials = 'MRI'";
                 tempCourseCredit = new SqlCommand(query, conn).ExecuteScalar().ToString();
                 CourseCredit = Double.Parse(tempCourseCredit);
                 CourseCredit = Double.Parse(tempCourseCredit);
@@ -355,12 +367,12 @@ namespace NWUClassRoutine
         public void SingleTimeSlotAssign()
         {
             ColumnIDPulling();
-            column = Column-2;
+            column = Column-5;
             try
             {
-                for (RoutineArrayRowIndex = 1; RoutineArrayRowIndex <= 121; RoutineArrayRowIndex++)
+                for (RoutineArrayRowIndex = 1; RoutineArrayRowIndex <= 25; RoutineArrayRowIndex++)
                 {
-                    for (RoutineArrayColumnIndex = 1; RoutineArrayColumnIndex <= 6; RoutineArrayColumnIndex++)
+                    for (RoutineArrayColumnIndex = 1; RoutineArrayColumnIndex <= 41; RoutineArrayColumnIndex++)
                     {
                         //Monday
                         if (RoutineArrayRowIndex == row && RoutineArrayColumnIndex == column && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-")
@@ -368,17 +380,17 @@ namespace NWUClassRoutine
                             ArrayConditionForSemesterTheory();
                         }
                         //Tuesday
-                        else if (RoutineArrayRowIndex == row + 24 && RoutineArrayColumnIndex == column && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-")
+                        else if (RoutineArrayRowIndex == row  && RoutineArrayColumnIndex == column + 6 && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-")
                         {
                             ArrayConditionForSemesterTheory();
                         }
                         //Wednesday
-                        else if (RoutineArrayRowIndex == row + 72 && RoutineArrayColumnIndex == column && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-")
+                        else if (RoutineArrayRowIndex == row  && RoutineArrayColumnIndex == column + 12 && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-")
                         {
                             ArrayConditionForSemesterTheory();
                         }
                         //Thursday
-                        else if (RoutineArrayRowIndex == row + 96 && RoutineArrayColumnIndex == column && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-")
+                        else if (RoutineArrayRowIndex == row  && RoutineArrayColumnIndex == column + 18 && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-")
                         {
                             ArrayConditionForSemesterTheory();
                         }
@@ -394,12 +406,12 @@ namespace NWUClassRoutine
         public void DoubleTimeSlotAssign()
         {
             ColumnIDPulling();
-            column = Column-2;
+            column = Column-5;
             try
             {
-                for (RoutineArrayRowIndex = 1; RoutineArrayRowIndex <= 121; RoutineArrayRowIndex++)
+                for (RoutineArrayRowIndex = 1; RoutineArrayRowIndex <= 25; RoutineArrayRowIndex++)
                 {
-                    for (RoutineArrayColumnIndex = 1; RoutineArrayColumnIndex <= 6; RoutineArrayColumnIndex++)
+                    for (RoutineArrayColumnIndex = 1; RoutineArrayColumnIndex <= 41; RoutineArrayColumnIndex++)
                     {
                         //Monday
                         if (RoutineArrayRowIndex == row && RoutineArrayColumnIndex == column && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-")
@@ -407,17 +419,17 @@ namespace NWUClassRoutine
                             ArrayConditionForSemesterLab();
                         }
                         //Tuesday
-                        else if (RoutineArrayRowIndex == row + 24 && RoutineArrayColumnIndex == column && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-")
+                        else if (RoutineArrayRowIndex == row && RoutineArrayColumnIndex == column + 6 && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-")
                         {
                             ArrayConditionForSemesterLab();
                         }
                         //Wednesday
-                        else if (RoutineArrayRowIndex == row + 72 && RoutineArrayColumnIndex == column && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-")
+                        else if (RoutineArrayRowIndex == row + 72 && RoutineArrayColumnIndex == column + 12 && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-")
                         {
                             ArrayConditionForSemesterLab();
                         }
                         //Thursday
-                        else if (RoutineArrayRowIndex == row + 96 && RoutineArrayColumnIndex == column && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-")
+                        else if (RoutineArrayRowIndex == row + 96 && RoutineArrayColumnIndex == column + 18  && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-")
                         {
                             ArrayConditionForSemesterLab();
                         }

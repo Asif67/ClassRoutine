@@ -34,10 +34,22 @@
             this.label9 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -52,34 +64,17 @@
             this.Btn_New = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.TeacherInitials = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Btn_Edit = new System.Windows.Forms.Button();
             this.Btn_ViewRoutine = new System.Windows.Forms.Button();
             this.nWUClassRoutineDataSet = new NWUClassRoutine.NWUClassRoutineDataSet();
             this.routineInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.routineInfoTableAdapter = new NWUClassRoutine.NWUClassRoutineDataSetTableAdapters.RoutineInfoTableAdapter();
-            this.rownumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teacherNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teacherinitialsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teacherStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseCreditDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.preferredDayTimeSlot1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.preferredDayTimeSlot2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.preferredDayTimeSlot3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.preferredDayNTimeSlot1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.preferredDayNTimeSlot2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -130,7 +125,7 @@
             this.textBox9.Location = new System.Drawing.Point(192, 228);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(160, 20);
-            this.textBox9.TabIndex = 1;
+            this.textBox9.TabIndex = 8;
             // 
             // label9
             // 
@@ -147,7 +142,7 @@
             this.textBox8.Location = new System.Drawing.Point(192, 200);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(160, 20);
-            this.textBox8.TabIndex = 1;
+            this.textBox8.TabIndex = 7;
             // 
             // label8
             // 
@@ -158,14 +153,69 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Teacher Status:";
             // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(192, 404);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(160, 20);
+            this.textBox15.TabIndex = 16;
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(192, 311);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(160, 20);
+            this.textBox12.TabIndex = 12;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(32, 407);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(84, 13);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Preferred Day 3:";
+            // 
             // textBox7
             // 
-            this.textBox7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.routineInfoBindingSource, "[PreferredDay&TimeSlot3]", true));
+            this.textBox7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.routineInfoBindingSource, "PreferredDayNTimeSlot3", true));
             this.textBox7.Location = new System.Drawing.Point(192, 174);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(160, 20);
-            this.textBox7.TabIndex = 1;
+            this.textBox7.TabIndex = 6;
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(192, 378);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(160, 20);
+            this.textBox14.TabIndex = 15;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(32, 314);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(109, 13);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Preferred Time Slot 3:";
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(192, 285);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(160, 20);
+            this.textBox11.TabIndex = 11;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(32, 381);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(84, 13);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Preferred Day 2:";
             // 
             // label7
             // 
@@ -176,14 +226,46 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Preferred Day and  Time Slot 3:";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(32, 288);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(109, 13);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Preferred Time Slot 2:";
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(192, 352);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(160, 20);
+            this.textBox13.TabIndex = 14;
+            // 
             // textBox6
             // 
-            this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.routineInfoBindingSource, "[PreferredDay&TimeSlot2]", true));
+            this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.routineInfoBindingSource, "PreferredDayNTimeSlot2", true));
             this.textBox6.Location = new System.Drawing.Point(192, 148);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(160, 20);
-            this.textBox6.TabIndex = 1;
+            this.textBox6.TabIndex = 5;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(192, 259);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(160, 20);
+            this.textBox10.TabIndex = 9;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(32, 355);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(84, 13);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Preferred Day 1:";
             // 
             // label6
             // 
@@ -194,14 +276,23 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Preferred Day and Time Slot 2:";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(32, 262);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(109, 13);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Preferred Time Slot 1:";
+            // 
             // textBox5
             // 
-            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.routineInfoBindingSource, "[PreferredDay&TimeSlot1]", true));
+            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.routineInfoBindingSource, "PreferredDayNTimeSlot1", true));
             this.textBox5.Location = new System.Drawing.Point(192, 122);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(160, 20);
-            this.textBox5.TabIndex = 1;
+            this.textBox5.TabIndex = 4;
             // 
             // label5
             // 
@@ -218,7 +309,7 @@
             this.textBox4.Location = new System.Drawing.Point(192, 96);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(160, 20);
-            this.textBox4.TabIndex = 1;
+            this.textBox4.TabIndex = 3;
             // 
             // label4
             // 
@@ -235,7 +326,7 @@
             this.textBox3.Location = new System.Drawing.Point(192, 70);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(160, 20);
-            this.textBox3.TabIndex = 1;
+            this.textBox3.TabIndex = 2;
             // 
             // label3
             // 
@@ -269,7 +360,7 @@
             this.textBox1.Location = new System.Drawing.Point(192, 18);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(160, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBox1.TabIndex = 0;
             // 
             // label1
             // 
@@ -313,29 +404,18 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.TeacherInitials,
-            this.rownumberDataGridViewTextBoxColumn,
-            this.teacherNameDataGridViewTextBoxColumn,
             this.teacherinitialsDataGridViewTextBoxColumn,
             this.teacherStatusDataGridViewTextBoxColumn,
             this.courseCodeDataGridViewTextBoxColumn,
-            this.courseTitleDataGridViewTextBoxColumn,
             this.courseCreditDataGridViewTextBoxColumn,
-            this.preferredDayTimeSlot1DataGridViewTextBoxColumn,
-            this.preferredDayTimeSlot2DataGridViewTextBoxColumn,
-            this.preferredDayTimeSlot3DataGridViewTextBoxColumn});
+            this.preferredDayNTimeSlot1DataGridViewTextBoxColumn,
+            this.preferredDayNTimeSlot2DataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.routineInfoBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(452, 462);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // TeacherInitials
-            // 
-            this.TeacherInitials.DataPropertyName = "TeacherInitials";
-            this.TeacherInitials.HeaderText = "TeacherInitials";
-            this.TeacherInitials.Name = "TeacherInitials";
             // 
             // Btn_Edit
             // 
@@ -371,19 +451,6 @@
             // 
             this.routineInfoTableAdapter.ClearBeforeFill = true;
             // 
-            // rownumberDataGridViewTextBoxColumn
-            // 
-            this.rownumberDataGridViewTextBoxColumn.DataPropertyName = "Rownumber";
-            this.rownumberDataGridViewTextBoxColumn.HeaderText = "Rownumber";
-            this.rownumberDataGridViewTextBoxColumn.Name = "rownumberDataGridViewTextBoxColumn";
-            this.rownumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // teacherNameDataGridViewTextBoxColumn
-            // 
-            this.teacherNameDataGridViewTextBoxColumn.DataPropertyName = "TeacherName";
-            this.teacherNameDataGridViewTextBoxColumn.HeaderText = "TeacherName";
-            this.teacherNameDataGridViewTextBoxColumn.Name = "teacherNameDataGridViewTextBoxColumn";
-            // 
             // teacherinitialsDataGridViewTextBoxColumn
             // 
             this.teacherinitialsDataGridViewTextBoxColumn.DataPropertyName = "Teacherinitials";
@@ -402,131 +469,23 @@
             this.courseCodeDataGridViewTextBoxColumn.HeaderText = "CourseCode";
             this.courseCodeDataGridViewTextBoxColumn.Name = "courseCodeDataGridViewTextBoxColumn";
             // 
-            // courseTitleDataGridViewTextBoxColumn
-            // 
-            this.courseTitleDataGridViewTextBoxColumn.DataPropertyName = "CourseTitle";
-            this.courseTitleDataGridViewTextBoxColumn.HeaderText = "CourseTitle";
-            this.courseTitleDataGridViewTextBoxColumn.Name = "courseTitleDataGridViewTextBoxColumn";
-            // 
             // courseCreditDataGridViewTextBoxColumn
             // 
             this.courseCreditDataGridViewTextBoxColumn.DataPropertyName = "CourseCredit";
             this.courseCreditDataGridViewTextBoxColumn.HeaderText = "CourseCredit";
             this.courseCreditDataGridViewTextBoxColumn.Name = "courseCreditDataGridViewTextBoxColumn";
             // 
-            // preferredDayTimeSlot1DataGridViewTextBoxColumn
+            // preferredDayNTimeSlot1DataGridViewTextBoxColumn
             // 
-            this.preferredDayTimeSlot1DataGridViewTextBoxColumn.DataPropertyName = "[PreferredDay&TimeSlot1]";
-            this.preferredDayTimeSlot1DataGridViewTextBoxColumn.HeaderText = "[PreferredDay&TimeSlot1]";
-            this.preferredDayTimeSlot1DataGridViewTextBoxColumn.Name = "preferredDayTimeSlot1DataGridViewTextBoxColumn";
+            this.preferredDayNTimeSlot1DataGridViewTextBoxColumn.DataPropertyName = "PreferredDayNTimeSlot1";
+            this.preferredDayNTimeSlot1DataGridViewTextBoxColumn.HeaderText = "PreferredDayNTimeSlot1";
+            this.preferredDayNTimeSlot1DataGridViewTextBoxColumn.Name = "preferredDayNTimeSlot1DataGridViewTextBoxColumn";
             // 
-            // preferredDayTimeSlot2DataGridViewTextBoxColumn
+            // preferredDayNTimeSlot2DataGridViewTextBoxColumn
             // 
-            this.preferredDayTimeSlot2DataGridViewTextBoxColumn.DataPropertyName = "[PreferredDay&TimeSlot2]";
-            this.preferredDayTimeSlot2DataGridViewTextBoxColumn.HeaderText = "[PreferredDay&TimeSlot2]";
-            this.preferredDayTimeSlot2DataGridViewTextBoxColumn.Name = "preferredDayTimeSlot2DataGridViewTextBoxColumn";
-            // 
-            // preferredDayTimeSlot3DataGridViewTextBoxColumn
-            // 
-            this.preferredDayTimeSlot3DataGridViewTextBoxColumn.DataPropertyName = "[PreferredDay&TimeSlot3]";
-            this.preferredDayTimeSlot3DataGridViewTextBoxColumn.HeaderText = "[PreferredDay&TimeSlot3]";
-            this.preferredDayTimeSlot3DataGridViewTextBoxColumn.Name = "preferredDayTimeSlot3DataGridViewTextBoxColumn";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(32, 262);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(109, 13);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Preferred Time Slot 1:";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(192, 259);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(160, 20);
-            this.textBox10.TabIndex = 1;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(32, 288);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(109, 13);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Preferred Time Slot 2:";
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(192, 285);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(160, 20);
-            this.textBox11.TabIndex = 1;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(32, 314);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(109, 13);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Preferred Time Slot 3:";
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(192, 311);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(160, 20);
-            this.textBox12.TabIndex = 1;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(32, 355);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(84, 13);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Preferred Day 1:";
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(192, 352);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(160, 20);
-            this.textBox13.TabIndex = 1;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(32, 381);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(84, 13);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Preferred Day 2:";
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(192, 378);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(160, 20);
-            this.textBox14.TabIndex = 1;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(32, 407);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(84, 13);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Preferred Day 3:";
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(192, 404);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(160, 20);
-            this.textBox15.TabIndex = 1;
+            this.preferredDayNTimeSlot2DataGridViewTextBoxColumn.DataPropertyName = "PreferredDayNTimeSlot2";
+            this.preferredDayNTimeSlot2DataGridViewTextBoxColumn.HeaderText = "PreferredDayNTimeSlot2";
+            this.preferredDayNTimeSlot2DataGridViewTextBoxColumn.Name = "preferredDayNTimeSlot2DataGridViewTextBoxColumn";
             // 
             // AddCourseForm
             // 
@@ -579,18 +538,7 @@
         private System.Windows.Forms.Button Btn_Edit;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TeacherInitials;
         private System.Windows.Forms.Button Btn_ViewRoutine;
-        private NWUClassRoutineDataSet nWUClassRoutineDataSet;
-        private System.Windows.Forms.BindingSource routineInfoBindingSource;
-        private NWUClassRoutineDataSetTableAdapters.RoutineInfoTableAdapter routineInfoTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rownumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn teacherNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn teacherinitialsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn teacherStatusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn courseCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn courseTitleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn courseCreditDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn preferredDayTimeSlot1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn preferredDayTimeSlot2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn preferredDayTimeSlot3DataGridViewTextBoxColumn;
@@ -606,5 +554,14 @@
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label10;
+        private NWUClassRoutineDataSet nWUClassRoutineDataSet;
+        private System.Windows.Forms.BindingSource routineInfoBindingSource;
+        private NWUClassRoutineDataSetTableAdapters.RoutineInfoTableAdapter routineInfoTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn teacherinitialsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn teacherStatusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn courseCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn courseCreditDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn preferredDayNTimeSlot1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn preferredDayNTimeSlot2DataGridViewTextBoxColumn;
     }
 }

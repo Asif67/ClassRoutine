@@ -391,7 +391,15 @@ namespace NWUClassRoutine
         
         public void CheckArray()
         {
+<<<<<<< HEAD
             Stuffs[] Stacks = new Stuffs[CourseCode.Count];
+=======
+<<<<<<< HEAD
+            Stuffs[] Stacks = new Stuffs[CourseCode.Count];
+=======
+            Stuffs[] Stacks = new Stuffs[72];
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
             Stuffs temp;
             //RoomNo Assign
             for (int i = 0; i < 73; i++)
@@ -416,22 +424,49 @@ namespace NWUClassRoutine
             {
 
                 //List to Stack array
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                 Stacks[i].Course = CourseCode[i];
                 Stacks[i].TeacherStatus = TeacherStatus[i];
                 tempcc = CourseCredit[i];
                 Stacks[i].CourseCredit = double.Parse(tempcc);
                 //List to Stack array
                 if (Stacks[i].CourseCredit == 0.75 || Stacks[i].CourseCredit == 1.5)
+<<<<<<< HEAD
                 {
                     //List to Stack array
                     tempps1 = Column1[i];
                     Stacks[i].column1 = int.Parse(tempps1);
+=======
+                {
+                    //List to Stack array
+                    tempps1 = Column1[i];
+                    Stacks[i].column1 = int.Parse(tempps1);
+=======
+                Stacks[i+1].Course = CourseCode[i];
+                Stacks[i+1].TeacherStatus = TeacherStatus[i];
+                tempcc = CourseCredit[i];
+                Stacks[i+1].CourseCredit = double.Parse(tempcc);
+                //List to Stack array
+                if (Stacks[i+1].CourseCredit == 0.75 || Stacks[i+1].CourseCredit == 1.5)
+                {
+                    //List to Stack array
+                    tempps1 = Column1[i];
+                    Stacks[i+1].column1 = int.Parse(tempps1);
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                     //List to Stack array
                 }
                 else
                 {
                     //List to Stack array
                     tempps1 = Column1[i];
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                     Stacks[i].column1 = int.Parse(tempps1);
                     tempps2 = Column2[i];
                     Stacks[i].column2 = int.Parse(tempps2);
@@ -448,6 +483,27 @@ namespace NWUClassRoutine
                 else if (Stacks[i].TeacherStatus == "Lecturer")
                 {
                     Stacks[i].priority = 3;
+<<<<<<< HEAD
+=======
+=======
+                    Stacks[i+1].column1 = int.Parse(tempps1);
+                    tempps2 = Column2[i];
+                    Stacks[i+1].column2 = int.Parse(tempps2);
+                    //List to Stack array
+                }
+                if (Stacks[i+1].TeacherStatus == "VisitingFacultyMember")
+                {
+                    Stacks[i+1].priority = 1;
+                }
+                else if (Stacks[i+1].TeacherStatus == "SeniorLecturer")
+                {
+                    Stacks[i+1].priority = 2;
+                }
+                else if (Stacks[i+1].TeacherStatus == "Lecturer")
+                {
+                    Stacks[i+1].priority = 3;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                 }
 
             }
@@ -473,6 +529,7 @@ namespace NWUClassRoutine
             //main Routine GenerationCode
             for (int i = 0; i < h; i++)
             {
+<<<<<<< HEAD
                 Stacks[i].year = (Stacks[i].Course).Substring(4, 1);
                 Stacks[i].semester = (Stacks[i].Course).Substring(5, 1);
                 if (Stacks[i].year == "-" && Stacks[i].semester != "-")
@@ -493,12 +550,61 @@ namespace NWUClassRoutine
                 Stacks[i].column1 = 1;
                 Stacks[i].column2 = 7;
                 Stacks[i].column3 = 14;
+=======
+<<<<<<< HEAD
+                Stacks[i].year = (Stacks[i].Course).Substring(4, 1);
+                Stacks[i].semester = (Stacks[i].Course).Substring(5, 1);
+                if (Stacks[i].year == "-" && Stacks[i].semester != "-")
+                {
+                    Stacks[i].year = (Stacks[i].Course).Substring(5, 1);
+                    Stacks[i].semester = (Stacks[i].Course).Substring(6, 1);
+                }
+                Stacks[i].temprow = Convert.ToInt32((Stacks[i].year));
+                Stacks[i].rowAddition = Convert.ToInt32((Stacks[i].semester));
+                if (Stacks[i].temprow == 1)
+                    Stacks[i].row = 1;
+                else if (Stacks[i].temprow == 2)
+                    Stacks[i].row = 7;
+                else if (Stacks[i].temprow == 3)
+                    Stacks[i].row = 13;
+                else
+                    Stacks[i].row = 19;
+                Stacks[i].column1 = 1;
+                Stacks[i].column2 = 7;
+                Stacks[i].column3 = 14;
+=======
+                Stacks[i+1].year = (Stacks[i+1].Course).Substring(4, 1);
+                Stacks[i+1].semester = (Stacks[i+1].Course).Substring(5, 1);
+                if (Stacks[i+1].year == "-" && Stacks[i+1].semester != "-")
+                {
+                    Stacks[i+1].year = (Stacks[i+1].Course).Substring(5, 1);
+                    Stacks[i+1].semester = (Stacks[i+1].Course).Substring(6, 1);
+                }
+                Stacks[i+1].temprow = Convert.ToInt32((Stacks[i+1].year));
+                Stacks[i+1].rowAddition = Convert.ToInt32((Stacks[i+1].semester));
+                if (Stacks[i+1].temprow == 1)
+                    Stacks[i+1].row = 1;
+                else if (Stacks[i+1].temprow == 2)
+                    Stacks[i+1].row = 7;
+                else if (Stacks[i+1].temprow == 3)
+                    Stacks[i+1].row = 13;
+                else
+                    Stacks[i+1].row = 19;
+                Stacks[i+1].column1 = 1;
+                Stacks[i+1].column2 = 7;
+                Stacks[i+1].column3 = 14;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                 for (int k = 1; k < 73; k++)
                 {
                     for (int l = 1; l < 40; l++)
                     {
                         //Condition Working fine(1.1,1.2,1.3,2.1 first condition)
                         //Condition Working fine(Priority Overlapping)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                         if (Stacks[i].CourseCredit == 0.75)
                         {
                             //Double Time Slot Assign2
@@ -531,10 +637,51 @@ namespace NWUClassRoutine
                                             m[k + 1,Stacks[i].tempColumn + 2] = Stacks[i].Course + " 302" + " Alt";
                                             m[k,Stacks[i].tempColumn + 1] = Stacks[i].Course + " 301" + " Alt";
                                             m[k + 1,Stacks[i].tempColumn + 3] = Stacks[i].Course + " 302" + " Alt";
+<<<<<<< HEAD
+=======
+=======
+                        if (Stacks[i+1].CourseCredit == 0.75)
+                        {
+                            //Double Time Slot Assign2
+                            //Preferred Time Slot 1
+                            if (k == Stacks[i+1].row && l == Stacks[i+1].column1)
+                            {
+                                //1st semester
+                                if (Stacks[i+1].rowAddition == 1)
+                                {
+                                    if (Stacks[i].column1 != Stacks[i+1].column1)
+                                    {
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            m[k,l + 1] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 1,l + 4] = Stacks[i+1].Course + " 302" + " Alt";
+                                            m[k,l + 2] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 1,l + 3] = Stacks[i+1].Course + " 302" + " Alt";
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k,l - 1] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 1,l - 2] = Stacks[i+1].Course + " 302" + " Alt";
+                                            m[k,l + 1] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 1,l - 3] = Stacks[i+1].Course + " 302" + " Alt";
+                                        }
+                                        else
+                                        {
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k,Stacks[i+1].tempColumn] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 1,Stacks[i+1].tempColumn + 2] = Stacks[i+1].Course + " 302" + " Alt";
+                                            m[k,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 1,Stacks[i+1].tempColumn + 3] = Stacks[i+1].Course + " 302" + " Alt";
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
                                     else
                                     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         C = Stacks[i - 1].Course;
                                         if ((l + 2) < 39 && l + 3 <= 39)
                                         {
@@ -543,6 +690,19 @@ namespace NWUClassRoutine
                                             m[k + 1,l + 4] = Stacks[i].Course + " 302" + " Alt";
                                             m[k,l + 2] = Stacks[i].Course + " 301" + " Alt";
                                             m[k + 1,l + 3] = Stacks[i].Course + " 302" + " Alt";
+<<<<<<< HEAD
+=======
+=======
+                                        C = Stacks[i].Course;
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            //PC
+                                            m[k,l + 1] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 1,l + 4] = Stacks[i+1].Course + " 302" + " Alt";
+                                            m[k,l + 2] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 1,l + 3] = Stacks[i+1].Course + " 302" + " Alt";
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             //PC
                                             //swap
                                             m[k,l + 5] = C + " 301" + " Alt"; ;
@@ -553,6 +713,10 @@ namespace NWUClassRoutine
                                         }
                                         else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
                                         {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             m[k,l - 1] = Stacks[i].Course + " 301" + " Alt";
                                             m[k + 1,l - 2] = Stacks[i].Course + " 302" + " Alt";
                                             m[k,l + 1] = Stacks[i].Course + " 301" + " Alt";
@@ -565,10 +729,31 @@ namespace NWUClassRoutine
                                             m[k + 1,Stacks[i].tempColumn + 2] = Stacks[i].Course + " 302" + " Alt";
                                             m[k,Stacks[i].tempColumn + 1] = Stacks[i].Course + " 301" + " Alt";
                                             m[k + 1,Stacks[i].tempColumn + 3] = Stacks[i].Course + " 302" + " Alt";
+<<<<<<< HEAD
+=======
+=======
+                                            m[k,l - 1] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 1,l - 2] = Stacks[i+1].Course + " 302" + " Alt";
+                                            m[k,l + 1] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 1,l - 3] = Stacks[i+1].Course + " 302" + " Alt";
+                                        }
+                                        else
+                                        {
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k,Stacks[i+1].tempColumn] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 1,Stacks[i+1].tempColumn + 2] = Stacks[i+1].Course + " 302" + " Alt";
+                                            m[k,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 1,Stacks[i+1].tempColumn + 3] = Stacks[i+1].Course + " 302" + " Alt";
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
                                 }
                                 //2nd semester
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                 else if (Stacks[i].rowAddition == 2)
                                 {
                                     /*m[k+2,l+1]=Stacks[i].Course+" 301"+" Alt";
@@ -598,6 +783,40 @@ namespace NWUClassRoutine
                                             m[k + 3,Stacks[i].tempColumn + 2] = Stacks[i].Course + " 302" + " Alt";
                                             m[k + 2,Stacks[i].tempColumn + 1] = Stacks[i].Course + " 301" + " Alt";
                                             m[k + 3,Stacks[i].tempColumn + 3] = Stacks[i].Course + " 302" + " Alt";
+<<<<<<< HEAD
+=======
+=======
+                                else if (Stacks[i+1].rowAddition == 2)
+                                {
+                                    /*m[k+2,l+1]=Stacks[i+1].Course+" 301"+" Alt";
+                                    m[k+3,l+1]=Stacks[i+1].Course+" 302"+" Alt";
+                                    m[k+2,l+1]=Stacks[i+1].Course+" 301"+" Alt";
+                                    m[k+3,l+1]=Stacks[i+1].Course+" 302"+" Alt";*/
+                                    if (Stacks[i].column1 != Stacks[i+1].column1)
+                                    {
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            m[k + 2,l + 1] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 3,l + 4] = Stacks[i+1].Course + " 302" + " Alt";
+                                            m[k + 2,l + 2] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 3,l + 3] = Stacks[i+1].Course + " 302" + " Alt";
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k + 2,l - 1] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 3,l - 2] = Stacks[i+1].Course + " 302" + " Alt";
+                                            m[k + 2,l + 1] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 3,l - 3] = Stacks[i+1].Course + " 302" + " Alt";
+                                        }
+                                        else
+                                        {
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k + 2,Stacks[i+1].tempColumn] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 3,Stacks[i+1].tempColumn + 2] = Stacks[i+1].Course + " 302" + " Alt";
+                                            m[k + 2,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 3,Stacks[i+1].tempColumn + 3] = Stacks[i+1].Course + " 302" + " Alt";
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
 
@@ -605,6 +824,10 @@ namespace NWUClassRoutine
                                 //3rd semester
                                 else
                                 {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                     /*m[k+4,l+1]=Stacks[i].Course+" 301"+" Alt";
                                     m[k+5,l+1]=Stacks[i].Course+" 302"+" Alt";
                                     m[k+4,l+1]=Stacks[i].Course+" 301"+" Alt";
@@ -632,6 +855,38 @@ namespace NWUClassRoutine
                                             m[k + 5,Stacks[i].tempColumn + 2] = Stacks[i].Course + " 302" + " Alt";
                                             m[k + 4,Stacks[i].tempColumn + 1] = Stacks[i].Course + " 301" + " Alt";
                                             m[k + 5,Stacks[i].tempColumn + 3] = Stacks[i].Course + " 302" + " Alt";
+<<<<<<< HEAD
+=======
+=======
+                                    /*m[k+4,l+1]=Stacks[i+1].Course+" 301"+" Alt";
+                                    m[k+5,l+1]=Stacks[i+1].Course+" 302"+" Alt";
+                                    m[k+4,l+1]=Stacks[i+1].Course+" 301"+" Alt";
+                                    m[k+5,l+2]=Stacks[i+1].Course+" 302"+" Alt";*/
+                                    if (Stacks[i].column1 != Stacks[i+1].column1)
+                                    {
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            m[k + 4,l + 1] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 5,l + 4] = Stacks[i+1].Course + " 302" + " Alt";
+                                            m[k + 4,l + 2] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 5,l + 3] = Stacks[i+1].Course + " 302" + " Alt";
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k + 4,l - 1] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 5,l - 2] = Stacks[i+1].Course + " 302" + " Alt";
+                                            m[k + 4,l + 1] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 5,l - 3] = Stacks[i+1].Course + " 302" + " Alt";
+                                        }
+                                        else
+                                        {
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k + 4,Stacks[i+1].tempColumn] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 5,Stacks[i+1].tempColumn + 2] = Stacks[i+1].Course + " 302" + " Alt";
+                                            m[k + 4,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course + " 301" + " Alt";
+                                            m[k + 5,Stacks[i+1].tempColumn + 3] = Stacks[i+1].Course + " 302" + " Alt";
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
                                 }
@@ -644,6 +899,7 @@ namespace NWUClassRoutine
                         //Condition Working fine(Priority Overlapping)
                         //Condition Working fine(1.1,1.2,1.3,2.1 first condition)
                         //Condition Working fine(Priority Overlapping)
+<<<<<<< HEAD
                         else if (Stacks[i].CourseCredit == 1.5)
                         {
                             //Double Time Slot1 Assign
@@ -680,25 +936,29 @@ namespace NWUClassRoutine
                                             m[k + 1,Stacks[i].tempColumn + 2] = Stacks[i].Course + " 302";
                                             m[k,Stacks[i].tempColumn + 1] = Stacks[i].Course + " 301";
                                             m[k + 1,Stacks[i].tempColumn + 3] = Stacks[i].Course + " 302";
-                                        }
-                                    }
-                                    else
+=======
+<<<<<<< HEAD
+                        else if (Stacks[i].CourseCredit == 1.5)
+                        {
+                            //Double Time Slot1 Assign
+                            //Preferred Time Slot 1
+                            if (k == Stacks[i].row && l == Stacks[i].column1)
+                            {
+                                //1st semester
+                                if (Stacks[i].rowAddition == 1)
+                                {
+                                    /*m[k,l+1]=Stacks[i].Course+" 301";
+                                    m[k+1,l+1]=Stacks[i].Course+" 302";
+                                    m[k,l+1]=Stacks[i].Course+" 301";
+                                    m[k+1,l+2]=Stacks[i].Course+" 302";*/
+                                    if (Stacks[i - 1].column1 != Stacks[i].column1)
                                     {
-                                        C = Stacks[i - 1].Course;
                                         if ((l + 2) < 39 && l + 3 <= 39)
                                         {
-                                            //PC
                                             m[k,l + 1] = Stacks[i].Course + " 301";
                                             m[k,l + 2] = Stacks[i].Course + " 301";
                                             m[k + 1,l + 4] = Stacks[i].Course + " 302";
                                             m[k + 1,l + 3] = Stacks[i].Course + " 302";
-                                            //PC
-                                            //Swap
-                                            m[k,l + 5] = C + " 301";
-                                            m[k,l + 6] = C + " 301";
-                                            m[k + 1,l + 8] = C + " 302";
-                                            m[k + 1,l + 7] = C + " 302";
-                                            //Swap
                                         }
                                         else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
                                         {
@@ -714,10 +974,125 @@ namespace NWUClassRoutine
                                             m[k + 1,Stacks[i].tempColumn + 2] = Stacks[i].Course + " 302";
                                             m[k,Stacks[i].tempColumn + 1] = Stacks[i].Course + " 301";
                                             m[k + 1,Stacks[i].tempColumn + 3] = Stacks[i].Course + " 302";
+=======
+                        else if (Stacks[i+1].CourseCredit == 1.5)
+                        {
+                            //Double Time Slot1 Assign
+                            //Preferred Time Slot 1
+                            if (k == Stacks[i+1].row && l == Stacks[i+1].column1)
+                            {
+                                //1st semester
+                                if (Stacks[i+1].rowAddition == 1)
+                                {
+                                    /*m[k,l+1]=Stacks[i+1].Course+" 301";
+                                    m[k+1,l+1]=Stacks[i+1].Course+" 302";
+                                    m[k,l+1]=Stacks[i+1].Course+" 301";
+                                    m[k+1,l+2]=Stacks[i+1].Course+" 302";*/
+                                    if (Stacks[i].column1 != Stacks[i+1].column1)
+                                    {
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            m[k,l + 1] = Stacks[i+1].Course + " 301";
+                                            m[k,l + 2] = Stacks[i+1].Course + " 301";
+                                            m[k + 1,l + 4] = Stacks[i+1].Course + " 302";
+                                            m[k + 1,l + 3] = Stacks[i+1].Course + " 302";
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k,l - 1] = Stacks[i+1].Course + " 301";
+                                            m[k + 1,l - 2] = Stacks[i+1].Course + " 302";
+                                            m[k,l + 1] = Stacks[i+1].Course + " 301";
+                                            m[k + 1,l - 3] = Stacks[i+1].Course + " 302";
+                                        }
+                                        else
+                                        {
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k,Stacks[i+1].tempColumn] = Stacks[i+1].Course + " 301";
+                                            m[k + 1,Stacks[i+1].tempColumn + 2] = Stacks[i+1].Course + " 302";
+                                            m[k,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course + " 301";
+                                            m[k + 1,Stacks[i+1].tempColumn + 3] = Stacks[i+1].Course + " 302";
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
+                                        }
+                                    }
+                                    else
+                                    {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
+                                        C = Stacks[i - 1].Course;
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            //PC
+                                            m[k,l + 1] = Stacks[i].Course + " 301";
+                                            m[k,l + 2] = Stacks[i].Course + " 301";
+                                            m[k + 1,l + 4] = Stacks[i].Course + " 302";
+                                            m[k + 1,l + 3] = Stacks[i].Course + " 302";
+<<<<<<< HEAD
+=======
+=======
+                                        C = Stacks[i].Course;
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            //PC
+                                            m[k,l + 1] = Stacks[i+1].Course + " 301";
+                                            m[k,l + 2] = Stacks[i+1].Course + " 301";
+                                            m[k + 1,l + 4] = Stacks[i+1].Course + " 302";
+                                            m[k + 1,l + 3] = Stacks[i+1].Course + " 302";
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
+                                            //PC
+                                            //Swap
+                                            m[k,l + 5] = C + " 301";
+                                            m[k,l + 6] = C + " 301";
+                                            m[k + 1,l + 8] = C + " 302";
+                                            m[k + 1,l + 7] = C + " 302";
+                                            //Swap
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
+                                            m[k,l - 1] = Stacks[i].Course + " 301";
+                                            m[k + 1,l - 2] = Stacks[i].Course + " 302";
+                                            m[k,l + 1] = Stacks[i].Course + " 301";
+                                            m[k + 1,l - 3] = Stacks[i].Course + " 302";
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k,Stacks[i].tempColumn] = Stacks[i].Course + " 301";
+                                            m[k + 1,Stacks[i].tempColumn + 2] = Stacks[i].Course + " 302";
+                                            m[k,Stacks[i].tempColumn + 1] = Stacks[i].Course + " 301";
+                                            m[k + 1,Stacks[i].tempColumn + 3] = Stacks[i].Course + " 302";
+<<<<<<< HEAD
+=======
+=======
+                                            m[k,l - 1] = Stacks[i+1].Course + " 301";
+                                            m[k + 1,l - 2] = Stacks[i+1].Course + " 302";
+                                            m[k,l + 1] = Stacks[i+1].Course + " 301";
+                                            m[k + 1,l - 3] = Stacks[i+1].Course + " 302";
+                                        }
+                                        else
+                                        {
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k,Stacks[i+1].tempColumn] = Stacks[i+1].Course + " 301";
+                                            m[k + 1,Stacks[i+1].tempColumn + 2] = Stacks[i+1].Course + " 302";
+                                            m[k,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course + " 301";
+                                            m[k + 1,Stacks[i+1].tempColumn + 3] = Stacks[i+1].Course + " 302";
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
                                 }
                                 //2nd semester
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                 else if (Stacks[i].rowAddition == 2)
                                 {
                                     /*m[k+2,l+1]=Stacks[i].Course+" 301";
@@ -747,11 +1122,49 @@ namespace NWUClassRoutine
                                             m[k + 3,Stacks[i].tempColumn + 2] = Stacks[i].Course + " 302";
                                             m[k + 2,Stacks[i].tempColumn + 1] = Stacks[i].Course + " 301";
                                             m[k + 3,Stacks[i].tempColumn + 3] = Stacks[i].Course + " 302";
+<<<<<<< HEAD
+=======
+=======
+                                else if (Stacks[i+1].rowAddition == 2)
+                                {
+                                    /*m[k+2,l+1]=Stacks[i+1].Course+" 301";
+                                    m[k+3,l+1]=Stacks[i+1].Course+" 302";
+                                    m[k+2,l+1]=Stacks[i+1].Course+" 301";
+                                    m[k+3,l+1]=Stacks[i+1].Course+" 302";*/
+                                    if (Stacks[i].column1 != Stacks[i+1].column1)
+                                    {
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            m[k + 2,l + 1] = Stacks[i+1].Course + " 301";
+                                            m[k + 3,l + 4] = Stacks[i+1].Course + " 302";
+                                            m[k + 2,l + 2] = Stacks[i+1].Course + " 301";
+                                            m[k + 3,l + 3] = Stacks[i+1].Course + " 302";
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k + 2,l - 1] = Stacks[i+1].Course + " 301";
+                                            m[k + 3,l - 2] = Stacks[i+1].Course + " 302";
+                                            m[k + 2,l + 1] = Stacks[i+1].Course + " 301";
+                                            m[k + 3,l - 3] = Stacks[i+1].Course + " 302";
+                                        }
+                                        else
+                                        {
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k + 2,Stacks[i+1].tempColumn] = Stacks[i+1].Course + " 301";
+                                            m[k + 3,Stacks[i+1].tempColumn + 2] = Stacks[i+1].Course + " 302";
+                                            m[k + 2,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course + " 301";
+                                            m[k + 3,Stacks[i+1].tempColumn + 3] = Stacks[i+1].Course + " 302";
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
 
                                     }
                                     else
                                     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         C = Stacks[i - 1].Course;
                                         if ((l + 2) < 39 && l + 3 <= 39)
                                         {
@@ -760,6 +1173,19 @@ namespace NWUClassRoutine
                                             m[k + 3,l + 4] = Stacks[i].Course + " 302";
                                             m[k + 2,l + 2] = Stacks[i].Course + " 301";
                                             m[k + 3,l + 3] = Stacks[i].Course + " 302";
+<<<<<<< HEAD
+=======
+=======
+                                        C = Stacks[i].Course;
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            //PC
+                                            m[k + 2,l + 1] = Stacks[i+1].Course + " 301";
+                                            m[k + 3,l + 4] = Stacks[i+1].Course + " 302";
+                                            m[k + 2,l + 2] = Stacks[i+1].Course + " 301";
+                                            m[k + 3,l + 3] = Stacks[i+1].Course + " 302";
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             //PC
                                             m[k + 2,l + 5] = C + " 301";
                                             m[k + 3,l + 8] = C + " 302";
@@ -768,6 +1194,10 @@ namespace NWUClassRoutine
                                         }
                                         else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
                                         {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             m[k + 2,l - 1] = Stacks[i].Course + " 301";
                                             m[k + 3,l - 2] = Stacks[i].Course + " 302";
                                             m[k + 2,l + 1] = Stacks[i].Course + " 301";
@@ -780,12 +1210,33 @@ namespace NWUClassRoutine
                                             m[k + 3,Stacks[i].tempColumn + 2] = Stacks[i].Course + " 302";
                                             m[k + 2,Stacks[i].tempColumn + 1] = Stacks[i].Course + " 301";
                                             m[k + 3,Stacks[i].tempColumn + 3] = Stacks[i].Course + " 302";
+<<<<<<< HEAD
+=======
+=======
+                                            m[k + 2,l - 1] = Stacks[i+1].Course + " 301";
+                                            m[k + 3,l - 2] = Stacks[i+1].Course + " 302";
+                                            m[k + 2,l + 1] = Stacks[i+1].Course + " 301";
+                                            m[k + 3,l - 3] = Stacks[i+1].Course + " 302";
+                                        }
+                                        else
+                                        {
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k + 2,Stacks[i+1].tempColumn] = Stacks[i+1].Course + " 301";
+                                            m[k + 3,Stacks[i+1].tempColumn + 2] = Stacks[i+1].Course + " 302";
+                                            m[k + 2,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course + " 301";
+                                            m[k + 3,Stacks[i+1].tempColumn + 3] = Stacks[i+1].Course + " 302";
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
                                 }
                                 //3rd semester
                                 else
                                 {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                     /*m[k+4,l+1]=Stacks[i].Course+" 301";
                                     m[k+5,l+1]=Stacks[i].Course+" 302";
                                     m[k+4,l+1]=Stacks[i].Course+" 301";
@@ -811,6 +1262,36 @@ namespace NWUClassRoutine
                                         m[k + 5,Stacks[i].tempColumn + 2] = Stacks[i].Course + " 302";
                                         m[k + 4,Stacks[i].tempColumn + 1] = Stacks[i].Course + " 301";
                                         m[k + 5,Stacks[i].tempColumn + 3] = Stacks[i].Course + " 302";
+<<<<<<< HEAD
+=======
+=======
+                                    /*m[k+4,l+1]=Stacks[i+1].Course+" 301";
+                                    m[k+5,l+1]=Stacks[i+1].Course+" 302";
+                                    m[k+4,l+1]=Stacks[i+1].Course+" 301";
+                                    m[k+5,l+2]=Stacks[i+1].Course+" 302";*/
+                                    if ((l + 2) < 39 && l + 3 <= 39)
+                                    {
+                                        m[k + 4,l + 1] = Stacks[i+1].Course + " 301";
+                                        m[k + 5,l + 3] = Stacks[i+1].Course + " 302";
+                                        m[k + 4,l + 2] = Stacks[i+1].Course + " 301";
+                                        m[k + 5,l + 4] = Stacks[i+1].Course + " 302";
+                                    }
+                                    else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                    {
+                                        m[k + 4,l - 1] = Stacks[i+1].Course + " 301";
+                                        m[k + 5,l - 2] = Stacks[i+1].Course + " 302";
+                                        m[k + 4,l] = Stacks[i+1].Course + " 301";
+                                        m[k + 5,l - 3] = Stacks[i+1].Course + " 302";
+                                    }
+                                    else
+                                    {
+                                        Stacks[i+1].tempColumn = 2;
+                                        m[k + 4,Stacks[i+1].tempColumn] = Stacks[i+1].Course + " 301";
+                                        m[k + 5,Stacks[i+1].tempColumn + 2] = Stacks[i+1].Course + " 302";
+                                        m[k + 4,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course + " 301";
+                                        m[k + 5,Stacks[i+1].tempColumn + 3] = Stacks[i+1].Course + " 302";
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                     }
                                 }
                             }
@@ -825,6 +1306,10 @@ namespace NWUClassRoutine
                         {
                             //Single Time Slot Assign
                             //Preferred Time Slot 1
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                             if (k == Stacks[i].row && l == Stacks[i].column1)
                             {
                                 //1st semester
@@ -849,36 +1334,107 @@ namespace NWUClassRoutine
                                             Stacks[i].tempColumn = 2;
                                             m[k,Stacks[i].tempColumn] = Stacks[i].Course;
                                             m[k + 1,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+<<<<<<< HEAD
+=======
+=======
+                            if (k == Stacks[i+1].row && l == Stacks[i+1].column1)
+                            {
+                                //1st semester
+                                if (Stacks[i+1].rowAddition == 1)
+                                {
+                                    /*m[k,l+1]=Stacks[i+1].Course;
+                                    m[k+1,l+1]=Stacks[i+1].Course;*/
+                                    if (Stacks[i].column1 != Stacks[i+1].column1)
+                                    {
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k,l + 1] = Stacks[i+1].Course;
+                                            m[k + 1,l + 2] = Stacks[i+1].Course;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-")
+                                        {
+                                            m[k,l - 1] = Stacks[i+1].Course;
+                                            m[k + 1,l - 2] = Stacks[i+1].Course;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k,Stacks[i+1].tempColumn] = Stacks[i+1].Course;
+                                            m[k + 1,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
                                     else
                                     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         C = Stacks[i - 1].Course;
                                         if ((l + 1) < 39 && l + 2 <= 39)
                                         {
                                             m[k,l + 1] = Stacks[i].Course;
                                             m[k + 1,l + 2] = Stacks[i].Course;
+<<<<<<< HEAD
+=======
+=======
+                                        C = Stacks[i].Course;
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k,l + 1] = Stacks[i+1].Course;
+                                            m[k + 1,l + 2] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             m[k,l + 2] = C;
                                             m[k + 1,l + 3] = C;
                                         }
                                         else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
                                         {
+<<<<<<< HEAD
                                             m[k,l - 1] = Stacks[i].Course;
                                             m[k + 1,l - 2] = Stacks[i].Course;
+=======
+<<<<<<< HEAD
+                                            m[k,l - 1] = Stacks[i].Course;
+                                            m[k + 1,l - 2] = Stacks[i].Course;
+=======
+                                            m[k,l - 1] = Stacks[i+1].Course;
+                                            m[k + 1,l - 2] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             m[k,l - 2] = C;
                                             m[k + 1,l - 3] = C;
                                         }
                                         else
                                         {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             Stacks[i].tempColumn = 2;
                                             m[k,Stacks[i].tempColumn] = Stacks[i].Course;
                                             m[k + 1,Stacks[i].tempColumn + 1] = Stacks[i].Course;
                                             m[k,Stacks[i].tempColumn + 1] = C;
                                             m[k + 1,Stacks[i].tempColumn + 2] = C;
+<<<<<<< HEAD
+=======
+=======
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k,Stacks[i+1].tempColumn] = Stacks[i+1].Course;
+                                            m[k + 1,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course;
+                                            m[k,Stacks[i+1].tempColumn + 1] = C;
+                                            m[k + 1,Stacks[i+1].tempColumn + 2] = C;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
                                 }
                                 //2nd semester
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                 else if (Stacks[i].rowAddition == 2)
                                 {
                                     /*m[k+2,l+1]=Stacks[i].Course;
@@ -900,38 +1456,106 @@ namespace NWUClassRoutine
                                             Stacks[i].tempColumn = 2;
                                             m[k + 2,Stacks[i].tempColumn] = Stacks[i].Course;
                                             m[k + 3,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+<<<<<<< HEAD
+=======
+=======
+                                else if (Stacks[i+1].rowAddition == 2)
+                                {
+                                    /*m[k+2,l+1]=Stacks[i+1].Course;
+                                    m[k+3,l+1]=Stacks[i+1].Course;*/
+                                    if (Stacks[i].column1 != Stacks[i+1].column1)
+                                    {
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k + 2,l + 1] = Stacks[i+1].Course;
+                                            m[k + 3,l + 2] = Stacks[i+1].Course;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-")
+                                        {
+                                            m[k + 2,l - 1] = Stacks[i+1].Course;
+                                            m[k + 3,l - 2] = Stacks[i+1].Course;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k + 2,Stacks[i+1].tempColumn] = Stacks[i+1].Course;
+                                            m[k + 3,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
                                     else
                                     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         C = Stacks[i - 1].Course;
                                         if ((l + 1) < 39 && l + 2 <= 39)
                                         {
                                             m[k + 2,l + 1] = Stacks[i].Course;
                                             m[k + 3,l + 2] = Stacks[i].Course;
+<<<<<<< HEAD
+=======
+=======
+                                        C = Stacks[i].Course;
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k + 2,l + 1] = Stacks[i+1].Course;
+                                            m[k + 3,l + 2] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             m[k + 2,l + 2] = C;
                                             m[k + 3,l + 3] = C;
                                         }
                                         else if (m[k,l - 1] == "-" && m[k,l - 2] == "-")
                                         {
+<<<<<<< HEAD
                                             m[k + 2,l - 1] = Stacks[i].Course;
                                             m[k + 3,l - 2] = Stacks[i].Course;
+=======
+<<<<<<< HEAD
+                                            m[k + 2,l - 1] = Stacks[i].Course;
+                                            m[k + 3,l - 2] = Stacks[i].Course;
+=======
+                                            m[k + 2,l - 1] = Stacks[i+1].Course;
+                                            m[k + 3,l - 2] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             m[k + 2,l - 2] = C;
                                             m[k + 3,l - 3] = C;
                                         }
                                         else
                                         {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             Stacks[i].tempColumn = 2;
                                             m[k + 2,Stacks[i].tempColumn] = Stacks[i].Course;
                                             m[k + 3,Stacks[i].tempColumn + 1] = Stacks[i].Course;
                                             m[k + 2,Stacks[i].tempColumn + 1] = C;
                                             m[k + 3,Stacks[i].tempColumn + 2] = C;
+<<<<<<< HEAD
+=======
+=======
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k + 2,Stacks[i+1].tempColumn] = Stacks[i+1].Course;
+                                            m[k + 3,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course;
+                                            m[k + 2,Stacks[i+1].tempColumn + 1] = C;
+                                            m[k + 3,Stacks[i+1].tempColumn + 2] = C;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
                                 }
                                 //3rd semester
                                 else
                                 {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                     /*m[k+4,l+1]=Stacks[i].Course;
                                     m[k+5,l+1]=Stacks[i].Course;*/
                                     if (Stacks[i - 1].column1 != Stacks[i].column1)
@@ -951,37 +1575,103 @@ namespace NWUClassRoutine
                                             Stacks[i].tempColumn = 2;
                                             m[k + 4,Stacks[i].tempColumn] = Stacks[i].Course;
                                             m[k + 5,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+<<<<<<< HEAD
+=======
+=======
+                                    /*m[k+4,l+1]=Stacks[i+1].Course;
+                                    m[k+5,l+1]=Stacks[i+1].Course;*/
+                                    if (Stacks[i].column1 != Stacks[i+1].column1)
+                                    {
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            m[k + 4,l + 1] = Stacks[i+1].Course;
+                                            m[k + 5,l + 2] = Stacks[i+1].Course;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k + 4,l - 1] = Stacks[i+1].Course;
+                                            m[k + 5,l - 2] = Stacks[i+1].Course;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k + 4,Stacks[i+1].tempColumn] = Stacks[i+1].Course;
+                                            m[k + 5,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
                                     else
                                     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         C = Stacks[i - 1].Course;
                                         if ((l + 2) < 39 && l + 3 <= 39)
                                         {
                                             m[k + 4,l + 1] = Stacks[i].Course;
                                             m[k + 5,l + 2] = Stacks[i].Course;
+<<<<<<< HEAD
+=======
+=======
+                                        C = Stacks[i].Course;
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            m[k + 4,l + 1] = Stacks[i+1].Course;
+                                            m[k + 5,l + 2] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             m[k + 4,l + 2] = C;
                                             m[k + 5,l + 3] = C;
                                         }
                                         else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
                                         {
+<<<<<<< HEAD
                                             m[k + 4,l - 1] = Stacks[i].Course;
                                             m[k + 5,l - 2] = Stacks[i].Course;
+=======
+<<<<<<< HEAD
+                                            m[k + 4,l - 1] = Stacks[i].Course;
+                                            m[k + 5,l - 2] = Stacks[i].Course;
+=======
+                                            m[k + 4,l - 1] = Stacks[i+1].Course;
+                                            m[k + 5,l - 2] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             m[k + 4,l - 2] = C;
                                             m[k + 5,l - 3] = C;
                                         }
                                         else
                                         {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             Stacks[i].tempColumn = 2;
                                             m[k + 4,Stacks[i].tempColumn] = Stacks[i].Course;
                                             m[k + 5,Stacks[i].tempColumn + 1] = Stacks[i].Course;
                                             m[k + 4,Stacks[i].tempColumn + 1] = C;
                                             m[k + 5,Stacks[i].tempColumn + 2] = C;
+<<<<<<< HEAD
+=======
+=======
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k + 4,Stacks[i+1].tempColumn] = Stacks[i+1].Course;
+                                            m[k + 5,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course;
+                                            m[k + 4,Stacks[i+1].tempColumn + 1] = C;
+                                            m[k + 5,Stacks[i+1].tempColumn + 2] = C;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
                                 }
                             }
                             //Preferred Time Slot 2
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                             else if (k == Stacks[i].row && l == Stacks[i].column2)
                             {
                                 //1st semester
@@ -1006,36 +1696,107 @@ namespace NWUClassRoutine
                                             Stacks[i].tempColumn = 2;
                                             m[k,Stacks[i].tempColumn] = Stacks[i].Course;
                                             m[k + 1,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+<<<<<<< HEAD
+=======
+=======
+                            else if (k == Stacks[i+1].row && l == Stacks[i+1].column2)
+                            {
+                                //1st semester
+                                if (Stacks[i+1].rowAddition == 1)
+                                {
+                                    /*m[k,l+1]=Stacks[i+1].Course;
+                                    m[k+1,l+1]=Stacks[i+1].Course;*/
+                                    if (Stacks[i].column2 != Stacks[i+1].column2)
+                                    {
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k,l + 1] = Stacks[i+1].Course;
+                                            m[k + 1,l + 2] = Stacks[i+1].Course;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-")
+                                        {
+                                            m[k,l - 1] = Stacks[i+1].Course;
+                                            m[k + 1,l - 2] = Stacks[i+1].Course;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k,Stacks[i+1].tempColumn] = Stacks[i+1].Course;
+                                            m[k + 1,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
                                     else
                                     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         C = Stacks[i - 1].Course;
                                         if ((l + 1) < 39 && l + 2 <= 39)
                                         {
                                             m[k,l + 1] = Stacks[i].Course;
                                             m[k + 1,l + 2] = Stacks[i].Course;
+<<<<<<< HEAD
+=======
+=======
+                                        C = Stacks[i].Course;
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k,l + 1] = Stacks[i+1].Course;
+                                            m[k + 1,l + 2] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             m[k,l + 2] = C;
                                             m[k + 1,l + 3] = C;
                                         }
                                         else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
                                         {
+<<<<<<< HEAD
                                             m[k,l - 1] = Stacks[i].Course;
                                             m[k + 1,l - 2] = Stacks[i].Course;
+=======
+<<<<<<< HEAD
+                                            m[k,l - 1] = Stacks[i].Course;
+                                            m[k + 1,l - 2] = Stacks[i].Course;
+=======
+                                            m[k,l - 1] = Stacks[i+1].Course;
+                                            m[k + 1,l - 2] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             m[k,l - 2] = C;
                                             m[k + 1,l - 3] = C;
                                         }
                                         else
                                         {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             Stacks[i].tempColumn = 2;
                                             m[k,Stacks[i].tempColumn] = Stacks[i].Course;
                                             m[k + 1,Stacks[i].tempColumn + 1] = Stacks[i].Course;
                                             m[k,Stacks[i].tempColumn + 1] = C;
                                             m[k + 1,Stacks[i].tempColumn + 2] = C;
+<<<<<<< HEAD
+=======
+=======
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k,Stacks[i+1].tempColumn] = Stacks[i+1].Course;
+                                            m[k + 1,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course;
+                                            m[k,Stacks[i+1].tempColumn + 1] = C;
+                                            m[k + 1,Stacks[i+1].tempColumn + 2] = C;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
                                 }
                                 //2nd semester
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                 else if (Stacks[i].rowAddition == 2)
                                 {
                                     /*m[k+2,l+1]=Stacks[i].Course;
@@ -1057,38 +1818,106 @@ namespace NWUClassRoutine
                                             Stacks[i].tempColumn = 2;
                                             m[k + 2,Stacks[i].tempColumn] = Stacks[i].Course;
                                             m[k + 3,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+<<<<<<< HEAD
+=======
+=======
+                                else if (Stacks[i+1].rowAddition == 2)
+                                {
+                                    /*m[k+2,l+1]=Stacks[i+1].Course;
+                                    m[k+3,l+1]=Stacks[i+1].Course;*/
+                                    if (Stacks[i].column2 != Stacks[i+1].column2)
+                                    {
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k + 2,l + 1] = Stacks[i+1].Course;
+                                            m[k + 3,l + 2] = Stacks[i+1].Course;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-")
+                                        {
+                                            m[k + 2,l - 1] = Stacks[i+1].Course;
+                                            m[k + 3,l - 2] = Stacks[i+1].Course;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k + 2,Stacks[i+1].tempColumn] = Stacks[i+1].Course;
+                                            m[k + 3,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
                                     else
                                     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         C = Stacks[i - 1].Course;
                                         if ((l + 1) < 39 && l + 2 <= 39)
                                         {
                                             m[k + 2,l + 1] = Stacks[i].Course;
                                             m[k + 3,l + 2] = Stacks[i].Course;
+<<<<<<< HEAD
+=======
+=======
+                                        C = Stacks[i].Course;
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k + 2,l + 1] = Stacks[i+1].Course;
+                                            m[k + 3,l + 2] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             m[k + 2,l + 2] = C;
                                             m[k + 3,l + 3] = C;
                                         }
                                         else if (m[k,l - 1] == "-" && m[k,l - 2] == "-")
                                         {
+<<<<<<< HEAD
                                             m[k + 2,l - 1] = Stacks[i].Course;
                                             m[k + 3,l - 2] = Stacks[i].Course;
+=======
+<<<<<<< HEAD
+                                            m[k + 2,l - 1] = Stacks[i].Course;
+                                            m[k + 3,l - 2] = Stacks[i].Course;
+=======
+                                            m[k + 2,l - 1] = Stacks[i+1].Course;
+                                            m[k + 3,l - 2] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             m[k + 2,l - 2] = C;
                                             m[k + 3,l - 3] = C;
                                         }
                                         else
                                         {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             Stacks[i].tempColumn = 2;
                                             m[k + 2,Stacks[i].tempColumn] = Stacks[i].Course;
                                             m[k + 3,Stacks[i].tempColumn + 1] = Stacks[i].Course;
                                             m[k + 2,Stacks[i].tempColumn + 1] = C;
                                             m[k + 3,Stacks[i].tempColumn + 2] = C;
+<<<<<<< HEAD
+=======
+=======
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k + 2,Stacks[i+1].tempColumn] = Stacks[i+1].Course;
+                                            m[k + 3,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course;
+                                            m[k + 2,Stacks[i+1].tempColumn + 1] = C;
+                                            m[k + 3,Stacks[i+1].tempColumn + 2] = C;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
                                 }
                                 //3rd semester
                                 else
                                 {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                     /*m[k+4,l+1]=Stacks[i].Course;
                                     m[k+5,l+1]=Stacks[i].Course;*/
                                     if (Stacks[i - 1].column2 != Stacks[i].column2)
@@ -1108,38 +1937,104 @@ namespace NWUClassRoutine
                                             Stacks[i].tempColumn = 2;
                                             m[k + 4,Stacks[i].tempColumn] = Stacks[i].Course;
                                             m[k + 5,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+<<<<<<< HEAD
+=======
+=======
+                                    /*m[k+4,l+1]=Stacks[i+1].Course;
+                                    m[k+5,l+1]=Stacks[i+1].Course;*/
+                                    if (Stacks[i].column2 != Stacks[i+1].column2)
+                                    {
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            m[k + 4,l + 1] = Stacks[i+1].Course;
+                                            m[k + 5,l + 2] = Stacks[i+1].Course;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k + 4,l - 1] = Stacks[i+1].Course;
+                                            m[k + 5,l - 2] = Stacks[i+1].Course;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k + 4,Stacks[i+1].tempColumn] = Stacks[i+1].Course;
+                                            m[k + 5,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
                                     else
                                     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         C = Stacks[i - 1].Course;
                                         if ((l + 2) < 39 && l + 3 <= 39)
                                         {
                                             m[k + 4,l + 1] = Stacks[i].Course;
                                             m[k + 5,l + 2] = Stacks[i].Course;
+<<<<<<< HEAD
+=======
+=======
+                                        C = Stacks[i].Course;
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            m[k + 4,l + 1] = Stacks[i+1].Course;
+                                            m[k + 5,l + 2] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             m[k + 4,l + 2] = C;
                                             m[k + 5,l + 3] = C;
                                         }
                                         else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
                                         {
+<<<<<<< HEAD
                                             m[k + 4,l - 1] = Stacks[i].Course;
                                             m[k + 5,l - 2] = Stacks[i].Course;
+=======
+<<<<<<< HEAD
+                                            m[k + 4,l - 1] = Stacks[i].Course;
+                                            m[k + 5,l - 2] = Stacks[i].Course;
+=======
+                                            m[k + 4,l - 1] = Stacks[i+1].Course;
+                                            m[k + 5,l - 2] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             m[k + 4,l - 2] = C;
                                             m[k + 5,l - 3] = C;
                                         }
                                         else
                                         {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             Stacks[i].tempColumn = 2;
                                             m[k + 4,Stacks[i].tempColumn] = Stacks[i].Course;
                                             m[k + 5,Stacks[i].tempColumn + 1] = Stacks[i].Course;
                                             m[k + 4,Stacks[i].tempColumn + 1] = C;
                                             m[k + 5,Stacks[i].tempColumn + 2] = C;
+<<<<<<< HEAD
+=======
+=======
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k + 4,Stacks[i+1].tempColumn] = Stacks[i+1].Course;
+                                            m[k + 5,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course;
+                                            m[k + 4,Stacks[i+1].tempColumn + 1] = C;
+                                            m[k + 5,Stacks[i+1].tempColumn + 2] = C;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
                                 }
 
                             }
                             //Preferred Time Slot 3
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                             else if (k == Stacks[i].row && l == Stacks[i].column3)
                             {
                                 //1st semester
@@ -1164,36 +2059,107 @@ namespace NWUClassRoutine
                                             Stacks[i].tempColumn = 2;
                                             m[k,Stacks[i].tempColumn] = Stacks[i].Course;
                                             m[k + 1,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+<<<<<<< HEAD
+=======
+=======
+                            else if (k == Stacks[i+1].row && l == Stacks[i+1].column3)
+                            {
+                                //1st semester
+                                if (Stacks[i+1].rowAddition == 1)
+                                {
+                                    /*m[k,l+1]=Stacks[i+1].Course;
+                                    m[k+1,l+1]=Stacks[i+1].Course;*/
+                                    if (Stacks[i].column3 != Stacks[i+1].column3)
+                                    {
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k,l + 1] = Stacks[i+1].Course;
+                                            m[k + 1,l + 2] = Stacks[i+1].Course;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-")
+                                        {
+                                            m[k,l - 1] = Stacks[i+1].Course;
+                                            m[k + 1,l - 2] = Stacks[i+1].Course;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k,Stacks[i+1].tempColumn] = Stacks[i+1].Course;
+                                            m[k + 1,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
                                     else
                                     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         C = Stacks[i - 1].Course;
                                         if ((l + 1) < 39 && l + 2 <= 39)
                                         {
                                             m[k,l + 1] = Stacks[i].Course;
                                             m[k + 1,l + 2] = Stacks[i].Course;
+<<<<<<< HEAD
+=======
+=======
+                                        C = Stacks[i].Course;
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k,l + 1] = Stacks[i+1].Course;
+                                            m[k + 1,l + 2] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             m[k,l + 2] = C;
                                             m[k + 1,l + 3] = C;
                                         }
                                         else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
                                         {
+<<<<<<< HEAD
                                             m[k,l - 1] = Stacks[i].Course;
                                             m[k + 1,l - 2] = Stacks[i].Course;
+=======
+<<<<<<< HEAD
+                                            m[k,l - 1] = Stacks[i].Course;
+                                            m[k + 1,l - 2] = Stacks[i].Course;
+=======
+                                            m[k,l - 1] = Stacks[i+1].Course;
+                                            m[k + 1,l - 2] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             m[k,l - 2] = C;
                                             m[k + 1,l - 3] = C;
                                         }
                                         else
                                         {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             Stacks[i].tempColumn = 2;
                                             m[k,Stacks[i].tempColumn] = Stacks[i].Course;
                                             m[k + 1,Stacks[i].tempColumn + 1] = Stacks[i].Course;
                                             m[k,Stacks[i].tempColumn + 1] = C;
                                             m[k + 1,Stacks[i].tempColumn + 2] = C;
+<<<<<<< HEAD
+=======
+=======
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k,Stacks[i+1].tempColumn] = Stacks[i+1].Course;
+                                            m[k + 1,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course;
+                                            m[k,Stacks[i+1].tempColumn + 1] = C;
+                                            m[k + 1,Stacks[i+1].tempColumn + 2] = C;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
                                 }
                                 //2nd semester
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                 else if (Stacks[i].rowAddition == 2)
                                 {
                                     /*m[k+2,l+1]=Stacks[i].Course;
@@ -1215,38 +2181,106 @@ namespace NWUClassRoutine
                                             Stacks[i].tempColumn = 2;
                                             m[k + 2,Stacks[i].tempColumn] = Stacks[i].Course;
                                             m[k + 3,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+<<<<<<< HEAD
+=======
+=======
+                                else if (Stacks[i+1].rowAddition == 2)
+                                {
+                                    /*m[k+2,l+1]=Stacks[i+1].Course;
+                                    m[k+3,l+1]=Stacks[i+1].Course;*/
+                                    if (Stacks[i].column3 != Stacks[i+1].column3)
+                                    {
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k + 2,l + 1] = Stacks[i+1].Course;
+                                            m[k + 3,l + 2] = Stacks[i+1].Course;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-")
+                                        {
+                                            m[k + 2,l - 1] = Stacks[i+1].Course;
+                                            m[k + 3,l - 2] = Stacks[i+1].Course;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k + 2,Stacks[i+1].tempColumn] = Stacks[i+1].Course;
+                                            m[k + 3,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
                                     else
                                     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         C = Stacks[i - 1].Course;
                                         if ((l + 1) < 39 && l + 2 <= 39)
                                         {
                                             m[k + 2,l + 1] = Stacks[i].Course;
                                             m[k + 3,l + 2] = Stacks[i].Course;
+<<<<<<< HEAD
+=======
+=======
+                                        C = Stacks[i].Course;
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k + 2,l + 1] = Stacks[i+1].Course;
+                                            m[k + 3,l + 2] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             m[k + 2,l + 2] = C;
                                             m[k + 3,l + 3] = C;
                                         }
                                         else if (m[k,l - 1] == "-" && m[k,l - 2] == "-")
                                         {
+<<<<<<< HEAD
                                             m[k + 2,l - 1] = Stacks[i].Course;
                                             m[k + 3,l - 2] = Stacks[i].Course;
+=======
+<<<<<<< HEAD
+                                            m[k + 2,l - 1] = Stacks[i].Course;
+                                            m[k + 3,l - 2] = Stacks[i].Course;
+=======
+                                            m[k + 2,l - 1] = Stacks[i+1].Course;
+                                            m[k + 3,l - 2] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             m[k + 2,l - 2] = C;
                                             m[k + 3,l - 3] = C;
                                         }
                                         else
                                         {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             Stacks[i].tempColumn = 2;
                                             m[k + 2,Stacks[i].tempColumn] = Stacks[i].Course;
                                             m[k + 3,Stacks[i].tempColumn + 1] = Stacks[i].Course;
                                             m[k + 2,Stacks[i].tempColumn + 1] = C;
                                             m[k + 3,Stacks[i].tempColumn + 2] = C;
+<<<<<<< HEAD
+=======
+=======
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k + 2,Stacks[i+1].tempColumn] = Stacks[i+1].Course;
+                                            m[k + 3,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course;
+                                            m[k + 2,Stacks[i+1].tempColumn + 1] = C;
+                                            m[k + 3,Stacks[i+1].tempColumn + 2] = C;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
                                 }
                                 //3rd semester
                                 else
                                 {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                     /*m[k+4,l+1]=Stacks[i].Course;
                                     m[k+5,l+1]=Stacks[i].Course;*/
                                     if (Stacks[i - 1].column3 != Stacks[i].column3)
@@ -1266,32 +2300,94 @@ namespace NWUClassRoutine
                                             Stacks[i].tempColumn = 2;
                                             m[k + 4,Stacks[i].tempColumn] = Stacks[i].Course;
                                             m[k + 5,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+<<<<<<< HEAD
+=======
+=======
+                                    /*m[k+4,l+1]=Stacks[i+1].Course;
+                                    m[k+5,l+1]=Stacks[i+1].Course;*/
+                                    if (Stacks[i].column3 != Stacks[i+1].column3)
+                                    {
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            m[k + 4,l + 1] = Stacks[i+1].Course;
+                                            m[k + 5,l + 2] = Stacks[i+1].Course;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k + 4,l - 1] = Stacks[i+1].Course;
+                                            m[k + 5,l - 2] = Stacks[i+1].Course;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k + 4,Stacks[i+1].tempColumn] = Stacks[i+1].Course;
+                                            m[k + 5,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
                                     else
                                     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         C = Stacks[i - 1].Course;
                                         if ((l + 2) < 39 && l + 3 <= 39)
                                         {
                                             m[k + 4,l + 1] = Stacks[i].Course;
                                             m[k + 5,l + 2] = Stacks[i].Course;
+<<<<<<< HEAD
+=======
+=======
+                                        C = Stacks[i].Course;
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            m[k + 4,l + 1] = Stacks[i+1].Course;
+                                            m[k + 5,l + 2] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             m[k + 4,l + 2] = C;
                                             m[k + 5,l + 3] = C;
                                         }
                                         else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
                                         {
+<<<<<<< HEAD
                                             m[k + 4,l - 1] = Stacks[i].Course;
                                             m[k + 5,l - 2] = Stacks[i].Course;
+=======
+<<<<<<< HEAD
+                                            m[k + 4,l - 1] = Stacks[i].Course;
+                                            m[k + 5,l - 2] = Stacks[i].Course;
+=======
+                                            m[k + 4,l - 1] = Stacks[i+1].Course;
+                                            m[k + 5,l - 2] = Stacks[i+1].Course;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             m[k + 4,l - 2] = C;
                                             m[k + 5,l - 3] = C;
                                         }
                                         else
                                         {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                             Stacks[i].tempColumn = 2;
                                             m[k + 4,Stacks[i].tempColumn] = Stacks[i].Course;
                                             m[k + 5,Stacks[i].tempColumn + 1] = Stacks[i].Course;
                                             m[k + 4,Stacks[i].tempColumn + 1] = C;
                                             m[k + 5,Stacks[i].tempColumn + 2] = C;
+<<<<<<< HEAD
+=======
+=======
+                                            Stacks[i+1].tempColumn = 2;
+                                            m[k + 4,Stacks[i+1].tempColumn] = Stacks[i+1].Course;
+                                            m[k + 5,Stacks[i+1].tempColumn + 1] = Stacks[i+1].Course;
+                                            m[k + 4,Stacks[i+1].tempColumn + 1] = C;
+                                            m[k + 5,Stacks[i+1].tempColumn + 2] = C;
+>>>>>>> 03c8975deca9d4f825dab50e833287fcffd10cde
+>>>>>>> e4933df179fc8650754d77c86f4eda404a05c892
                                         }
                                     }
                                 }

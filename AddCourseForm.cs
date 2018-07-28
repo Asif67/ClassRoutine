@@ -21,6 +21,8 @@ namespace NWUClassRoutine
         {
             // TODO: This line of code loads data into the 'nWUClassRoutineDataSet.RoutineInfo' table. You can move, or remove it, as needed.
             this.routineInfoTableAdapter.Fill(this.nWUClassRoutineDataSet.RoutineInfo);
+            // TODO: This line of code loads data into the 'nWUClassRoutineDataSet.RoutineInfo' table. You can move, or remove it, as needed.
+            this.routineInfoTableAdapter.Fill(this.nWUClassRoutineDataSet.RoutineInfo);
             routineInfoBindingSource.DataSource = this.nWUClassRoutineDataSet.RoutineInfo;
             panel1.Enabled = false;
             panel2.Enabled = false;

@@ -8,16 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+
 using System.Configuration;
 namespace NWUClassRoutine
 {
     public partial class Routine : Form
     {
         SqlConnection conn = new SqlConnection(global::NWUClassRoutine.Properties.Settings.Default.NWUClassRoutineConnectionString1);
-        //SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["NWUClassRoutine.Properties.Settings.ClassRoutineConnectionString"].ConnectionString);
-        string[,] RoutineArray = new string[25, 41];
-        string[] TeacherInitials = new string[50];
-        string query,CourseCode,tempCourseCredit, tempCourseCode;
+        string id, id2;
+        //varaibles for using in main code
+        List<string> Column1 = new List<string>();
+        List<string> Column2 = new List<string>();
+        List<string> CourseCode = new List<string>();
+        List<string> CourseCredit = new List<string>();
+        List<string> TeacherInitials = new List<string>();
+        //varaibles for using in main code
+        string[,] RoutineArray = new string[25,41];
+        string query,tempCourseCredit, tempCourseCode;
         int[] roomno =new int[25] {401,402,403,404,501,502,503,504,601,602,603,604,701,702,703,704,801,802,803,804,901,902,903,904,401};
         int[] LabRoomNo = new int[3] { 302, 303, 304 };
         int Column;
@@ -26,10 +33,36 @@ namespace NWUClassRoutine
         SqlDataReader reader, reader1;
         DataTable dbdataset;
         int RoutineArrayRowIndex, RoutineArrayColumnIndex;
-        double CourseCredit;
-        int column, row, SemesterDeterminingCourseCodeDigit, YearDeterminingCourseCodeDigit;
+        int column, row, SemesterDeterminingCourseCodeDigit, yearCADeterminingCourseCodeDigit;
         string Query1, Query2, Query3, Query4;
         int[] preferredTimeSlots = new int[3];
+        struct Stuffs
+        {
+            public int column1, column2, column3, row, k, rowAddition, temprow, tempColumn, priority;
+            public string Course, C, temp, year, semester, TeacherStatus, Tailer1, Tailer2;
+            public double CourseCredit;
+        };
+        //Variables for CheckArray
+        string[,] m = new string[73, 40];
+        string[] Roomno = new string[73] { "301", "304", "401", "402", "403", "404", "501", "502", "503", "504", "601", "602", "603", "604", "701", "702", "703", "704", "801", "802", "803", "804", "901", "902", "903", "904", "301", "304", "401", "402", "403", "404", "501", "502", "503", "504", "601", "602", "603", "604", "701", "702", "703", "704", "801", "802", "803", "804", "901", "902", "903", "904", "301", "304", "401", "402", "403", "404", "501", "502", "503", "504", "601", "602", "603", "604", "701", "702", "703", "704", "801", "802", "803" };
+        string[] Term = new string[72] { "1st year 1st semester(A)", "1st year 1st semester(B)", "1st year 2nd semester(A)", "1st year 2nd semester(B)", "1st year 3rd semester(A)", "1st year 3rd semester(B)", "2nd year 1st semester(A)", "2nd year 1st semester(B)", "2nd year 2nd semester(A)", "2nd year 2nd semester(B)", "2nd year 3rd semester(A)", "2nd year 3rd semester(B)", "3rd year 1st semester(A)", "3rd year 1st semester(B)", "3rd year 2nd semester(A)", "3rd year 2nd semester(B)", "3rd year 3rd semester(A)", "3rd year 3rd semester(B)", "4th year 1st semester(A)", "4th year 1st semester(B)", "4th year 2nd semester(A)", "4th year 2nd semester(B)", "4th year 3rd semester(A)", "4th year 3rd semester(B)", "1st year 1st semester(A)", "1st year 1st semester(B)", "1st year 2nd semester(A)", "1st year 2nd semester(B)", "1st year 3rd semester(A)", "1st year 3rd semester(B)", "2nd year 1st semester(A)", "2nd year 1st semester(B)", "2nd year 2nd semester(A)", "2nd year 2nd semester(B)", "2nd year 3rd semester(A)", "2nd year 3rd semester(B)", "3rd year 1st semester(A)", "3rd year 1st semester(B)", "3rd year 2nd semester(A)", "3rd year 2nd semester(B)", "3rd year 3rd semester(A)", "3rd year 3rd semester(B)", "4th year 1st semester(A)", "4th year 1st semester(B)", "4th year 2nd semester(A)", "4th year 2nd semester(B)", "4th year 3rd semester(A)", "4th year 3rd semester(B)", "1st year 1st semester(A)", "1st year 1st semester(B)", "1st year 2nd semester(A)", "1st year 2nd semester(B)", "1st year 3rd semester(A)", "1st year 3rd semester(B)", "2nd year 1st semester(A)", "2nd year 1st semester(B)", "2nd year 2nd semester(A)", "2nd year 2nd semester(B)", "2nd year 3rd semester(A)", "2nd year 3rd semester(B)", "3rd year 1st semester(A)", "3rd year 1st semester(B)", "3rd year 2nd semester(A)", "3rd year 2nd semester(B)", "3rd year 3rd semester(A)", "3rd year 3rd semester(B)", "4th year 1st semester(A)", "4th year 1st semester(B)", "4th year 2nd semester(A)", "4th year 2nd semester(B)", "4th year 3rd semester(A)", "4th year 3rd semester(B)" };
+        string[] RowNo = new string[74] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73" };
+        string[] Header = new string[39] { "RN", "TM", "MPS1", "MPS2", "MPS3", "MPS4", "MPS5", "MPS6", "TPS1", "TPS2", "TPS3", "TPS4", "TPS5", "TPS6", "WPS1", "WPS2", "WPS3", "WPS4", "WPS5", "WPS6", "TPS1", "TPS2", "TPS3", "TPS4", "TPS5", "TPS6", "FPS1", "FPS2", "FPS3", "FPS4", "FPS5", "FPS6", "SPS1", "SPS2", "SPS3", "SPS4", "SPS5", "SPS6", "RMN" };
+        string[] Tailer1 = new string[72] { " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt", " 301 Alt", " 302 Alt" };
+        string[] Tailer2 = new string[72] { " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302", " 301", " 302" };
+        int[] column1 = new int[72];
+        int[] column2 = new int[72];
+        int[] column3 = new int[72];
+        int[] rowAddition = new int[72];
+        int[] temprow = new int[72];
+        int[] tempColumn = new int[72];
+        int[] priority = new int[72];
+        int h, k;
+        string[] Course = new string[72];
+        string C;
+        string[] semester = new string[72];
+        string[] TeacherStatus = new string[72];
+        //Variables for Check Array
         public Routine()
         {
             InitializeComponent();
@@ -50,15 +83,25 @@ namespace NWUClassRoutine
         }
         public void update()
         {
+            DataExtraction();
+            CheckArray();
+            for(int i=0;i<25;i++)
+            {
+                for(int j=0;j<40;j++)
+                {
+                    RoutineArray[i, j]=m[i,j];
+                }
+            }
             fillTableWithNoSubject();
-            InsertSingleCourseIntoPosition();
+            //InsertSingleCourseIntoPosition();
             conn = new SqlConnection(global::NWUClassRoutine.Properties.Settings.Default.NWUClassRoutineConnectionString1);
             for (int i = 0; i < 25; i++)
             {
                 conn.Open();
-                query = "INSERT INTO Routine([RowNumber],[[Term&Section&Department]]],[[Monday 8:00-9:15]]] ,[[Monday 9:15-10:30]]],[[Monday 10:45-12:00]]],[[Monday 12:00-1:15]]],[[Monday 2:00-3:15]]],[[Monday 3:15-4:30]]],[[Tuesday 8:00-9:15]]],[[Tuesday 9:15-10:30]]],[[Tuesday 10:45-12:00]]],[[Tuesday 12:00-1:15]]],[[Tuesday 2:00-3:15]]],[[Tuesday 3:15-4:30]]],[[Wednesday 8:00-9:15]]],[[Wednesday 9:15-10:30]]],[[Wednesday 10:45-12:00]]],[[Wednesday 12:00-1:15]]],[[Wednesday 2:00-3:15]]],[[Wednesday 3:15-4:30]]],[[Thursday 8:00-9:15]]],[[Thursday 9:15-10:30]]],[[Thursday 10:45-12:00]]],[[Thursday 12:00-1:15]]],[[Thursday 2:00-3:15]]],[[Thursday 3:15-4:30]]],[[Friday 8:00-9:15]]],[[Friday 9:15-10:30]]],[[Friday 10:45-12:00]]],[[Friday 12:00-1:15]]],[[Friday 2:00-3:15]]],[[Friday 3:15-4:30]]],[[Saturday 8:00-9:15]]],[[Saturday 9:15-10:30]]],[[Saturday 10:45-12:00]]],[[Saturday 12:00-1:15]]],[[Saturday 2:00-3:15]]],[[Saturday 3:15-4:30]]],[RoomNo]) values( '" + i +"','"+ year(i) + "','" + RoutineArray[i, 1] + "','" + RoutineArray[i, 2] + "','" + RoutineArray[i, 3] + "','" + RoutineArray[i, 4] + "','" + RoutineArray[i, 5] + "','" + RoutineArray[i, 6] + "','" + RoutineArray[i, 7] + "','" + RoutineArray[i, 8] + "','" + RoutineArray[i, 9] + "','" + RoutineArray[i, 10] + "','" + RoutineArray[i, 11] + "','" + RoutineArray[i, 12] + "','" + RoutineArray[i, 13] + "','" + RoutineArray[i, 14] + "','" + RoutineArray[i, 15] + "','" + RoutineArray[i, 16] + "','" + RoutineArray[i, 17] + "','" + RoutineArray[i, 18] + "','" + RoutineArray[i, 19] + "','" + RoutineArray[i, 20] + "','" + RoutineArray[i, 21] + "','" + RoutineArray[i, 22] + "','" + RoutineArray[i, 23] + "','" + RoutineArray[i, 24] + "','" + RoutineArray[i, 25] + "','" + RoutineArray[i, 26] + "','" + RoutineArray[i, 27] + "','" + RoutineArray[i, 28] + "','" + RoutineArray[i, 29] + "','" + RoutineArray[i, 30] + "','" + RoutineArray[i, 31] + "','" + RoutineArray[i, 32] + "','" + RoutineArray[i, 33] + "','" + RoutineArray[i, 34] + "','" + RoutineArray[i, 35] + "','" + RoutineArray[i, 36] +  "','" + roomno[i] + "')";
-                
-                  Sqlcmd = new SqlCommand(query, conn);
+                //query = "INSERT INTO Routine([RowNumber],[[Term&Section&Department]]],[[Monday 8:00-9:15]]] ,[[Monday 9:15-10:30]]],[[Monday 10:45-12:00]]],[[Monday 12:00-1:15]]],[[Monday 2:00-3:15]]],[[Monday 3:15-4:30]]],[[Tuesday 8:00-9:15]]],[[Tuesday 9:15-10:30]]],[[Tuesday 10:45-12:00]]],[[Tuesday 12:00-1:15]]],[[Tuesday 2:00-3:15]]],[[Tuesday 3:15-4:30]]],[[Wednesday 8:00-9:15]]],[[Wednesday 9:15-10:30]]],[[Wednesday 10:45-12:00]]],[[Wednesday 12:00-1:15]]],[[Wednesday 2:00-3:15]]],[[Wednesday 3:15-4:30]]],[[Thursday 8:00-9:15]]],[[Thursday 9:15-10:30]]],[[Thursday 10:45-12:00]]],[[Thursday 12:00-1:15]]],[[Thursday 2:00-3:15]]],[[Thursday 3:15-4:30]]],[[Friday 8:00-9:15]]],[[Friday 9:15-10:30]]],[[Friday 10:45-12:00]]],[[Friday 12:00-1:15]]],[[Friday 2:00-3:15]]],[[Friday 3:15-4:30]]],[[Saturday 8:00-9:15]]],[[Saturday 9:15-10:30]]],[[Saturday 10:45-12:00]]],[[Saturday 12:00-1:15]]],[[Saturday 2:00-3:15]]],[[Saturday 3:15-4:30]]],[RoomNo]) values( '" + i +"','"+ year(i) + "','" + RoutineArray[i, 1] + "','" + RoutineArray[i, 2] + "','" + RoutineArray[i, 3] + "','" + RoutineArray[i, 4] + "','" + RoutineArray[i, 5] + "','" + RoutineArray[i, 6] + "','" + RoutineArray[i, 7] + "','" + RoutineArray[i, 8] + "','" + RoutineArray[i, 9] + "','" + RoutineArray[i, 10] + "','" + RoutineArray[i, 11] + "','" + RoutineArray[i, 12] + "','" + RoutineArray[i, 13] + "','" + RoutineArray[i, 14] + "','" + RoutineArray[i, 15] + "','" + RoutineArray[i, 16] + "','" + RoutineArray[i, 17] + "','" + RoutineArray[i, 18] + "','" + RoutineArray[i, 19] + "','" + RoutineArray[i, 20] + "','" + RoutineArray[i, 21] + "','" + RoutineArray[i, 22] + "','" + RoutineArray[i, 23] + "','" + RoutineArray[i, 24] + "','" + RoutineArray[i, 25] + "','" + RoutineArray[i, 26] + "','" + RoutineArray[i, 27] + "','" + RoutineArray[i, 28] + "','" + RoutineArray[i, 29] + "','" + RoutineArray[i, 30] + "','" + RoutineArray[i, 31] + "','" + RoutineArray[i, 32] + "','" + RoutineArray[i, 33] + "','" + RoutineArray[i, 34] + "','" + RoutineArray[i, 35] + "','" + RoutineArray[i, 36] +  "','" + roomno[i] + "')";
+                query = "INSERT INTO Routine([RowNumber],[[Term&Section&Department]]],[[Monday 8:00-9:15]]] ,[[Monday 9:15-10:30]]],[[Monday 10:45-12:00]]],[[Monday 12:00-1:15]]],[[Monday 2:00-3:15]]],[[Monday 3:15-4:30]]],[[Tuesday 8:00-9:15]]],[[Tuesday 9:15-10:30]]],[[Tuesday 10:45-12:00]]],[[Tuesday 12:00-1:15]]],[[Tuesday 2:00-3:15]]],[[Tuesday 3:15-4:30]]],[[Wednesday 8:00-9:15]]],[[Wednesday 9:15-10:30]]],[[Wednesday 10:45-12:00]]],[[Wednesday 12:00-1:15]]],[[Wednesday 2:00-3:15]]],[[Wednesday 3:15-4:30]]],[[Thursday 8:00-9:15]]],[[Thursday 9:15-10:30]]],[[Thursday 10:45-12:00]]],[[Thursday 12:00-1:15]]],[[Thursday 2:00-3:15]]],[[Thursday 3:15-4:30]]],[[Friday 8:00-9:15]]],[[Friday 9:15-10:30]]],[[Friday 10:45-12:00]]],[[Friday 12:00-1:15]]],[[Friday 2:00-3:15]]],[[Friday 3:15-4:30]]],[[Saturday 8:00-9:15]]],[[Saturday 9:15-10:30]]],[[Saturday 10:45-12:00]]],[[Saturday 12:00-1:15]]],[[Saturday 2:00-3:15]]],[[Saturday 3:15-4:30]]],[RoomNo]) values( '" + i + "','" + year(i) + "','" + RoutineArray[i, 1] + "','" + RoutineArray[i, 2] + "','" + RoutineArray[i, 3] + "','" + RoutineArray[i, 4] + "','" + RoutineArray[i, 5] + "','" + RoutineArray[i, 6] + "','" + RoutineArray[i, 7] + "','" + RoutineArray[i, 8] + "','" + RoutineArray[i, 9] + "','" + RoutineArray[i, 10] + "','" + RoutineArray[i, 11] + "','" + RoutineArray[i, 12] + "','" + RoutineArray[i, 13] + "','" + RoutineArray[i, 14] + "','" + RoutineArray[i, 15] + "','" + RoutineArray[i, 16] + "','" + RoutineArray[i, 17] + "','" + RoutineArray[i, 18] + "','" + RoutineArray[i, 19] + "','" + RoutineArray[i, 20] + "','" + RoutineArray[i, 21] + "','" + RoutineArray[i, 22] + "','" + RoutineArray[i, 23] + "','" + RoutineArray[i, 24] + "','" + RoutineArray[i, 25] + "','" + RoutineArray[i, 26] + "','" + RoutineArray[i, 27] + "','" + RoutineArray[i, 28] + "','" + RoutineArray[i, 29] + "','" + RoutineArray[i, 30] + "','" + RoutineArray[i, 31] + "','" + RoutineArray[i, 32] + "','" + RoutineArray[i, 33] + "','" + RoutineArray[i, 34] + "','" + RoutineArray[i, 35] + "','" + RoutineArray[i, 36] + "','" + roomno[i] + "')";
+
+                Sqlcmd = new SqlCommand(query, conn);
                     
                     Sqlcmd.ExecuteNonQuery();
                     conn.Close();
@@ -70,7 +113,7 @@ namespace NWUClassRoutine
         {
             for (int i = 0; i < 25; i++)
             {
-                for (int j = 0; j < 41; j++)
+                for (int j = 0; j < 40; j++)
                 {
                     RoutineArray[i, j] = "-";
                 }
@@ -167,89 +210,169 @@ namespace NWUClassRoutine
                 year = "Day";
             return year;
         }
-        public void ColumnIDPulling()
+        public void DataExtraction()
         {
-            
+            SqlConnection cnn;
+            int result;
+            SqlDataReader reader;
+
             try
             {
 
-                string query1, query2, query3, query4, id1, id2, id3,id4;
-                int[] column = new int[3];
-                int tempColumn;
-                conn = new SqlConnection(global::NWUClassRoutine.Properties.Settings.Default.NWUClassRoutineConnectionString1);
-                conn.Open();
-                query4 = "select TeacherInitials from RoutineInfo where RowNumber=1";
-                id4 = new SqlCommand(query4, conn).ExecuteScalar().ToString();
-                query1 = string.Format("select [[PreferredDay&TimeSlot1]]] from RoutineInfo where TeacherInitials = '{0}'",id4);
-                query2 = "select [[PreferredDay&TimeSlot2]]] from RoutineInfo where TeacherInitials = 'MRI'";
-                query3 = "select [[PreferredDay&TimeSlot3]]] from RoutineInfo where TeacherInitials = 'MRI'";
-                
-                id1 = new SqlCommand(query1, conn).ExecuteScalar().ToString();
-                id2 = new SqlCommand(query2, conn).ExecuteScalar().ToString();
-                id3 = new SqlCommand(query3, conn).ExecuteScalar().ToString();
-                
-                if (id1 != null)
+                cnn = new SqlConnection(global::NWUClassRoutine.Properties.Settings.Default.NWUClassRoutineConnectionString1);
+                cnn.Open();
+                //Preferred Time SLot1
+                SqlDataAdapter da = new SqlDataAdapter("select PreferredDayNTimeSlot1 from RoutineInfo", cnn);
+                DataSet ds = new DataSet();
+                da.Fill(ds, "RoutineInfo");
+                List<string> PrefferedDayTimeSlot1 = new List<string>();
+                foreach (DataRow row in ds.Tables["RoutineInfo"].Rows)
                 {
-                    query = string.Format("select ordinal_position from information_schema.columns c where table_name = 'Routine' and table_schema = 'dbo' and column_name ='{0}'", id2);
-                    reader = new SqlCommand(query, conn).ExecuteReader();
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            column[1] = reader.GetInt32(0);
-                            tempColumn = column[1];
-                        }
-                    }
-                    else
-                    {
-                        //textBox1.Text = "NF";
-                    }
+                    PrefferedDayTimeSlot1.Add(row["PreferredDayNTimeSlot1"].ToString());
                 }
-                reader.Close();
-                if (id2 != null)
+                //listBox1.DataSource = PrefferedDayTimeSlot1;
+                for (int i = 0; i < PrefferedDayTimeSlot1.Count; i++)
                 {
-                    query = string.Format("select ordinal_position from information_schema.columns c where table_name = 'Routine' and table_schema = 'dbo' and column_name ='{0}'", id2);
-                    reader = new SqlCommand(query, conn).ExecuteReader();
+                    id = PrefferedDayTimeSlot1[i];
+                    string query = ("select ordinal_position from information_schema.columns c where table_name = 'Routine' and table_schema = 'dbo' and column_name ='[" + id + "]'");
+                    reader = new SqlCommand(query, cnn).ExecuteReader();
                     if (reader.HasRows)
                     {
                         while (reader.Read())
                         {
-                            column[1] = reader.GetInt32(0);
+                            result = reader.GetInt32(0);
+                            //textBox1.Text = Convert.ToString(result);
+                            //comboBox1.Text = Convert.ToString(result);
+                            //listBox1.Text = Convert.ToString(result);
+                            Column1.Add(Convert.ToString(result));
 
                         }
+
                     }
+
                     else
                     {
+
+                        // Console.WriteLine("No rows found.");
                         //textBox1.Text = "NF";
+
                     }
+
+                    reader.Close();
+
+
                 }
-                reader.Close();
-                if (id3 != null)
+                //Preferred Time SLot1
+                //Preferred Time SLot2
+                SqlDataAdapter da2 = new SqlDataAdapter("select PreferredDayNTimeSlot2 from RoutineInfo", cnn);
+                DataSet ds2 = new DataSet();
+                da2.Fill(ds2, "RoutineInfo");
+                List<string> PrefferedDayTimeSlot2 = new List<string>();
+                foreach (DataRow row in ds2.Tables["RoutineInfo"].Rows)
                 {
-                    query = string.Format("select ordinal_position from information_schema.columns c where table_name = 'Routine' and table_schema = 'dbo' and column_name ='{0}'", id3);
-                    reader = new SqlCommand(query, conn).ExecuteReader();
+                    PrefferedDayTimeSlot2.Add(row["PreferredDayNTimeSlot2"].ToString());
+                }
+                //listBox2.DataSource = PrefferedDayTimeSlot2;
+                for (int i = 0; i < PrefferedDayTimeSlot2.Count; i++)
+                {
+                    id2 = PrefferedDayTimeSlot2[i];
+                    string query = ("select ordinal_position from information_schema.columns c where table_name = 'Routine' and table_schema = 'dbo' and column_name ='[" + id2 + "]'");
+                    reader = new SqlCommand(query, cnn).ExecuteReader();
                     if (reader.HasRows)
                     {
                         while (reader.Read())
                         {
-                            column[2] = reader.GetInt32(0);
+                            result = reader.GetInt32(0);
+                            //textBox4.Text = Convert.ToString(result);
+                            //comboBox.Text = Convert.ToString(result);
+                            //listBox2.Text = Convert.ToString(result);
+                            Column2.Add(Convert.ToString(result));
+
                         }
+
                     }
+
                     else
                     {
-                        //textBox1.Text = "NF";
-                    }
-                }
 
-                reader.Close();
-                Column = column[1];
+                        // Console.WriteLine("No rows found.");
+                        //textBox1.Text = "NF";
+
+                    }
+
+                    reader.Close();
+
+
+                }
+                //Preferred Time SLot2
+                ////CourseCredit
+                SqlDataAdapter da3 = new SqlDataAdapter("select CourseCredit from RoutineInfo", cnn);
+                DataSet ds3 = new DataSet();
+                da3.Fill(ds3, "RoutineInfo");
+                foreach (DataRow row in ds3.Tables["RoutineInfo"].Rows)
+                {
+                    CourseCredit.Add(row["CourseCredit"].ToString());
+                }
+                ////CourseCredit
+                //CourseCode
+                SqlDataAdapter da4 = new SqlDataAdapter("select CourseCode from RoutineInfo", cnn);
+                DataSet ds4 = new DataSet();
+                da4.Fill(ds4, "RoutineInfo");
+                foreach (DataRow row in ds4.Tables["RoutineInfo"].Rows)
+                {
+                    CourseCode.Add(row["CourseCode"].ToString());
+                }
+                //CourseCode
+                //CourseCode
+                SqlDataAdapter da5 = new SqlDataAdapter("select TeacherInitials from RoutineInfo", cnn);
+                DataSet ds5 = new DataSet();
+                da5.Fill(ds5, "RoutineInfo");
+                foreach (DataRow row in ds5.Tables["RoutineInfo"].Rows)
+                {
+                    TeacherInitials.Add(row["TeacherInitials"].ToString());
+                }
+                //CourseCode
+                //Print
+                //Column1 & Column2 are list ouputs of column id Pulling
+                //listBox1.DataSource = Column1;
+                //listBox2.DataSource = Column2;
+                //listBox3.DataSource = CourseCredit;
+                //listBox4.DataSource = CourseCode;
+                //listBox5.DataSource = TeacherInitials;
+                ////Column1 & Column2 are list ouputs of column id Pulling
+                ////Checking List Elements
+                ////1st element index is 0;
+                //textBox5.Text = Column1[0];
+                //textBox6.Text = Column2[0];
+                //textBox7.Text = CourseCode[0];
+                //textBox8.Text = CourseCredit[0];
+                //textBox9.Text = TeacherInitials[0];
+                ////1st element index is 0;
+                //textBox10.Text = Column1[1];
+                //textBox11.Text = Column2[1];
+                //textBox12.Text = CourseCode[1];
+                //textBox13.Text = CourseCredit[1];
+                //textBox14.Text = TeacherInitials[1];
+
+                //textBox15.Text = Column1[2];
+                //textBox16.Text = Column2[2];
+                //textBox17.Text = CourseCode[2];
+                //textBox18.Text = CourseCredit[2];
+                //textBox19.Text = TeacherInitials[2];
+                //Checking List Elements
+                //Print
+                cnn.Close();
+
+
+            
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Column ID Pulling", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
-            if (conn != null) conn.Close();
-            
         }
         private void Btn_Generate_Click(object sender, EventArgs e)
         {
@@ -265,279 +388,927 @@ namespace NWUClassRoutine
         }
 
         //Warning confusing code ahead
+        
         public void CheckArray()
         {
-            try
+            Stuffs[] Stacks = new Stuffs[CourseCode.Count];
+            Stuffs temp;
+            //RoomNo Assign
+            for (int i = 0; i < 73; i++)
             {
-                conn = new SqlConnection(global::NWUClassRoutine.Properties.Settings.Default.NWUClassRoutineConnectionString1);
-                conn.Open();
-                query = "Select CourseCredit from RoutineInfo where Teacherinitials = 'MRI'";
-                tempCourseCredit = new SqlCommand(query, conn).ExecuteScalar().ToString();
-                Query1 = "Select CourseCode from RoutineInfo where Teacherinitials = 'MRI'";
-                tempCourseCode = new SqlCommand(Query1, conn).ExecuteScalar().ToString();
-                CourseCredit = Double.Parse(tempCourseCredit);
-                //CourseCredit = Double.Parse(tempCourseCredit);
-                CourseCode = Convert.ToString(tempCourseCode);
-                YearDeterminingCourseCodeDigit = Convert.ToInt32(CourseCode.Substring(4, 1));
-                if (YearDeterminingCourseCodeDigit == 1)
-                    row = 1;
-                else if (YearDeterminingCourseCodeDigit == 2)
-                    row = 7;
-                else if (YearDeterminingCourseCodeDigit == 3)
-                    row = 13;
-                else
-                    row = 19;
-                SemesterDeterminingCourseCodeDigit = Convert.ToInt32(CourseCode.Substring(5, 1));
-                if (CourseCredit == 1.5 || CourseCredit == 0.75)
-                {
-                    DoubleTimeSlotAssign();
-                }
-                else
-                {
-                    SingleTimeSlotAssign();
-                }
+                m[i, 39] = Roomno[i];
             }
+            //RoomNo Assign
+            //RowNo Assign
+            for (int i = 0; i < 73; i++)
+            {
+                m[i,0] = RowNo[i];
+            }
+            //RowNo Assign
+            //main Code
+            //priority set
+            //Taking Inputs
+            int h = 1;
+            string tempcc;
+            string tempps1,tempps2;
+            h = CourseCode.Count;
+            for (int i = 0; i < h; i++)
+            {
 
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Check Array", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close(); 
-            }
-
-        }
-        public void ArrayConditionForSemesterTheory()
-        {
-            string TI, CCE;
-            conn = new SqlConnection(global::NWUClassRoutine.Properties.Settings.Default.NWUClassRoutineConnectionString1);
-            conn.Open();
-            query = "select TeacherInitials from RoutineInfo where RowNumber=1";
-            TI = new SqlCommand(query, conn).ExecuteScalar().ToString();
-            conn.Close();
-            CCE = CourseCode + " " + TI;
-            try
-            {
-                //1st semester
-                if (SemesterDeterminingCourseCodeDigit == 1)
+                //List to Stack array
+                Stacks[i].Course = CourseCode[i];
+                Stacks[i].TeacherStatus = TeacherStatus[i];
+                tempcc = CourseCredit[i];
+                Stacks[i].CourseCredit = double.Parse(tempcc);
+                //List to Stack array
+                if (Stacks[i].CourseCredit == 0.75 || Stacks[i].CourseCredit == 1.5)
                 {
-                    RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] = CCE;
-                    RoutineArray[RoutineArrayRowIndex + 1, RoutineArrayColumnIndex+1] = CCE;
+                    //List to Stack array
+                    tempps1 = Column1[i];
+                    Stacks[i].column1 = int.Parse(tempps1);
+                    //List to Stack array
                 }
-                //2nd semester
-                else if (SemesterDeterminingCourseCodeDigit == 2)
-                {
-                    RoutineArray[RoutineArrayRowIndex + 2, RoutineArrayColumnIndex] = CCE;
-                    RoutineArray[RoutineArrayRowIndex + 3, RoutineArrayColumnIndex+1] = CCE;
-                }
-                //3rd semester
                 else
                 {
-                    RoutineArray[RoutineArrayRowIndex + 4, RoutineArrayColumnIndex] = CCE;
-                    RoutineArray[RoutineArrayRowIndex + 5, RoutineArrayColumnIndex+1] = CCE;
+                    //List to Stack array
+                    tempps1 = Column1[i];
+                    Stacks[i].column1 = int.Parse(tempps1);
+                    tempps2 = Column2[i];
+                    Stacks[i].column2 = int.Parse(tempps2);
+                    //List to Stack array
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Array Condition For Semester Theory", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                if (Stacks[i].TeacherStatus == "VisitingFacultyMember")
+                {
+                    Stacks[i].priority = 1;
+                }
+                else if (Stacks[i].TeacherStatus == "SeniorLecturer")
+                {
+                    Stacks[i].priority = 2;
+                }
+                else if (Stacks[i].TeacherStatus == "Lecturer")
+                {
+                    Stacks[i].priority = 3;
+                }
 
-        }
-        public void ArrayConditionForSemesterLab()
-        {
-            string TI,CCE;
-            conn = new SqlConnection(global::NWUClassRoutine.Properties.Settings.Default.NWUClassRoutineConnectionString1);
-            conn.Open();
-            query = "select TeacherInitials from RoutineInfo where RowNumber=1";
-            TI = new SqlCommand(query,conn).ExecuteScalar().ToString();
-            conn.Close();
-            CCE = CourseCode + " " +TI;
-            try
-            {
-                //1st semester
-                if (SemesterDeterminingCourseCodeDigit == 1)
-                {
-                    RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] = CCE;
-                    RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex + 1] = CCE;
-                    RoutineArray[RoutineArrayRowIndex + 1, RoutineArrayColumnIndex + 2] = CCE;
-                    RoutineArray[RoutineArrayRowIndex + 1, RoutineArrayColumnIndex + 3] = CCE;
-                    roomno[RoutineArrayRowIndex] = 301;
-                    roomno[RoutineArrayRowIndex+1] = 302;
-                }
-                //2nd semester
-                else if (SemesterDeterminingCourseCodeDigit == 2)
-                {
-                    RoutineArray[RoutineArrayRowIndex + 2, RoutineArrayColumnIndex] = CCE;
-                    RoutineArray[RoutineArrayRowIndex + 2, RoutineArrayColumnIndex + 1] = CCE;
-                    RoutineArray[RoutineArrayRowIndex + 3, RoutineArrayColumnIndex + 2] = CCE;
-                    RoutineArray[RoutineArrayRowIndex + 3, RoutineArrayColumnIndex + 3] = CCE;
-                    roomno[RoutineArrayRowIndex + 2] = 303;
-                    roomno[RoutineArrayRowIndex + 3] = 304;
-                }
-                //3rd semester
-                else
-                {
-                    RoutineArray[RoutineArrayRowIndex + 4, RoutineArrayColumnIndex] = CCE;
-                    RoutineArray[RoutineArrayRowIndex + 4, RoutineArrayColumnIndex + 1] = CCE;
-                    RoutineArray[RoutineArrayRowIndex + 5, RoutineArrayColumnIndex + 2] = CCE;
-                    RoutineArray[RoutineArrayRowIndex + 5, RoutineArrayColumnIndex + 3] = CCE;
-                    roomno[RoutineArrayRowIndex + 4] = 301;
-                    roomno[RoutineArrayRowIndex + 5] = 302;
-                }
             }
-            catch (Exception ex)
+            //Taking Inputs
+            //Bubble Sorting
+            for (int i = 1; i < h; i++)
             {
-                MessageBox.Show(ex.Message, "Array Condition For Semester Lab", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                for (int j = 0; j < h - i; j++)
+                {
 
-        }
-        public void SingleTimeSlotAssign()
-        {
-            int column;
-            ColumnIDPulling();
-            column = Column;
-            try
-            {
-                for (RoutineArrayRowIndex = 1; RoutineArrayRowIndex <= 25; RoutineArrayRowIndex++)
-                {
-                    for (RoutineArrayColumnIndex = 1; RoutineArrayColumnIndex <= 41; RoutineArrayColumnIndex++)
+                    if (Stacks[j].priority > Stacks[j + 1].priority)
                     {
-                        //Monday
-                        if (RoutineArrayRowIndex == row && RoutineArrayColumnIndex == column && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-" && column <=41 )
-                        {
-                            ArrayConditionForSemesterTheory();
-                        }
-                        //Tuesday
-                        else if (RoutineArrayRowIndex == row  && RoutineArrayColumnIndex == column + 6 && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-" && column + 6 <= 41)
-                        {
-                            ArrayConditionForSemesterTheory();
-                        }
-                        //Wednesday
-                        else if (RoutineArrayRowIndex == row  && RoutineArrayColumnIndex == column + 12 && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-" && column + 12 <= 41)
-                        {
-                            ArrayConditionForSemesterTheory();
-                        }
-                        //Thursday
-                        else if (RoutineArrayRowIndex == row  && RoutineArrayColumnIndex == column + 18 && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-" && column + 18 <= 41)
-                        {
-                            ArrayConditionForSemesterTheory();
-                        }
-                        //Friday
-                        else if (RoutineArrayRowIndex == row && RoutineArrayColumnIndex == column + 24  && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-" && column + 24 <= 41)
-                        {
-                            ArrayConditionForSemesterTheory();
-                        }
-                        //Saturday
-                        else if (RoutineArrayRowIndex == row && RoutineArrayColumnIndex == column + 30 && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-" && column + 30<= 41)
-                        {
-                            ArrayConditionForSemesterTheory();
-                        }
-                        ////Monday
-                        else if (RoutineArrayRowIndex == row && RoutineArrayColumnIndex == column + 36 && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-" && column + 36 <= 41)
-                        {
-                            ArrayConditionForSemesterTheory();
-                        }
-                        else if (RoutineArrayRowIndex == row && RoutineArrayColumnIndex == column && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-" && column + 36 <= 41)
-                        {
-                            ArrayConditionForSemesterTheory();
-                        }
+                        temp = Stacks[j];
+                        Stacks[j] = Stacks[j + 1];
+                        Stacks[j + 1] = temp;
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Single Time Slot Assign", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
-        }
-        public void DoubleTimeSlotAssign()
-        {
-            int column;
-            ColumnIDPulling();
-            column = Column;
-            try
+            }
+            
+            //priority set
+            //BubbleSorting
+            //main Routine GenerationCode
+            for (int i = 0; i < h; i++)
             {
-                for (RoutineArrayRowIndex = 1; RoutineArrayRowIndex <= 25; RoutineArrayRowIndex++)
+                Stacks[i].year = (Stacks[i].Course).Substring(4, 1);
+                Stacks[i].semester = (Stacks[i].Course).Substring(5, 1);
+                if (Stacks[i].year == "-" && Stacks[i].semester != "-")
                 {
-                    for (RoutineArrayColumnIndex = 1; RoutineArrayColumnIndex <= 41; RoutineArrayColumnIndex++)
+                    Stacks[i].year = (Stacks[i].Course).Substring(5, 1);
+                    Stacks[i].semester = (Stacks[i].Course).Substring(6, 1);
+                }
+                Stacks[i].temprow = Convert.ToInt32((Stacks[i].year));
+                Stacks[i].rowAddition = Convert.ToInt32((Stacks[i].semester));
+                if (Stacks[i].temprow == 1)
+                    Stacks[i].row = 1;
+                else if (Stacks[i].temprow == 2)
+                    Stacks[i].row = 7;
+                else if (Stacks[i].temprow == 3)
+                    Stacks[i].row = 13;
+                else
+                    Stacks[i].row = 19;
+                Stacks[i].column1 = 1;
+                Stacks[i].column2 = 7;
+                Stacks[i].column3 = 14;
+                for (int k = 1; k < 73; k++)
+                {
+                    for (int l = 1; l < 40; l++)
                     {
-                        //Monday
-                        if (RoutineArrayRowIndex == row && RoutineArrayColumnIndex == column && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-")
+                        //Condition Working fine(1.1,1.2,1.3,2.1 first condition)
+                        //Condition Working fine(Priority Overlapping)
+                        if (Stacks[i].CourseCredit == 0.75)
                         {
-                            ArrayConditionForSemesterLab();
+                            //Double Time Slot Assign2
+                            //Preferred Time Slot 1
+                            if (k == Stacks[i].row && l == Stacks[i].column1)
+                            {
+                                //1st semester
+                                if (Stacks[i].rowAddition == 1)
+                                {
+                                    if (Stacks[i - 1].column1 != Stacks[i].column1)
+                                    {
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            m[k,l + 1] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 1,l + 4] = Stacks[i].Course + " 302" + " Alt";
+                                            m[k,l + 2] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 1,l + 3] = Stacks[i].Course + " 302" + " Alt";
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k,l - 1] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 1,l - 2] = Stacks[i].Course + " 302" + " Alt";
+                                            m[k,l + 1] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 1,l - 3] = Stacks[i].Course + " 302" + " Alt";
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k,Stacks[i].tempColumn] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 1,Stacks[i].tempColumn + 2] = Stacks[i].Course + " 302" + " Alt";
+                                            m[k,Stacks[i].tempColumn + 1] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 1,Stacks[i].tempColumn + 3] = Stacks[i].Course + " 302" + " Alt";
+                                        }
+                                    }
+                                    else
+                                    {
+                                        C = Stacks[i - 1].Course;
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            //PC
+                                            m[k,l + 1] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 1,l + 4] = Stacks[i].Course + " 302" + " Alt";
+                                            m[k,l + 2] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 1,l + 3] = Stacks[i].Course + " 302" + " Alt";
+                                            //PC
+                                            //swap
+                                            m[k,l + 5] = C + " 301" + " Alt"; ;
+                                            m[k + 1,l + 8] = C + " 302" + " Alt"; ;
+                                            m[k,l + 6] = C + " 301" + " Alt"; ;
+                                            m[k + 1,l + 7] = C + " 302" + " Alt"; ;
+                                            //swap
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k,l - 1] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 1,l - 2] = Stacks[i].Course + " 302" + " Alt";
+                                            m[k,l + 1] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 1,l - 3] = Stacks[i].Course + " 302" + " Alt";
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k,Stacks[i].tempColumn] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 1,Stacks[i].tempColumn + 2] = Stacks[i].Course + " 302" + " Alt";
+                                            m[k,Stacks[i].tempColumn + 1] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 1,Stacks[i].tempColumn + 3] = Stacks[i].Course + " 302" + " Alt";
+                                        }
+                                    }
+                                }
+                                //2nd semester
+                                else if (Stacks[i].rowAddition == 2)
+                                {
+                                    /*m[k+2,l+1]=Stacks[i].Course+" 301"+" Alt";
+                                    m[k+3,l+1]=Stacks[i].Course+" 302"+" Alt";
+                                    m[k+2,l+1]=Stacks[i].Course+" 301"+" Alt";
+                                    m[k+3,l+1]=Stacks[i].Course+" 302"+" Alt";*/
+                                    if (Stacks[i - 1].column1 != Stacks[i].column1)
+                                    {
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            m[k + 2,l + 1] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 3,l + 4] = Stacks[i].Course + " 302" + " Alt";
+                                            m[k + 2,l + 2] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 3,l + 3] = Stacks[i].Course + " 302" + " Alt";
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k + 2,l - 1] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 3,l - 2] = Stacks[i].Course + " 302" + " Alt";
+                                            m[k + 2,l + 1] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 3,l - 3] = Stacks[i].Course + " 302" + " Alt";
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k + 2,Stacks[i].tempColumn] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 3,Stacks[i].tempColumn + 2] = Stacks[i].Course + " 302" + " Alt";
+                                            m[k + 2,Stacks[i].tempColumn + 1] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 3,Stacks[i].tempColumn + 3] = Stacks[i].Course + " 302" + " Alt";
+                                        }
+                                    }
+
+                                }
+                                //3rd semester
+                                else
+                                {
+                                    /*m[k+4,l+1]=Stacks[i].Course+" 301"+" Alt";
+                                    m[k+5,l+1]=Stacks[i].Course+" 302"+" Alt";
+                                    m[k+4,l+1]=Stacks[i].Course+" 301"+" Alt";
+                                    m[k+5,l+2]=Stacks[i].Course+" 302"+" Alt";*/
+                                    if (Stacks[i - 1].column1 != Stacks[i].column1)
+                                    {
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            m[k + 4,l + 1] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 5,l + 4] = Stacks[i].Course + " 302" + " Alt";
+                                            m[k + 4,l + 2] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 5,l + 3] = Stacks[i].Course + " 302" + " Alt";
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k + 4,l - 1] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 5,l - 2] = Stacks[i].Course + " 302" + " Alt";
+                                            m[k + 4,l + 1] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 5,l - 3] = Stacks[i].Course + " 302" + " Alt";
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k + 4,Stacks[i].tempColumn] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 5,Stacks[i].tempColumn + 2] = Stacks[i].Course + " 302" + " Alt";
+                                            m[k + 4,Stacks[i].tempColumn + 1] = Stacks[i].Course + " 301" + " Alt";
+                                            m[k + 5,Stacks[i].tempColumn + 3] = Stacks[i].Course + " 302" + " Alt";
+                                        }
+                                    }
+                                }
+
+                            }
+                            //Double Time Slot Assign2
+
                         }
-                        //Tuesday
-                        else if (RoutineArrayRowIndex == row && RoutineArrayColumnIndex == column + 6 && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-")
+                        //Condition Working fine(1.1,1.2,1.3,2.1 first condition)
+                        //Condition Working fine(Priority Overlapping)
+                        //Condition Working fine(1.1,1.2,1.3,2.1 first condition)
+                        //Condition Working fine(Priority Overlapping)
+                        else if (Stacks[i].CourseCredit == 1.5)
                         {
-                            ArrayConditionForSemesterLab();
+                            //Double Time Slot1 Assign
+                            //Preferred Time Slot 1
+                            if (k == Stacks[i].row && l == Stacks[i].column1)
+                            {
+                                //1st semester
+                                if (Stacks[i].rowAddition == 1)
+                                {
+                                    /*m[k,l+1]=Stacks[i].Course+" 301";
+                                    m[k+1,l+1]=Stacks[i].Course+" 302";
+                                    m[k,l+1]=Stacks[i].Course+" 301";
+                                    m[k+1,l+2]=Stacks[i].Course+" 302";*/
+                                    if (Stacks[i - 1].column1 != Stacks[i].column1)
+                                    {
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            m[k,l + 1] = Stacks[i].Course + " 301";
+                                            m[k,l + 2] = Stacks[i].Course + " 301";
+                                            m[k + 1,l + 4] = Stacks[i].Course + " 302";
+                                            m[k + 1,l + 3] = Stacks[i].Course + " 302";
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k,l - 1] = Stacks[i].Course + " 301";
+                                            m[k + 1,l - 2] = Stacks[i].Course + " 302";
+                                            m[k,l + 1] = Stacks[i].Course + " 301";
+                                            m[k + 1,l - 3] = Stacks[i].Course + " 302";
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k,Stacks[i].tempColumn] = Stacks[i].Course + " 301";
+                                            m[k + 1,Stacks[i].tempColumn + 2] = Stacks[i].Course + " 302";
+                                            m[k,Stacks[i].tempColumn + 1] = Stacks[i].Course + " 301";
+                                            m[k + 1,Stacks[i].tempColumn + 3] = Stacks[i].Course + " 302";
+                                        }
+                                    }
+                                    else
+                                    {
+                                        C = Stacks[i - 1].Course;
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            //PC
+                                            m[k,l + 1] = Stacks[i].Course + " 301";
+                                            m[k,l + 2] = Stacks[i].Course + " 301";
+                                            m[k + 1,l + 4] = Stacks[i].Course + " 302";
+                                            m[k + 1,l + 3] = Stacks[i].Course + " 302";
+                                            //PC
+                                            //Swap
+                                            m[k,l + 5] = C + " 301";
+                                            m[k,l + 6] = C + " 301";
+                                            m[k + 1,l + 8] = C + " 302";
+                                            m[k + 1,l + 7] = C + " 302";
+                                            //Swap
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k,l - 1] = Stacks[i].Course + " 301";
+                                            m[k + 1,l - 2] = Stacks[i].Course + " 302";
+                                            m[k,l + 1] = Stacks[i].Course + " 301";
+                                            m[k + 1,l - 3] = Stacks[i].Course + " 302";
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k,Stacks[i].tempColumn] = Stacks[i].Course + " 301";
+                                            m[k + 1,Stacks[i].tempColumn + 2] = Stacks[i].Course + " 302";
+                                            m[k,Stacks[i].tempColumn + 1] = Stacks[i].Course + " 301";
+                                            m[k + 1,Stacks[i].tempColumn + 3] = Stacks[i].Course + " 302";
+                                        }
+                                    }
+                                }
+                                //2nd semester
+                                else if (Stacks[i].rowAddition == 2)
+                                {
+                                    /*m[k+2,l+1]=Stacks[i].Course+" 301";
+                                    m[k+3,l+1]=Stacks[i].Course+" 302";
+                                    m[k+2,l+1]=Stacks[i].Course+" 301";
+                                    m[k+3,l+1]=Stacks[i].Course+" 302";*/
+                                    if (Stacks[i - 1].column1 != Stacks[i].column1)
+                                    {
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            m[k + 2,l + 1] = Stacks[i].Course + " 301";
+                                            m[k + 3,l + 4] = Stacks[i].Course + " 302";
+                                            m[k + 2,l + 2] = Stacks[i].Course + " 301";
+                                            m[k + 3,l + 3] = Stacks[i].Course + " 302";
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k + 2,l - 1] = Stacks[i].Course + " 301";
+                                            m[k + 3,l - 2] = Stacks[i].Course + " 302";
+                                            m[k + 2,l + 1] = Stacks[i].Course + " 301";
+                                            m[k + 3,l - 3] = Stacks[i].Course + " 302";
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k + 2,Stacks[i].tempColumn] = Stacks[i].Course + " 301";
+                                            m[k + 3,Stacks[i].tempColumn + 2] = Stacks[i].Course + " 302";
+                                            m[k + 2,Stacks[i].tempColumn + 1] = Stacks[i].Course + " 301";
+                                            m[k + 3,Stacks[i].tempColumn + 3] = Stacks[i].Course + " 302";
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        C = Stacks[i - 1].Course;
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            //PC
+                                            m[k + 2,l + 1] = Stacks[i].Course + " 301";
+                                            m[k + 3,l + 4] = Stacks[i].Course + " 302";
+                                            m[k + 2,l + 2] = Stacks[i].Course + " 301";
+                                            m[k + 3,l + 3] = Stacks[i].Course + " 302";
+                                            //PC
+                                            m[k + 2,l + 5] = C + " 301";
+                                            m[k + 3,l + 8] = C + " 302";
+                                            m[k + 2,l + 6] = C + " 301";
+                                            m[k + 3,l + 7] = C + " 302";
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k + 2,l - 1] = Stacks[i].Course + " 301";
+                                            m[k + 3,l - 2] = Stacks[i].Course + " 302";
+                                            m[k + 2,l + 1] = Stacks[i].Course + " 301";
+                                            m[k + 3,l - 3] = Stacks[i].Course + " 302";
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k + 2,Stacks[i].tempColumn] = Stacks[i].Course + " 301";
+                                            m[k + 3,Stacks[i].tempColumn + 2] = Stacks[i].Course + " 302";
+                                            m[k + 2,Stacks[i].tempColumn + 1] = Stacks[i].Course + " 301";
+                                            m[k + 3,Stacks[i].tempColumn + 3] = Stacks[i].Course + " 302";
+                                        }
+                                    }
+                                }
+                                //3rd semester
+                                else
+                                {
+                                    /*m[k+4,l+1]=Stacks[i].Course+" 301";
+                                    m[k+5,l+1]=Stacks[i].Course+" 302";
+                                    m[k+4,l+1]=Stacks[i].Course+" 301";
+                                    m[k+5,l+2]=Stacks[i].Course+" 302";*/
+                                    if ((l + 2) < 39 && l + 3 <= 39)
+                                    {
+                                        m[k + 4,l + 1] = Stacks[i].Course + " 301";
+                                        m[k + 5,l + 3] = Stacks[i].Course + " 302";
+                                        m[k + 4,l + 2] = Stacks[i].Course + " 301";
+                                        m[k + 5,l + 4] = Stacks[i].Course + " 302";
+                                    }
+                                    else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                    {
+                                        m[k + 4,l - 1] = Stacks[i].Course + " 301";
+                                        m[k + 5,l - 2] = Stacks[i].Course + " 302";
+                                        m[k + 4,l] = Stacks[i].Course + " 301";
+                                        m[k + 5,l - 3] = Stacks[i].Course + " 302";
+                                    }
+                                    else
+                                    {
+                                        Stacks[i].tempColumn = 2;
+                                        m[k + 4,Stacks[i].tempColumn] = Stacks[i].Course + " 301";
+                                        m[k + 5,Stacks[i].tempColumn + 2] = Stacks[i].Course + " 302";
+                                        m[k + 4,Stacks[i].tempColumn + 1] = Stacks[i].Course + " 301";
+                                        m[k + 5,Stacks[i].tempColumn + 3] = Stacks[i].Course + " 302";
+                                    }
+                                }
+                            }
+                            //Double Time Slot1 Assign
+
                         }
-                        //Wednesday
-                        else if (RoutineArrayRowIndex == row && RoutineArrayColumnIndex == column + 12 && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-")
+                        //Condition Working fine(1.1,1.2,1.3,2.1 first condition)
+                        //Condition Working fine(Priority Overlapping)
+                        //Condition Working fine(1.1,1.2,1.3,2.1 first condition)
+                        //Condition Working fine(Priority Overlapping)
+                        else
                         {
-                            ArrayConditionForSemesterLab();
+                            //Single Time Slot Assign
+                            //Preferred Time Slot 1
+                            if (k == Stacks[i].row && l == Stacks[i].column1)
+                            {
+                                //1st semester
+                                if (Stacks[i].rowAddition == 1)
+                                {
+                                    /*m[k,l+1]=Stacks[i].Course;
+                                    m[k+1,l+1]=Stacks[i].Course;*/
+                                    if (Stacks[i - 1].column1 != Stacks[i].column1)
+                                    {
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k,l + 1] = Stacks[i].Course;
+                                            m[k + 1,l + 2] = Stacks[i].Course;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-")
+                                        {
+                                            m[k,l - 1] = Stacks[i].Course;
+                                            m[k + 1,l - 2] = Stacks[i].Course;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k,Stacks[i].tempColumn] = Stacks[i].Course;
+                                            m[k + 1,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        C = Stacks[i - 1].Course;
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k,l + 1] = Stacks[i].Course;
+                                            m[k + 1,l + 2] = Stacks[i].Course;
+                                            m[k,l + 2] = C;
+                                            m[k + 1,l + 3] = C;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k,l - 1] = Stacks[i].Course;
+                                            m[k + 1,l - 2] = Stacks[i].Course;
+                                            m[k,l - 2] = C;
+                                            m[k + 1,l - 3] = C;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k,Stacks[i].tempColumn] = Stacks[i].Course;
+                                            m[k + 1,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+                                            m[k,Stacks[i].tempColumn + 1] = C;
+                                            m[k + 1,Stacks[i].tempColumn + 2] = C;
+                                        }
+                                    }
+                                }
+                                //2nd semester
+                                else if (Stacks[i].rowAddition == 2)
+                                {
+                                    /*m[k+2,l+1]=Stacks[i].Course;
+                                    m[k+3,l+1]=Stacks[i].Course;*/
+                                    if (Stacks[i - 1].column1 != Stacks[i].column1)
+                                    {
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k + 2,l + 1] = Stacks[i].Course;
+                                            m[k + 3,l + 2] = Stacks[i].Course;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-")
+                                        {
+                                            m[k + 2,l - 1] = Stacks[i].Course;
+                                            m[k + 3,l - 2] = Stacks[i].Course;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k + 2,Stacks[i].tempColumn] = Stacks[i].Course;
+                                            m[k + 3,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        C = Stacks[i - 1].Course;
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k + 2,l + 1] = Stacks[i].Course;
+                                            m[k + 3,l + 2] = Stacks[i].Course;
+                                            m[k + 2,l + 2] = C;
+                                            m[k + 3,l + 3] = C;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-")
+                                        {
+                                            m[k + 2,l - 1] = Stacks[i].Course;
+                                            m[k + 3,l - 2] = Stacks[i].Course;
+                                            m[k + 2,l - 2] = C;
+                                            m[k + 3,l - 3] = C;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k + 2,Stacks[i].tempColumn] = Stacks[i].Course;
+                                            m[k + 3,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+                                            m[k + 2,Stacks[i].tempColumn + 1] = C;
+                                            m[k + 3,Stacks[i].tempColumn + 2] = C;
+                                        }
+                                    }
+                                }
+                                //3rd semester
+                                else
+                                {
+                                    /*m[k+4,l+1]=Stacks[i].Course;
+                                    m[k+5,l+1]=Stacks[i].Course;*/
+                                    if (Stacks[i - 1].column1 != Stacks[i].column1)
+                                    {
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            m[k + 4,l + 1] = Stacks[i].Course;
+                                            m[k + 5,l + 2] = Stacks[i].Course;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k + 4,l - 1] = Stacks[i].Course;
+                                            m[k + 5,l - 2] = Stacks[i].Course;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k + 4,Stacks[i].tempColumn] = Stacks[i].Course;
+                                            m[k + 5,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        C = Stacks[i - 1].Course;
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            m[k + 4,l + 1] = Stacks[i].Course;
+                                            m[k + 5,l + 2] = Stacks[i].Course;
+                                            m[k + 4,l + 2] = C;
+                                            m[k + 5,l + 3] = C;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k + 4,l - 1] = Stacks[i].Course;
+                                            m[k + 5,l - 2] = Stacks[i].Course;
+                                            m[k + 4,l - 2] = C;
+                                            m[k + 5,l - 3] = C;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k + 4,Stacks[i].tempColumn] = Stacks[i].Course;
+                                            m[k + 5,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+                                            m[k + 4,Stacks[i].tempColumn + 1] = C;
+                                            m[k + 5,Stacks[i].tempColumn + 2] = C;
+                                        }
+                                    }
+                                }
+                            }
+                            //Preferred Time Slot 2
+                            else if (k == Stacks[i].row && l == Stacks[i].column2)
+                            {
+                                //1st semester
+                                if (Stacks[i].rowAddition == 1)
+                                {
+                                    /*m[k,l+1]=Stacks[i].Course;
+                                    m[k+1,l+1]=Stacks[i].Course;*/
+                                    if (Stacks[i - 1].column2 != Stacks[i].column2)
+                                    {
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k,l + 1] = Stacks[i].Course;
+                                            m[k + 1,l + 2] = Stacks[i].Course;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-")
+                                        {
+                                            m[k,l - 1] = Stacks[i].Course;
+                                            m[k + 1,l - 2] = Stacks[i].Course;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k,Stacks[i].tempColumn] = Stacks[i].Course;
+                                            m[k + 1,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        C = Stacks[i - 1].Course;
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k,l + 1] = Stacks[i].Course;
+                                            m[k + 1,l + 2] = Stacks[i].Course;
+                                            m[k,l + 2] = C;
+                                            m[k + 1,l + 3] = C;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k,l - 1] = Stacks[i].Course;
+                                            m[k + 1,l - 2] = Stacks[i].Course;
+                                            m[k,l - 2] = C;
+                                            m[k + 1,l - 3] = C;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k,Stacks[i].tempColumn] = Stacks[i].Course;
+                                            m[k + 1,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+                                            m[k,Stacks[i].tempColumn + 1] = C;
+                                            m[k + 1,Stacks[i].tempColumn + 2] = C;
+                                        }
+                                    }
+                                }
+                                //2nd semester
+                                else if (Stacks[i].rowAddition == 2)
+                                {
+                                    /*m[k+2,l+1]=Stacks[i].Course;
+                                    m[k+3,l+1]=Stacks[i].Course;*/
+                                    if (Stacks[i - 1].column2 != Stacks[i].column2)
+                                    {
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k + 2,l + 1] = Stacks[i].Course;
+                                            m[k + 3,l + 2] = Stacks[i].Course;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-")
+                                        {
+                                            m[k + 2,l - 1] = Stacks[i].Course;
+                                            m[k + 3,l - 2] = Stacks[i].Course;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k + 2,Stacks[i].tempColumn] = Stacks[i].Course;
+                                            m[k + 3,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        C = Stacks[i - 1].Course;
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k + 2,l + 1] = Stacks[i].Course;
+                                            m[k + 3,l + 2] = Stacks[i].Course;
+                                            m[k + 2,l + 2] = C;
+                                            m[k + 3,l + 3] = C;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-")
+                                        {
+                                            m[k + 2,l - 1] = Stacks[i].Course;
+                                            m[k + 3,l - 2] = Stacks[i].Course;
+                                            m[k + 2,l - 2] = C;
+                                            m[k + 3,l - 3] = C;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k + 2,Stacks[i].tempColumn] = Stacks[i].Course;
+                                            m[k + 3,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+                                            m[k + 2,Stacks[i].tempColumn + 1] = C;
+                                            m[k + 3,Stacks[i].tempColumn + 2] = C;
+                                        }
+                                    }
+                                }
+                                //3rd semester
+                                else
+                                {
+                                    /*m[k+4,l+1]=Stacks[i].Course;
+                                    m[k+5,l+1]=Stacks[i].Course;*/
+                                    if (Stacks[i - 1].column2 != Stacks[i].column2)
+                                    {
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            m[k + 4,l + 1] = Stacks[i].Course;
+                                            m[k + 5,l + 2] = Stacks[i].Course;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k + 4,l - 1] = Stacks[i].Course;
+                                            m[k + 5,l - 2] = Stacks[i].Course;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k + 4,Stacks[i].tempColumn] = Stacks[i].Course;
+                                            m[k + 5,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        C = Stacks[i - 1].Course;
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            m[k + 4,l + 1] = Stacks[i].Course;
+                                            m[k + 5,l + 2] = Stacks[i].Course;
+                                            m[k + 4,l + 2] = C;
+                                            m[k + 5,l + 3] = C;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k + 4,l - 1] = Stacks[i].Course;
+                                            m[k + 5,l - 2] = Stacks[i].Course;
+                                            m[k + 4,l - 2] = C;
+                                            m[k + 5,l - 3] = C;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k + 4,Stacks[i].tempColumn] = Stacks[i].Course;
+                                            m[k + 5,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+                                            m[k + 4,Stacks[i].tempColumn + 1] = C;
+                                            m[k + 5,Stacks[i].tempColumn + 2] = C;
+                                        }
+                                    }
+                                }
+
+                            }
+                            //Preferred Time Slot 3
+                            else if (k == Stacks[i].row && l == Stacks[i].column3)
+                            {
+                                //1st semester
+                                if (Stacks[i].rowAddition == 1)
+                                {
+                                    /*m[k,l+1]=Stacks[i].Course;
+                                    m[k+1,l+1]=Stacks[i].Course;*/
+                                    if (Stacks[i - 1].column3 != Stacks[i].column3)
+                                    {
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k,l + 1] = Stacks[i].Course;
+                                            m[k + 1,l + 2] = Stacks[i].Course;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-")
+                                        {
+                                            m[k,l - 1] = Stacks[i].Course;
+                                            m[k + 1,l - 2] = Stacks[i].Course;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k,Stacks[i].tempColumn] = Stacks[i].Course;
+                                            m[k + 1,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        C = Stacks[i - 1].Course;
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k,l + 1] = Stacks[i].Course;
+                                            m[k + 1,l + 2] = Stacks[i].Course;
+                                            m[k,l + 2] = C;
+                                            m[k + 1,l + 3] = C;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k,l - 1] = Stacks[i].Course;
+                                            m[k + 1,l - 2] = Stacks[i].Course;
+                                            m[k,l - 2] = C;
+                                            m[k + 1,l - 3] = C;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k,Stacks[i].tempColumn] = Stacks[i].Course;
+                                            m[k + 1,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+                                            m[k,Stacks[i].tempColumn + 1] = C;
+                                            m[k + 1,Stacks[i].tempColumn + 2] = C;
+                                        }
+                                    }
+                                }
+                                //2nd semester
+                                else if (Stacks[i].rowAddition == 2)
+                                {
+                                    /*m[k+2,l+1]=Stacks[i].Course;
+                                    m[k+3,l+1]=Stacks[i].Course;*/
+                                    if (Stacks[i - 1].column3 != Stacks[i].column3)
+                                    {
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k + 2,l + 1] = Stacks[i].Course;
+                                            m[k + 3,l + 2] = Stacks[i].Course;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-")
+                                        {
+                                            m[k + 2,l - 1] = Stacks[i].Course;
+                                            m[k + 3,l - 2] = Stacks[i].Course;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k + 2,Stacks[i].tempColumn] = Stacks[i].Course;
+                                            m[k + 3,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        C = Stacks[i - 1].Course;
+                                        if ((l + 1) < 39 && l + 2 <= 39)
+                                        {
+                                            m[k + 2,l + 1] = Stacks[i].Course;
+                                            m[k + 3,l + 2] = Stacks[i].Course;
+                                            m[k + 2,l + 2] = C;
+                                            m[k + 3,l + 3] = C;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-")
+                                        {
+                                            m[k + 2,l - 1] = Stacks[i].Course;
+                                            m[k + 3,l - 2] = Stacks[i].Course;
+                                            m[k + 2,l - 2] = C;
+                                            m[k + 3,l - 3] = C;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k + 2,Stacks[i].tempColumn] = Stacks[i].Course;
+                                            m[k + 3,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+                                            m[k + 2,Stacks[i].tempColumn + 1] = C;
+                                            m[k + 3,Stacks[i].tempColumn + 2] = C;
+                                        }
+                                    }
+                                }
+                                //3rd semester
+                                else
+                                {
+                                    /*m[k+4,l+1]=Stacks[i].Course;
+                                    m[k+5,l+1]=Stacks[i].Course;*/
+                                    if (Stacks[i - 1].column3 != Stacks[i].column3)
+                                    {
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            m[k + 4,l + 1] = Stacks[i].Course;
+                                            m[k + 5,l + 2] = Stacks[i].Course;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k + 4,l - 1] = Stacks[i].Course;
+                                            m[k + 5,l - 2] = Stacks[i].Course;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k + 4,Stacks[i].tempColumn] = Stacks[i].Course;
+                                            m[k + 5,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        C = Stacks[i - 1].Course;
+                                        if ((l + 2) < 39 && l + 3 <= 39)
+                                        {
+                                            m[k + 4,l + 1] = Stacks[i].Course;
+                                            m[k + 5,l + 2] = Stacks[i].Course;
+                                            m[k + 4,l + 2] = C;
+                                            m[k + 5,l + 3] = C;
+                                        }
+                                        else if (m[k,l - 1] == "-" && m[k,l - 2] == "-" && m[k,l - 3] == "-")
+                                        {
+                                            m[k + 4,l - 1] = Stacks[i].Course;
+                                            m[k + 5,l - 2] = Stacks[i].Course;
+                                            m[k + 4,l - 2] = C;
+                                            m[k + 5,l - 3] = C;
+                                        }
+                                        else
+                                        {
+                                            Stacks[i].tempColumn = 2;
+                                            m[k + 4,Stacks[i].tempColumn] = Stacks[i].Course;
+                                            m[k + 5,Stacks[i].tempColumn + 1] = Stacks[i].Course;
+                                            m[k + 4,Stacks[i].tempColumn + 1] = C;
+                                            m[k + 5,Stacks[i].tempColumn + 2] = C;
+                                        }
+                                    }
+                                }
+
+                            }
+                            //Single Time Slot Assign
                         }
-                        //Thursday
-                        else if (RoutineArrayRowIndex == row && RoutineArrayColumnIndex == column + 18  && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-")
-                        {
-                            ArrayConditionForSemesterLab();
-                        }
-                        //Friday
-                        else if (RoutineArrayRowIndex == row && RoutineArrayColumnIndex == column + 24 && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-" && column + 24 <= 41)
-                        {
-                            ArrayConditionForSemesterLab();
-                        }
-                        //Saturday
-                        else if (RoutineArrayRowIndex == row && RoutineArrayColumnIndex == column + 30 && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-" && column + 30 <= 41)
-                        {
-                            ArrayConditionForSemesterLab();
-                        }
-                        ////Monday
-                        else if (RoutineArrayRowIndex == row && RoutineArrayColumnIndex == column + 36 && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-" && column + 36 <= 41)
-                        {
-                            ArrayConditionForSemesterLab();
-                        }
-                        else if (RoutineArrayRowIndex == row && RoutineArrayColumnIndex == column && RoutineArray[RoutineArrayRowIndex, RoutineArrayColumnIndex] == "-" && column + 36 <= 41)
-                        {
-                            ArrayConditionForSemesterLab();
-                        }
+                        //Condition Working fine(1.1,1.2,1.3,2.1 first condition)
+                        //Condition Working fine(Priority Overlapping)
                     }
+
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Double Time Slot Assign", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //main Routine GenerationCode
+            //main code
 
         }
-        public void InsertSingleCourseIntoPosition()
-        {
-            CheckArray();
-        }
-        public void QueryBuilder()
-        {
-            /*
-             * query = "select PreferredTimeSlot1 from RoutineInfo where TeacherInitials = 'MRI'";
-                id = new SqlCommand(query, conn).ExecuteScalar().ToString();
-                if (id != null)
-                {
-                    //textBox1.Text = id;
-
-                    query = string.Format("select ordinal_position from information_schema.columns c where table_name = 'FinalRoutine' and table_schema = 'dbo' and column_name ='{0}'", id);
-                    //string query = ("select ordinal_position from information_schema.columns c where table_name = 'FinalRoutine' and table_schema = 'dbo' and column_name =[9:15-10:30]");
-                    reader = new SqlCommand(query, conn).ExecuteReader();
-             * */
-           // Query1 = string.Format("Select TeacherInitials where RowNumber = '{0}'", RowNumberDataGridView);
-           // TeacherInitials = Query1;
-          //  Query2 = string.Format("Select CourseCredit where TeacherInitials='{0}'", TeacherInitial);
-        }
-
-
-
-
-
-
-
-
+        
     }
 }
